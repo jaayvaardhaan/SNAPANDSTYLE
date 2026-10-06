@@ -1,6 +1,6 @@
-import os
+import argparse
 import json
-from datetime import datetime
+from pathlib import Path
 
 from face_landmarks import analyze_face_shape
 from face_parsing import parse_face
@@ -8,415 +8,69 @@ from hair_analysis import analyze_hair
 from skin_analysis import analyze_skin
 
 
-INPUT_DIR = "input"
-OUTPUT_DIR = "output"
+BASE_DIR = Path(__file__).resolve().parent
+DEFAULT_INPUT_DIR = BASE_DIR / "input"
+DEFAULT_OUTPUT_DIR = BASE_DIR / "output"
+SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
 
 
-SUPPORTED_EXTENSIONS = {
+def find_input_image(input_dir=DEFAULT_INPUT_DIR):
+    input_dir = Path(input_dir)
+    if not input_dir.is_dir():
+        raise FileNotFoundError(f"Input folder not found: {input_dir}")
 
-    ".jpg",
-    ".jpeg",
-    ".png",
-    ".webp",
-    ".bmp"
-
-}
-
-
-def find_input_image():
-
-    if not os.path.exists(INPUT_DIR):
-
-        raise FileNotFoundError(
-            f"Input folder not found: {INPUT_DIR}"
-        )
-
-
-    files = []
-
-    for filename in os.listdir(
-        INPUT_DIR
-    ):
-
-        path = os.path.join(
-            INPUT_DIR,
-            filename
-        )
-
-
-        if not os.path.isfile(
-            path
-        ):
-
-            continue
-
-
-        extension = (
-            os.path.splitext(
-                filename
-            )[1]
-            .lower()
-        )
-
-
-        if extension in SUPPORTED_EXTENSIONS:
-
-            files.append(
-                path
-            )
-
-
-    if not files:
-
-        raise FileNotFoundError(
-
-            "No supported image found "
-            "inside the input folder."
-
-        )
-
-
-    preferred = os.path.join(
-
-        INPUT_DIR,
-
-        "test.jpg"
-
-    )
-
-
-    if os.path.exists(
-        preferred
-    ):
-
+    preferred = input_dir / "test.jpg"
+    if preferred.is_file():
         return preferred
 
-
-    files.sort(
-
-        key=os.path.getmtime,
-
-        reverse=True
-
-    )
+    images = [p for p in input_dir.iterdir() if p.is_file() and p.suffix.lower() in SUPPORTED_EXTENSIONS]
+    if not images:
+        raise FileNotFoundError(f"No supported image found in: {input_dir}")
+    return max(images, key=lambda p: p.stat().st_mtime)
 
 
-    return files[0]
+def run_pipeline(image_path=None, output_dir=DEFAULT_OUTPUT_DIR):
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    image_path = Path(image_path) if image_path else find_input_image()
+
+    face = analyze_face_shape(image_path, output_dir / "face_shape.jpg")
+    parsing = parse_face(image_path, output_dir)
+    hair = analyze_hair(image_path, parsing["hair_mask"], output_dir / "hair_analysis.jpg")
+    skin = analyze_skin(image_path, parsing["skin_mask"], output_dir / "skin_analysis.jpg")
+
+    profile = {
+        "face_shape": face["face_shape"],
+        "skin_tone": skin["skin_tone"],
+        "skin_undertone": skin["skin_undertone"],
+        "hair_color": hair["hair_color"],
+        "confidence": {
+            "face_shape": float(face["confidence"]),
+            "skin_tone": float(skin["confidence"]["skin_tone"]),
+            "skin_undertone": float(skin["confidence"]["skin_undertone"]),
+            "hair_color": float(hair["confidence"]),
+        },
+    }
+
+    profile_path = output_dir / "appearance_profile.json"
+    profile_path.write_text(json.dumps(profile, indent=4), encoding="utf-8")
+    return profile, profile_path
 
 
 def main():
-
-    os.makedirs(
-        OUTPUT_DIR,
-        exist_ok=True
-    )
-
-
-    image_path = find_input_image()
-
-
-    print()
-    print(
-        "================================"
-    )
-
-    print(
-        "      FASHION CV PIPELINE"
-    )
-
-    print(
-        "================================"
-    )
-
-    print()
-
-    print(
-        "Input:",
-        image_path
-    )
-
-
-    # ========================================================
-    # 1. Face shape
-    # ========================================================
-
-    print()
-    print(
-        "[1/4] Face shape..."
-    )
-
-
-    face_shape_result = analyze_face_shape(
-
-        image_path,
-
-        os.path.join(
-            OUTPUT_DIR,
-            "face_shape.jpg"
-        )
-
-    )
-
-
-    print(
-        "Face shape:",
-        face_shape_result[
-            "face_shape"
-        ]
-    )
-
-
-    # ========================================================
-    # 2. Face parsing
-    # ========================================================
-
-    print()
-    print(
-        "[2/4] Face parsing..."
-    )
-
-
-    parsing_result = parse_face(
-
-        image_path,
-
-        OUTPUT_DIR
-
-    )
-
-
-    print(
-        "Skin mask:",
-        parsing_result[
-            "skin_mask"
-        ]
-    )
-
-
-    print(
-        "Hair mask:",
-        parsing_result[
-            "hair_mask"
-        ]
-    )
-
-
-    # ========================================================
-    # 3. Hair analysis
-    # ========================================================
-
-    print()
-    print(
-        "[3/4] Hair analysis..."
-    )
-
-
-    hair_result = analyze_hair(
-
-        image_path,
-
-        parsing_result[
-            "hair_mask"
-        ],
-
-        os.path.join(
-            OUTPUT_DIR,
-            "hair_analysis.jpg"
-        )
-
-    )
-
-
-    print(
-        "Hair color:",
-        hair_result[
-            "hair_color"
-        ]
-    )
-
-
-    # ========================================================
-    # 4. Skin analysis
-    # ========================================================
-
-    print()
-    print(
-        "[4/4] Skin analysis..."
-    )
-
-
-    skin_result = analyze_skin(
-
-        image_path,
-
-        parsing_result[
-            "skin_mask"
-        ],
-
-        os.path.join(
-            OUTPUT_DIR,
-            "skin_analysis.jpg"
-        )
-
-    )
-
-
-    print(
-        "Skin tone:",
-        skin_result[
-            "skin_tone"
-        ]
-    )
-
-
-    print(
-        "Undertone:",
-        skin_result[
-            "skin_undertone"
-        ]
-    )
-
-
-    # ========================================================
-    # Final profile
-    # ========================================================
-
-    appearance_profile = {
-
-        "face_shape":
-            face_shape_result[
-                "face_shape"
-            ],
-
-        "skin_tone":
-            skin_result[
-                "skin_tone"
-            ],
-
-        "skin_undertone":
-            skin_result[
-                "skin_undertone"
-            ],
-
-        "hair_color":
-            hair_result[
-                "hair_color"
-            ],
-
-        "confidence": {
-
-            "face_shape":
-                float(
-                    face_shape_result[
-                        "confidence"
-                    ]
-                ),
-
-            "skin_tone":
-                float(
-                    skin_result[
-                        "confidence"
-                    ][
-                        "skin_tone"
-                    ]
-                ),
-
-            "skin_undertone":
-                float(
-                    skin_result[
-                        "confidence"
-                    ][
-                        "skin_undertone"
-                    ]
-                ),
-
-            "hair_color":
-                float(
-                    hair_result[
-                        "confidence"
-                    ]
-                )
-
-        }
-
-    }
-
-
-    # ========================================================
-    # Save final JSON
-    # ========================================================
-
-    profile_path = os.path.join(
-
-        OUTPUT_DIR,
-
-        "appearance_profile.json"
-
-    )
-
-
-    with open(
-
-        profile_path,
-
-        "w",
-
-        encoding="utf-8"
-
-    ) as file:
-
-        json.dump(
-
-            appearance_profile,
-
-            file,
-
-            indent=4
-
-        )
-
-
-    # ========================================================
-    # Final output
-    # ========================================================
-
-    print()
-    print(
-        "================================"
-    )
-
-    print(
-        "       FINAL APPEARANCE"
-    )
-
-    print(
-        "================================"
-    )
-
-
-    print()
-
-    print(
-
-        json.dumps(
-
-            appearance_profile,
-
-            indent=4
-
-        )
-
-    )
-
-
-    print()
-
-    print(
-        "Saved:",
-        profile_path
-    )
+    parser = argparse.ArgumentParser(description="Fashion CV appearance analysis")
+    parser.add_argument("image", nargs="?", help="Optional path to an input image")
+    parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR), help="Directory for generated outputs")
+    args = parser.parse_args()
+
+    try:
+        profile, profile_path = run_pipeline(args.image, args.output_dir)
+    except (FileNotFoundError, ValueError, RuntimeError) as exc:
+        raise SystemExit(f"Error: {exc}") from exc
+
+    print(json.dumps(profile, indent=4))
+    print(f"Saved: {profile_path}")
 
 
 if __name__ == "__main__":
-
     main()

@@ -1,448 +1,82 @@
+from functools import lru_cache
+from pathlib import Path
+
 import cv2
 import numpy as np
 import onnxruntime as ort
-import os
 
 
-MODEL_PATH = "models/resnet18.onnx"
-
-
-LABELS = {
-
-    0: "background",
-    1: "skin",
-    2: "left_eyebrow",
-    3: "right_eyebrow",
-    4: "left_eye",
-    5: "right_eye",
-    6: "eyeglass",
-    7: "left_ear",
-    8: "right_ear",
-    9: "earring",
-    10: "nose",
-    11: "mouth",
-    12: "upper_lip",
-    13: "lower_lip",
-    14: "neck",
-    15: "neck_l",
-    16: "cloth",
-    17: "hair",
-    18: "hat"
-
-}
-
-
-SKIN_CLASS = 1
-HAIR_CLASS = 17
-CLOTH_CLASS = 16
-
-
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "models" / "resnet18.onnx"
 INPUT_SIZE = 512
+SKIN_CLASS, CLOTH_CLASS, HAIR_CLASS = 1, 16, 17
 
 
-def parse_face(
-    image_path,
-    output_dir="output"
-):
+@lru_cache(maxsize=1)
+def _get_session():
+    if not MODEL_PATH.exists():
+        raise FileNotFoundError(f"Face parsing model not found: {MODEL_PATH}")
 
-    os.makedirs(
-        output_dir,
-        exist_ok=True
-    )
-
-
-    if not os.path.exists(
-        MODEL_PATH
-    ):
-
-        raise FileNotFoundError(
-            f"Model not found: {MODEL_PATH}"
-        )
+    available = ort.get_available_providers()
+    preferred = [p for p in ("CUDAExecutionProvider", "CoreMLExecutionProvider", "CPUExecutionProvider") if p in available]
+    if not preferred:
+        preferred = available
+    return ort.InferenceSession(str(MODEL_PATH), providers=preferred)
 
 
-    image = cv2.imread(
-        image_path
-    )
+def parse_face(image_path, output_dir="output"):
+    image_path = Path(image_path)
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-
+    image = cv2.imread(str(image_path))
     if image is None:
-
-        raise FileNotFoundError(
-            f"Could not load image: {image_path}"
-        )
-
-
-    original_height, original_width = (
-        image.shape[:2]
-    )
-
-
-    rgb = cv2.cvtColor(
-        image,
-        cv2.COLOR_BGR2RGB
-    )
-
-
-    resized = cv2.resize(
-        rgb,
-        (
-            INPUT_SIZE,
-            INPUT_SIZE
-        ),
-        interpolation=cv2.INTER_LINEAR
-    )
-
-
-    resized = (
-        resized.astype(
-            np.float32
-        )
-        / 255.0
-    )
-
-
-    mean = np.array(
-        [
-            0.485,
-            0.456,
-            0.406
-        ],
-        dtype=np.float32
-    )
-
-
-    std = np.array(
-        [
-            0.229,
-            0.224,
-            0.225
-        ],
-        dtype=np.float32
-    )
-
-
-    normalized = (
-        resized -
-        mean
-    ) / std
-
-
-    tensor = np.transpose(
-        normalized,
-        (2, 0, 1)
-    )
-
-
-    tensor = np.expand_dims(
-        tensor,
-        axis=0
-    ).astype(
-        np.float32
-    )
-
-
-    session = ort.InferenceSession(
-
-        MODEL_PATH,
-
-        providers=[
-            "CPUExecutionProvider"
-        ]
-
-    )
-
-
-    input_name = (
-        session
-        .get_inputs()[0]
-        .name
-    )
-
-
-    output_names = [
-
-        output.name
-
-        for output in
-        session.get_outputs()
-
-    ]
-
-
-    outputs = session.run(
-
-        output_names,
-
-        {
-            input_name:
-                tensor
-        }
-
-    )
-
-
-    prediction = outputs[0]
-
-
-    prediction = prediction.squeeze(
-        0
-    )
-
-
-    class_mask = np.argmax(
-
-        prediction,
-
-        axis=0
-
-    ).astype(
-        np.uint8
-    )
-
-
-    restored_mask = cv2.resize(
-
-        class_mask,
-
-        (
-            original_width,
-            original_height
-        ),
-
-        interpolation=cv2.INTER_NEAREST
-
-    )
-
-
-    raw_label_path = os.path.join(
-
-        output_dir,
-
-        "face_parsing_labels.png"
-
-    )
-
-
-    skin_mask_path = os.path.join(
-
-        output_dir,
-
-        "skin_mask.png"
-
-    )
-
-
-    hair_mask_path = os.path.join(
-
-        output_dir,
-
-        "hair_mask.png"
-
-    )
-
-
-    cloth_mask_path = os.path.join(
-
-        output_dir,
-
-        "cloth_mask.png"
-
-    )
-
-
-    visualization_path = os.path.join(
-
-        output_dir,
-
-        "face_parsing_mask.png"
-
-    )
-
-
-    cv2.imwrite(
-
-        raw_label_path,
-
-        restored_mask
-
-    )
-
-
-    skin_mask = np.where(
-
-        restored_mask == SKIN_CLASS,
-
-        255,
-
-        0
-
-    ).astype(
-        np.uint8
-    )
-
-
-    hair_mask = np.where(
-
-        restored_mask == HAIR_CLASS,
-
-        255,
-
-        0
-
-    ).astype(
-        np.uint8
-    )
-
-
-    cloth_mask = np.where(
-
-        restored_mask == CLOTH_CLASS,
-
-        255,
-
-        0
-
-    ).astype(
-        np.uint8
-    )
-
-
-    cv2.imwrite(
-
-        skin_mask_path,
-
-        skin_mask
-
-    )
-
-
-    cv2.imwrite(
-
-        hair_mask_path,
-
-        hair_mask
-
-    )
-
-
-    cv2.imwrite(
-
-        cloth_mask_path,
-
-        cloth_mask
-
-    )
-
-
-    colors = {
-
-        0: (0, 0, 0),
-
-        1: (120, 180, 255),
-
-        2: (100, 255, 100),
-
-        3: (100, 220, 100),
-
-        4: (0, 255, 0),
-
-        5: (0, 200, 0),
-
-        6: (255, 0, 255),
-
-        7: (255, 180, 80),
-
-        8: (255, 150, 60),
-
-        9: (255, 200, 100),
-
-        10: (180, 120, 80),
-
-        11: (80, 80, 255),
-
-        12: (100, 100, 255),
-
-        13: (120, 120, 255),
-
-        14: (80, 180, 180),
-
-        15: (100, 200, 200),
-
-        16: (180, 180, 180),
-
-        17: (80, 50, 200),
-
-        18: (255, 255, 0)
-
+        raise FileNotFoundError(f"Could not load image: {image_path}")
+
+    height, width = image.shape[:2]
+    rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    resized = cv2.resize(rgb, (INPUT_SIZE, INPUT_SIZE), interpolation=cv2.INTER_LINEAR).astype(np.float32) / 255.0
+    mean = np.array([0.485, 0.456, 0.406], dtype=np.float32)
+    std = np.array([0.229, 0.224, 0.225], dtype=np.float32)
+    tensor = ((resized - mean) / std).transpose(2, 0, 1)[None].astype(np.float32)
+
+    session = _get_session()
+    input_name = session.get_inputs()[0].name
+    prediction = session.run(None, {input_name: tensor})[0]
+    class_mask = np.argmax(np.squeeze(prediction, axis=0), axis=0).astype(np.uint8)
+    labels = cv2.resize(class_mask, (width, height), interpolation=cv2.INTER_NEAREST)
+
+    paths = {
+        "label_mask": output_dir / "face_parsing_labels.png",
+        "skin_mask": output_dir / "skin_mask.png",
+        "hair_mask": output_dir / "hair_mask.png",
+        "cloth_mask": output_dir / "cloth_mask.png",
+        "visualization": output_dir / "face_parsing_mask.png",
     }
 
+    masks = {
+        "skin_mask": (labels == SKIN_CLASS).astype(np.uint8) * 255,
+        "hair_mask": (labels == HAIR_CLASS).astype(np.uint8) * 255,
+        "cloth_mask": (labels == CLOTH_CLASS).astype(np.uint8) * 255,
+    }
 
-    color_mask = np.zeros_like(
-        image
-    )
+    cv2.imwrite(str(paths["label_mask"]), labels)
+    for key, mask in masks.items():
+        cv2.imwrite(str(paths[key]), mask)
 
-
-    for class_id, color in colors.items():
-
-        color_mask[
-            restored_mask == class_id
-        ] = color
-
-
-    overlay = cv2.addWeighted(
-
-        image,
-
-        0.60,
-
-        color_mask,
-
-        0.40,
-
-        0
-
-    )
-
-
-    cv2.imwrite(
-
-        visualization_path,
-
-        overlay
-
-    )
-
+    colors = np.array([
+        [0, 0, 0], [120, 180, 255], [100, 255, 100], [100, 220, 100], [0, 255, 0],
+        [0, 200, 0], [255, 0, 255], [255, 180, 80], [255, 150, 60], [255, 200, 100],
+        [180, 120, 80], [80, 80, 255], [100, 100, 255], [120, 120, 255], [80, 180, 180],
+        [100, 200, 200], [180, 180, 180], [80, 50, 200], [255, 255, 0],
+    ], dtype=np.uint8)
+    overlay = cv2.addWeighted(image, 0.60, colors[labels], 0.40, 0)
+    cv2.imwrite(str(paths["visualization"]), overlay)
 
     return {
-
-        "skin_mask": skin_mask_path,
-
-        "hair_mask": hair_mask_path,
-
-        "cloth_mask": cloth_mask_path,
-
-        "label_mask": raw_label_path,
-
-        "statistics": {
-
-            "skin_pixels": int(
-                np.count_nonzero(
-                    skin_mask
-                )
-            ),
-
-            "hair_pixels": int(
-                np.count_nonzero(
-                    hair_mask
-                )
-            ),
-
-            "cloth_pixels": int(
-                np.count_nonzero(
-                    cloth_mask
-                )
-            )
-
-        }
-
+        "skin_mask": str(paths["skin_mask"]),
+        "hair_mask": str(paths["hair_mask"]),
+        "cloth_mask": str(paths["cloth_mask"]),
+        "label_mask": str(paths["label_mask"]),
+        "statistics": {name.replace("_mask", "_pixels"): int(np.count_nonzero(mask)) for name, mask in masks.items()},
     }
