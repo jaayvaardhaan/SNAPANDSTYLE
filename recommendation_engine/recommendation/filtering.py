@@ -5,7 +5,10 @@ import pandas as pd
 # Load tagged dataset
 # --------------------------------------------------
 
-DATASET_PATH = "dataset/kaggle_fashion/snapstyle_items_tagged.csv"
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DATASET_PATH = PROJECT_ROOT / "datasets" / "snapstyle_items_tagged.csv"
 
 
 def load_dataset():
