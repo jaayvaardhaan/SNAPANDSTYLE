@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="snapStyleApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0b0b0b">
+<title>Snap&Style — Trend Outfit Suggestion Engine</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4.1633559619/face_mesh.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.js" crossorigin="anonymous"></script>
+<style>
+:root{--ink:#0b0b0b;--paper:#f3f1ed;--muted:#777;--line:rgba(20,20,20,.12);--accent:#c99a6b;--white:#fff;--ease:cubic-bezier(.2,.75,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden}button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.hide{display:none!important}
+/* top navigation */
+.nav{position:fixed;z-index:1000;top:0;left:0;width:100%;height:78px;color:#fff;display:flex;align-items:center;transition:.35s var(--ease)}.nav.scrolled{background:rgba(10,10,10,.86);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.1)}.nav-inner{width:min(1380px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between}.hamburger,.nav-icon{width:44px;height:44px;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.12);color:#fff;border-radius:50%;display:grid;place-items:center;transition:.25s}.hamburger:hover,.nav-icon:hover{background:#fff;color:#111;transform:translateY(-2px)}.hamburger span,.hamburger span:before,.hamburger span:after{width:18px;height:1px;background:currentColor;display:block;position:relative}.hamburger span:before,.hamburger span:after{content:"";position:absolute;left:0}.hamburger span:before{top:-6px}.hamburger span:after{top:6px}.brand{position:absolute;left:50%;transform:translateX(-50%);font-family:Georgia,serif;font-size:26px;letter-spacing:.06em}.brand b{font-size:9px;display:block;text-align:center;letter-spacing:.35em;margin-bottom:1px}.nav-right{display:flex;gap:9px}.nav-icon{font-size:17px}.nav-icon.active{background:#fff;color:#111}
+/* hero */
+.hero{height:100svh;min-height:720px;position:relative;overflow:hidden;background:#171717;color:#fff}.hero-bg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.7),rgba(0,0,0,.15) 55%,rgba(0,0,0,.42)),url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=2200&q=88') center/cover;transform:scale(1.03);animation:heroZoom 14s ease-out forwards}.hero:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:24%;background:linear-gradient(transparent,#000);pointer-events:none}.hero-content{position:relative;z-index:3;width:min(1380px,92%);height:100%;margin:auto;display:flex;flex-direction:column;justify-content:center;padding-top:55px}.kicker{font-size:11px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:22px;color:#e8d8c8}.hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(58px,9.5vw,150px);line-height:.83;letter-spacing:-.055em;max-width:930px}.hero h1 em{font-style:italic;color:#ead8c2}.hero-copy{max-width:520px;color:rgba(255,255,255,.76);font-size:15px;line-height:1.8;margin:30px 0}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);color:#fff;padding:14px 22px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase;font-size:10px;font-weight:800;transition:.3s var(--ease)}.btn:hover{background:#fff;color:#111;transform:translateY(-3px)}.btn.solid{background:#fff;color:#111;border-color:#fff}.hero-meta{position:absolute;z-index:4;left:4%;right:4%;bottom:30px;display:flex;justify-content:space-between;align-items:end;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.68)}.scroll{display:flex;gap:10px;align-items:center}.scroll i{display:block;width:42px;height:1px;background:#fff;opacity:.6}.hero-stamp{position:absolute;right:7%;bottom:19%;width:150px;height:150px;border:1px solid rgba(255,255,255,.35);border-radius:50%;display:grid;place-items:center;transform:rotate(-12deg);font-size:9px;letter-spacing:.18em;text-align:center}.hero-stamp strong{font-family:Georgia,serif;font-size:28px;letter-spacing:0}
+@keyframes heroZoom{from{transform:scale(1.03)}to{transform:scale(1.11)}}
+/* drawer / overlays */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);z-index:1100;opacity:0;pointer-events:none;transition:.3s}.overlay.open{opacity:1;pointer-events:auto}.drawer{position:fixed;z-index:1200;top:0;left:0;width:min(420px,88vw);height:100%;background:#111;color:#fff;padding:34px;transform:translateX(-105%);transition:.45s var(--ease)}.drawer.open{transform:none}.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:70px}.close{border:0;background:none;color:inherit;font-size:28px}.drawer small{color:#888;letter-spacing:.2em;text-transform:uppercase}.drawer h2{font-family:Georgia,serif;font-weight:400;font-size:48px;margin:12px 0 38px}.drawer a{display:block;padding:17px 0;border-bottom:1px solid #292929;font-size:14px}.drawer a:hover{color:#d7b58d}.panel{position:fixed;z-index:1200;top:50%;left:50%;width:min(620px,92vw);max-height:88vh;overflow:auto;background:#f5f2ed;color:#111;padding:32px;transform:translate(-50%,-46%) scale(.96);opacity:0;pointer-events:none;transition:.3s var(--ease);border-radius:4px}.panel.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}.panel h2{font:400 40px Georgia,serif;margin-bottom:12px}.panel p{color:#666;line-height:1.7;font-size:14px}.panel-head{display:flex;justify-content:space-between;align-items:start;margin-bottom:22px}.searchbox{display:flex;border-bottom:1px solid #222;margin:30px 0}.searchbox input{border:0;outline:0;background:none;width:100%;padding:14px 0;font-size:25px}.saved-empty{padding:45px 0;color:#777;text-align:center}
+/* studio */
+.studio{background:#f3f1ed;padding:120px 0 130px}.wrap{width:min(1240px,92%);margin:auto}.section-kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#9b7650;margin-bottom:14px}.section-title{font:400 clamp(42px,6vw,76px)/.95 Georgia,serif;letter-spacing:-.04em;max-width:800px}.section-sub{color:#777;max-width:570px;line-height:1.7;margin:20px 0 45px;font-size:14px}.studio-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px}.control-card,.photo-card{background:#fff;border:1px solid var(--line);min-height:600px}.control-card{padding:34px}.stepbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.stepbar strong{font-size:12px;letter-spacing:.12em;text-transform:uppercase}.progress{width:130px;height:2px;background:#e4e1dc}.progress i{display:block;height:100%;background:#111;width:0;transition:.35s}.group{margin:0 0 29px}.label{display:flex;justify-content:space-between;font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;margin-bottom:11px}.label span{color:#aaa}.choices{display:flex;gap:7px;flex-wrap:wrap}.choice{border:1px solid #ddd8d0;background:#faf9f6;padding:11px 13px;border-radius:1px;font-size:11px;transition:.22s}.choice:hover{border-color:#9b7650;transform:translateY(-2px)}.choice.selected{background:#111;color:#fff;border-color:#111}.generate{width:100%;margin-top:4px;background:#111;color:#fff;border:0;padding:17px;text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:800;transition:.25s}.generate:hover{background:#9b7650}.generate:disabled{opacity:.45;cursor:not-allowed}
+/* photo */
+.photo-card{position:relative;overflow:hidden;background:#0e0e0e;color:#fff;min-height:600px}.photo-stage{height:100%;min-height:600px;display:grid;place-items:center;position:relative}.photo-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,#3d3d3d,#101010 62%)}.photo-copy{position:relative;z-index:2;text-align:center;padding:35px}.photo-copy .camera-mark{width:70px;height:70px;border:1px solid #777;border-radius:50%;display:grid;place-items:center;margin:0 auto 20px;font-size:28px}.photo-copy h3{font:400 38px Georgia,serif;margin-bottom:10px}.photo-copy p{color:#aaa;font-size:12px;line-height:1.7;max-width:330px;margin:0 auto 24px}.photo-buttons{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.photo-btn{border:1px solid #555;background:#fff;color:#111;padding:12px 15px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.photo-btn.alt{background:transparent;color:#fff}.active-photo{position:absolute;inset:0;z-index:1;background:#111}.active-photo img{width:100%;height:100%;object-fit:cover}.photo-tag{position:absolute;z-index:3;left:20px;top:20px;background:#fff;color:#111;padding:8px 10px;font-size:9px;text-transform:uppercase;letter-spacing:.1em}.photo-tools{position:absolute;z-index:4;bottom:20px;left:20px;right:20px;display:flex;gap:7px}.photo-tools button{flex:1;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.65);color:#fff;padding:12px;font-size:9px;text-transform:uppercase;letter-spacing:.1em}.photo-tools button:hover{background:#fff;color:#111}.gallery{margin-top:20px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.thumb{height:110px;background:#ddd;position:relative;overflow:hidden;cursor:pointer;border:2px solid transparent}.thumb.active{border-color:#9b7650}.thumb img{width:100%;height:100%;object-fit:cover}.thumb span{position:absolute;bottom:5px;right:5px;background:#111;color:#fff;padding:3px 5px;font-size:8px}
+/* camera modal */
+.camera-modal{position:fixed;z-index:1500;inset:0;background:#050505;color:#fff;display:none}.camera-modal.open{display:block}.camera-top{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 24px}.camera-top strong{font:400 24px Georgia,serif}.camera-view{height:calc(100% - 150px);display:grid;place-items:center;position:relative}.camera-view video{width:min(900px,92vw);max-height:calc(100vh - 230px);object-fit:cover;border-radius:3px;background:#111;transform:scaleX(-1)}.camera-guide{position:absolute;width:min(420px,70vw);height:min(570px,65vh);border:1px solid rgba(255,255,255,.55);border-radius:45% 45% 35% 35%;pointer-events:none}.camera-bottom{height:80px;display:flex;align-items:center;justify-content:center;gap:12px}
+.camera-guide{transition:border-color .2s,box-shadow .2s}
+.camera-guide.state-ready{border-color:#7fe2a8;box-shadow:0 0 0 2px rgba(127,226,168,.12),0 0 34px rgba(127,226,168,.12)}
+.camera-guide.state-adjust{border-color:#e7c67d;box-shadow:0 0 0 2px rgba(231,198,125,.09)}
+.camera-guide.state-searching{border-color:rgba(255,255,255,.55)}
+/* Guidance is deliberately near the webcam at the TOP, never below the face. */
+.camera-guidance{position:absolute;z-index:4;left:50%;top:10px;bottom:auto;transform:translateX(-50%);width:min(390px,86vw);padding:10px 14px;background:rgba(0,0,0,.78);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);text-align:center;border-radius:10px;pointer-events:none}
+.camera-guidance .lens-label{display:block;margin-bottom:4px;font-size:9px;font-weight:800;color:#e6cba7;letter-spacing:.13em;text-transform:uppercase}
+.camera-guidance strong{display:block;font:500 clamp(15px,2.5vw,19px) Georgia,serif;line-height:1.15}
+.camera-guidance span{display:block;color:#ddd;font-size:11px;line-height:1.35;margin-top:3px}
+.camera-guidance.state-ready{border-color:#7fe2a8}
+.camera-guidance.state-ready .lens-label{color:#7fe2a8}
+.camera-progress{height:3px;background:#444;margin-top:8px;overflow:hidden;border-radius:3px}
+.camera-progress i{display:block;height:100%;width:0;background:#7fe2a8;transition:width .14s linear}
+.camera-top-actions{display:flex;gap:8px;align-items:center}
+.camera-voice{white-space:nowrap}
+@media(max-width:600px){.camera-top{height:64px;padding:0 12px}.camera-top strong{font-size:16px}.camera-top .cam-secondary{padding:10px;font-size:9px}.camera-view{height:calc(100% - 144px)}.camera-guidance{top:8px;padding:8px 10px;width:min(330px,91vw)}.camera-guidance span{font-size:10px}}
+.auto-capture-badge{border:1px solid #555;padding:12px 16px;font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:#bbb}
+.capture{width:62px;height:62px;border-radius:50%;border:4px solid #fff;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.2);font-size:0}.capture:after{content:"";display:block;width:45px;height:45px;border-radius:50%;background:#111;margin:auto}.cam-secondary{background:transparent;color:#fff;border:1px solid #555;padding:12px 16px;font-size:10px;text-transform:uppercase}
+/* capture confirm */
+.confirm{position:fixed;z-index:1600;inset:0;background:rgba(0,0,0,.84);display:none;align-items:center;justify-content:center;padding:20px}.confirm.open{display:flex}.confirm-box{width:min(430px,92vw);background:#f5f2ed;color:#111;padding:18px}.confirm-box img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#ddd}.confirm-box h3{font:400 29px Georgia,serif;margin:18px 0 7px}.confirm-box p{font-size:12px;color:#777;line-height:1.6}.confirm-actions{display:flex;gap:8px;margin-top:18px}.confirm-actions button{flex:1;padding:13px;border:1px solid #222;background:#111;color:#fff;font-size:10px;text-transform:uppercase;letter-spacing:.1em}.confirm-actions .light{background:transparent;color:#111}
+/* results */
+.results{background:#0b0b0b;color:#fff;padding:120px 0}.result-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:45px}.result-head .section-kicker{color:#c8a47c}.result-head .section-title{max-width:700px}.result-note{color:#777;font-size:11px;max-width:240px;line-height:1.6}.look-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}.look-visual{min-height:650px;position:relative;overflow:hidden;background:#191919}.look-visual img{width:100%;height:100%;min-height:650px;object-fit:cover;opacity:.92}.look-overlay{position:absolute;inset:auto 0 0;padding:35px;background:linear-gradient(transparent,rgba(0,0,0,.85))}.look-overlay h3{font:400 48px Georgia,serif}.look-overlay p{color:#bbb;font-size:12px;margin-top:8px}.result-panel{background:#151515;padding:35px;border:1px solid #292929}.score-row{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #292929;padding-bottom:25px}.score-row small{color:#888;letter-spacing:.15em;text-transform:uppercase;font-size:9px}.score{font:400 43px Georgia,serif;color:#d9bb98}.reason{padding:24px 0;border-bottom:1px solid #292929;color:#aaa;font-size:12px;line-height:1.8}.items{padding:24px 0}.item{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid #292929}.item-icon{width:42px;height:42px;background:#222;display:grid;place-items:center;font-size:18px}.item strong{font-size:12px}.item span{display:block;color:#777;font-size:10px;margin-top:4px}.item em{font-style:normal;color:#d9bb98;font-size:9px;text-transform:uppercase;letter-spacing:.1em}.result-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}.rbtn{padding:14px;border:1px solid #444;background:transparent;color:#fff;text-transform:uppercase;letter-spacing:.1em;font-size:9px}.rbtn:hover{background:#fff;color:#111}.rbtn.primary{background:#d9bb98;border-color:#d9bb98;color:#111}.alternatives{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.alt{background:#151515;border:1px solid #292929;cursor:pointer;transition:.25s}.alt:hover{transform:translateY(-5px);border-color:#777}.alt img{width:100%;height:270px;object-fit:cover}.alt-info{padding:18px}.alt-info small{color:#d9bb98;text-transform:uppercase;letter-spacing:.13em;font-size:8px}.alt-info h4{font:400 25px Georgia,serif;margin:7px 0}.alt-info p{color:#777;font-size:11px;line-height:1.6}
+/* about */
+.about{background:#f3f1ed;padding:120px 0}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}.about h2{font:400 clamp(45px,6vw,80px) Georgia,serif;line-height:.95}.about p{color:#666;line-height:1.9;font-size:14px;max-width:520px}.feature-list{margin-top:35px;border-top:1px solid #ccc}.feature{padding:20px 0;border-bottom:1px solid #ccc;display:flex;gap:20px}.feature b{font-size:10px;color:#9b7650}.feature div strong{font:400 23px Georgia,serif}.feature div span{display:block;color:#777;font-size:11px;margin-top:6px}
+/* footer */
+footer{background:#0b0b0b;color:#fff;padding:70px 0 25px}.footer-grid{display:grid;grid-template-columns:1.4fr .8fr .8fr 1fr;gap:40px}.footer-brand{font:400 31px Georgia,serif}.footer-grid p,.footer-grid a{color:#777;font-size:11px;line-height:1.8}.footer-grid h4{font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:15px;color:#aaa}.footer-links{display:grid;gap:8px}.footer-links a:hover{color:#fff}.footer-bottom{border-top:1px solid #222;margin-top:55px;padding-top:18px;display:flex;justify-content:space-between;color:#555;font-size:9px}
+/* toast/loading */
+.toast{position:fixed;z-index:3000;right:20px;bottom:20px;background:#111;color:#fff;padding:14px 17px;border-left:2px solid #d9bb98;font-size:11px;box-shadow:0 10px 30px rgba(0,0,0,.25);transform:translateY(30px);opacity:0;transition:.3s;pointer-events:none}.toast.show{transform:none;opacity:1}.loading{position:fixed;z-index:1700;inset:0;background:rgba(5,5,5,.82);backdrop-filter:blur(5px);display:grid;place-items:center;color:#fff}.loader-box{text-align:center}.loader-ring{width:55px;height:55px;border:1px solid #555;border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;margin:auto auto 20px}.loader-box p{font:400 25px Georgia,serif}.loader-box small{color:#777;display:block;margin-top:7px}@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:900px){.studio-grid,.look-grid,.about-grid{grid-template-columns:1fr}.photo-card,.photo-stage{min-height:500px}.look-visual,.look-visual img{min-height:500px}.footer-grid{grid-template-columns:1fr 1fr}.hero-stamp{display:none}.alternatives{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:600px){.nav{height:65px}.brand{font-size:21px}.hero{min-height:680px}.hero h1{font-size:60px}.hero-copy{font-size:13px}.hero-meta{bottom:18px}.studio,.results,.about{padding:80px 0}.control-card{padding:23px}.section-title{font-size:48px}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:8px}.gallery{grid-template-columns:repeat(3,1fr)}.thumb{height:90px}}
+
+/* Catalog photos are 60x80px. Keep them near source size instead of enlarging one across the hero. */
+.outfit-board{min-height:650px;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:32px 32px 165px;background:linear-gradient(145deg,#25231f,#111)}
+.outfit-card{display:flex;align-items:center;gap:20px;min-height:140px;padding:10px 16px;background:#eeeae3;color:#1b1b1b;border:1px solid #d2cbc0}
+.look-visual .outfit-card img{width:90px;height:120px;min-height:0;object-fit:contain;opacity:1;background:#fff;flex:none}
+.outfit-card-copy{min-width:0}.outfit-card-copy small{display:block;color:#7f634a;text-transform:uppercase;letter-spacing:.16em;font-size:9px;margin-bottom:8px}.outfit-card-copy strong{font:400 20px Georgia,serif;line-height:1.2;display:block}.outfit-card-copy span{display:block;margin-top:7px;color:#777;font-size:10px}
+.alt-preview{height:155px;display:flex;align-items:center;justify-content:center;background:#eae7e2}.alt .alt-preview img{width:90px;height:120px;object-fit:contain}
+.photo-placeholder{width:90px;height:120px;flex:none;display:grid;place-items:center;background:#ded8ce;color:#6d6256;text-align:center;font-size:10px;padding:8px}.legacy-note{background:#2a2119;color:#f1d3ac;padding:13px 17px;margin-bottom:20px;font-size:12px;line-height:1.6}.legacy-note button{display:inline-block;margin-left:10px;border:0;background:none;color:#fff;text-decoration:underline;cursor:pointer}
+@media(max-width:600px){.outfit-board{padding:20px 20px 150px}.outfit-card{gap:13px}.outfit-card-copy strong{font-size:16px}.look-overlay h3{font-size:34px}}
+
+/* Stateless camera → CV API UI. No filesystem access or photo persistence. */
+.cv-profile{margin-top:22px;background:#fff;padding:26px;border:1px solid #e4ded5}
+.cv-profile h3{font:400 27px Georgia,serif;margin-bottom:11px}
+.cv-features{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+.cv-feature{border:1px solid #e8e3dc;padding:15px;background:#f8f6f2;min-width:0}
+.cv-feature small{display:block;color:#777;font-size:10px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.cv-feature strong{font-size:14px;overflow-wrap:anywhere}
+.cv-note{margin-top:14px;color:#555;font-size:12px;line-height:1.7}
+.cv-error{margin-top:12px;color:#a71e1e;font-size:12px;line-height:1.6}
+.photo-btn:disabled,.confirm-actions button:disabled{opacity:.55;cursor:wait}
+@media(max-width:700px){.cv-features{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* RESTORED from the last working live-guide frontend.
+   Video and landmarks canvas must occupy the SAME frame. */
+.camera-frame{position:relative;width:min(900px,92vw);aspect-ratio:16/9;max-width:92vw;background:#111;overflow:hidden;border-radius:6px;box-shadow:0 12px 45px rgba(0,0,0,.4)}
+.camera-view .camera-frame video{display:block;position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:contain;border-radius:0;transform:none;background:#111}
+.camera-view .camera-frame.mirrored video{transform:scaleX(-1)}
+.camera-frame canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.camera-view .camera-guide{display:none!important}
+.camera-guidance{top:7px}
+@media(max-width:600px){.camera-guidance{top:6px}}
+</style>
+</head>
+<body ng-controller="FashionController" ng-class="{'modal-open':cameraOpen}">
+
+<header class="nav" ng-class="{'scrolled':navScrolled}">
+  <div class="nav-inner">
+    <button class="hamburger" aria-label="Open menu" ng-click="toggleMenu()"><span></span></button>
+    <a href="#top" class="brand"><b>SNAP & STYLE</b>SS</a>
+    <div class="nav-right">
+      <button class="nav-icon" aria-label="Search" ng-click="openSearch()">⌕</button>
+      <button class="nav-icon" aria-label="Saved looks" ng-click="openSaved()">♡</button>
+      <button class="nav-icon" aria-label="Profile" ng-click="openProfile()">◯</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="kicker">Personal wardrobe direction · 2026</div>
+    <h1>Dress for<br><em>your moment.</em></h1>
+    <p class="hero-copy">A visual outfit suggestion engine that turns your occasion, mood, style and snapshot into a considered look.</p>
+    <div class="hero-actions">
+      <button class="btn solid" ng-click="goStudio()">Create my look</button>
+      <button class="btn" ng-click="openHow()">How it works</button>
+    </div>
+  </div>
+  <div class="hero-stamp">YOUR STYLE<br><strong>SS</strong><br>CURATED DAILY</div>
+  <div class="hero-meta"><span>Snap&Style / Personal styling</span><span class="scroll"><i></i> Scroll to explore</span></div>
+</section>
+
+<div class="overlay" ng-class="{'open':menuOpen || searchOpen || savedOpen || profileOpen || howOpen}" ng-click="closePanels()"></div>
+<aside class="drawer" ng-class="{'open':menuOpen}" ng-click="$event.stopPropagation()">
+  <div class="drawer-head"><small>Snap&Style</small><button class="close" ng-click="closePanels()">×</button></div>
+  <h2>Find your<br><em>direction.</em></h2>
+  <a href="#studio" ng-click="closePanels()">01 — Personal Styler</a>
+  <a href="#results" ng-click="closePanels()">02 — Latest Look</a>
+  <a href="#about" ng-click="closePanels()">03 — The Engine</a>
+  <a href="#footer" ng-click="closePanels()">04 — Contact</a>
+</aside>
+
+<section class="panel" ng-class="{'open':searchOpen}" ng-click="$event.stopPropagation()">
+  <div class="panel-head"><div><small>Explore</small><h2>Search the studio</h2></div><button class="close" ng-click="closePanels()">×</button></div>
+  <div class="searchbox"><input autofocus ng-model="searchQuery" placeholder="Try: streetwear, wedding, minimal..."></div>
+  <div ng-if="searchQuery"><button class="choice" ng-repeat="x in searchResults()" ng-click="chooseSearch(x)">{{x}}</button><p ng-if="!searchResults().length" style="margin-top:20px">No matching styling option found.</p></div>
+  <div ng-if="!searchQuery"><p>Search is connected to the styling engine. Try an occasion, season or style name.</p></div>
+</section>
+
+<section class="panel" ng-class="{'open':savedOpen}" ng-click="$event.stopPropagation()">
+  <div class="panel-head"><div><small>Your archive</small><h2>Saved looks</h2></div><button class="close" ng-click="closePanels()">×</button></div>
+  <div ng-if="!savedLooks.length" class="saved-empty">No saved looks yet.<br>Generate a look and tap “Save look”.</div>
+  <p ng-if="archiveError" role="alert">{{archiveError}}</p>
+  <div ng-repeat="look in savedLooks" style="padding:15px 0;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;gap:15px"><div><strong>{{look.title}}</strong><p style="margin-top:5px">{{look.subtitle}}</p></div><button class="choice" ng-click="loadSaved(look)">View</button></div>
+</section>
+
+<section class="panel" ng-class="{'open':profileOpen}" ng-click="$event.stopPropagation()">
+  <div class="panel-head"><div><small>Preference profile</small><h2>Your style</h2></div><button class="close" ng-click="closePanels()">×</button></div>
+  <p>Your current direction is built from the choices you make in the studio. Nothing here changes automatically.</p>
+  <div style="margin-top:25px;display:grid;gap:9px"><div><small>Style</small><strong style="display:block;margin-top:4px">{{user.style || 'Not selected'}}</strong></div><div><small>Category</small><strong style="display:block;margin-top:4px">{{user.category || 'Not selected'}}</strong></div><div><small>Colour</small><strong style="display:block;margin-top:4px">{{user.color || 'Neutral'}}</strong></div></div>
+</section>
+
+<section class="panel" ng-class="{'open':howOpen}" ng-click="$event.stopPropagation()">
+  <div class="panel-head"><div><small>The process</small><h2>Three moves.</h2></div><button class="close" ng-click="closePanels()">×</button></div>
+  <div style="display:grid;gap:24px"><div><b>01 — Define</b><p style="margin-top:7px">Choose the occasion, season, time, category and personal style.</p></div><div><b>02 — Snap</b><p style="margin-top:7px">Open the live camera and the page guides your face into position, then captures automatically when alignment is stable. You can still upload a photo instead.</p></div><div><b>03 — Curate</b><p style="margin-top:7px">After you approve the photo, the CV profile and your choices are sent to the recommendation engine. Ranked outfits from the catalog appear here.</p></div></div>
+</section>
+
+<section class="studio" id="studio">
+  <div class="wrap">
+    <div class="section-kicker">Personal styling studio</div>
+    <h2 class="section-title">Build the look around the moment.</h2>
+    <p class="section-sub">Choose your style and take one guided face photo. On Proceed, your photo is analyzed in memory and your preferences and appearance profile are scored against the clothing catalog.</p>
+    <div class="studio-grid">
+      <div class="control-card">
+        <div class="stepbar"><strong>01 / Define your look</strong><div class="progress"><i ng-style="{width:(progress/5*100)+'%'}"></i></div></div>
+
+        <div class="group"><div class="label">Occasion <span>Required</span></div><div class="choices"><button class="choice" ng-repeat="x in occasions" ng-class="{selected:user.occasion===x}" ng-click="select('occasion',x)">{{x}}</button></div></div>
+        <div class="group"><div class="label">Season <span>Required</span></div><div class="choices"><button class="choice" ng-repeat="x in seasons" ng-class="{selected:user.season===x}" ng-click="select('season',x)">{{x}}</button></div></div>
+        <div class="group"><div class="label">Time <span>Required</span></div><div class="choices"><button class="choice" ng-repeat="x in times" ng-class="{selected:user.time===x}" ng-click="select('time',x)">{{x}}</button></div></div>
+        <div class="group"><div class="label">Category <span>Required</span></div><div class="choices"><button class="choice" ng-repeat="x in categories" ng-class="{selected:user.category===x}" ng-click="select('category',x)">{{x}}</button></div></div>
+        <div class="group"><div class="label">Preferred style <span>Required</span></div><div class="choices"><button class="choice" ng-repeat="x in styles" ng-class="{selected:user.style===x}" ng-click="select('style',x)">{{x}}</button></div></div>
+        <div class="group"><div class="label">Colour direction <span>Optional</span></div><div class="choices"><button class="choice" ng-repeat="x in colors" ng-class="{selected:user.color===x}" ng-click="select('color',x)">{{x}}</button></div></div>
+        <button class="generate" ng-click="generateLook()" ng-disabled="loading || progress<5">{{loading?'Curating your look...':'Generate my look'}}</button>
+        <p class="cv-note" ng-if="recommendationError" role="alert">{{recommendationError}}</p>
+      </div>
+
+      <div class="photo-card">
+        <div class="photo-stage">
+          <div class="photo-bg"></div>
+          <div class="photo-copy">
+            <div class="camera-mark">⌁</div>
+            <h3>{{appearanceProfile ? 'Your profile is ready.' : 'Bring yourself in.'}}</h3>
+            <p>{{appearanceProfile ? 'The photo has been analyzed; no captured photo was saved. You can take a new one whenever you wish.' : 'A live outline guides your face and captures automatically. Review the photo, then Retake or Proceed.'}}</p>
+            <div class="photo-buttons"><button class="photo-btn" ng-click="startCamera()" ng-disabled="cameraStarting || progress<5">{{cameraStarting ? 'Starting camera…' : (appearanceProfile ? 'Take a new photo' : 'Take a photo')}}</button></div>
+            <p ng-if="progress<5" style="margin-top:12px">Choose the occasion, season, time, category and style before taking your photo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="cv-profile" ng-if="appearanceProfile" aria-live="polite">
+      <h3>Estimated facial features</h3>
+      <div class="cv-features">
+        <div class="cv-feature"><small>Face shape</small><strong>{{appearanceProfile.face_shape | labelText}}</strong></div>
+        <div class="cv-feature"><small>Skin tone</small><strong>{{appearanceProfile.skin_tone | labelText}}</strong></div>
+        <div class="cv-feature"><small>Skin undertone</small><strong>{{appearanceProfile.skin_undertone | labelText}}</strong></div>
+        <div class="cv-feature"><small>Hair color</small><strong>{{appearanceProfile.hair_color | labelText}}</strong></div>
+      </div>
+      <p class="cv-note">These are estimates from one uncalibrated camera image, not verified measurements. Your preferences always take priority.</p>
+      <p class="cv-note" ng-if="appearanceProfile.quality_warnings.length">Analysis notes: {{appearanceProfile.quality_warnings.join(', ').split('_').join(' ')}}.</p>
+    </section>
+  </div>
+</section>
+
+<section class="results" id="results" ng-if="recommendation">
+  <div class="wrap">
+    <div class="legacy-note" ng-if="recommendation.legacyImages">This older sample look has no matching catalog photos. Rebuild it with real catalog products and images; the items and score will change.<span ng-if="legacyCanRebuild"><button ng-repeat="category in categories" ng-click="rebuildSaved(category)" ng-disabled="loading">Replace with {{category}} outfit</button></span><button ng-if="!legacyCanRebuild" ng-click="goStudio()">Choose a new look</button><span ng-if="recommendationError" role="alert">{{recommendationError}}</span></div>
+    <div class="result-head"><div><div class="section-kicker">Your current edit</div><h2 class="section-title">{{recommendation.title}}</h2></div><div class="result-note">Ranked from the clothing catalog using your choices{{appearanceProfile ? ' and estimated appearance features' : ''}}.</div></div>
+    <div class="look-grid">
+      <div class="look-visual"><div class="outfit-board"><div class="outfit-card" ng-repeat="piece in recommendation.items"><img ng-if="piece.image && !piece.imageUnavailable" ng-src="{{piece.image}}" catalog-photo="piece" alt="{{piece.name}}"><div class="photo-placeholder" ng-if="!piece.image || piece.imageUnavailable">Photo unavailable</div><div class="outfit-card-copy"><small>{{piece.role}}</small><strong>{{piece.name}}</strong><span>{{piece.description}}</span></div></div></div><div class="look-overlay"><h3>{{recommendation.title}}</h3><p>{{recommendation.subtitle}}</p></div></div>
+      <div class="result-panel">
+        <div class="score-row"><div><small>Outfit score (not CV accuracy)</small><div style="font:400 23px Georgia,serif;margin-top:7px">Catalog match</div></div><div class="score">{{recommendation.score}}%</div></div>
+        <div class="reason"><strong style="color:#fff;display:block;margin-bottom:8px">Why this works</strong>{{recommendation.reason}}<p ng-if="recommendation.palette" style="margin-top:14px"><strong>Suggested palette:</strong> {{recommendation.palette}}</p></div>
+        <div class="items"><div class="item" ng-repeat="x in recommendation.items"><div class="item-icon"><img ng-if="x.image && !x.imageUnavailable" ng-src="{{x.image}}" catalog-photo="x" alt="" style="width:42px;height:42px;object-fit:cover"><span ng-if="!x.image || x.imageUnavailable">{{x.icon || '◇'}}</span></div><div><strong>{{x.name}}</strong><span>{{x.description}}</span></div><em>{{x.role}}</em></div></div>
+        <div class="result-actions"><button class="rbtn primary" ng-click="saveLook()" ng-disabled="savingLook">{{savingLook ? 'Saving…' : (recommendation.savedId ? '♡ Saved' : '♡ Save look')}}</button><button class="rbtn" ng-click="generateAnother()" ng-disabled="!outfits.length">↻ Try another</button><button class="rbtn" ng-click="shareLook()">↗ Share</button><button class="rbtn" ng-click="resetStudio()">Reset</button></div>
+      </div>
+    </div>
+    <div class="alternatives"><div class="alt" ng-repeat="x in recommendation.alternatives" ng-click="chooseAlternative(x)"><div class="alt-preview"><img ng-if="x.image && !x.imageUnavailable" ng-src="{{x.image}}" catalog-photo="x" alt="{{x.title}}"><div class="photo-placeholder" ng-if="!x.image || x.imageUnavailable">Photo unavailable</div></div><div class="alt-info"><small>{{x.score}}% match</small><h4>{{x.title}}</h4><p>{{x.description}}</p></div></div></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid"><div><div class="section-kicker">The engine</div><h2>Personal, visual, deliberately simple.</h2></div>
+  <div><p>Snap&Style guides one automatic face capture, lets you choose Retake or Proceed, sends an approved JPEG to the CV API, and receives facial features as JSON. No camera photographs are saved by this workflow. Your selected preferences and CV features then rank real clothing items from the catalog.</p>
+  <div class="feature-list"><div class="feature"><b>01</b><div><strong>Live camera</strong><span>MediaPipe-based face alignment and automatic capture.</span></div></div>
+  <div class="feature"><b>02</b><div><strong>Direct processing</strong><span>JPEG is processed in memory; no folder picker, image archive, or queue is needed.</span></div></div>
+  <div class="feature"><b>03</b><div><strong>Outfit direction</strong><span>Appearance estimates inform suggested colors, while the user controls occasion, season, category and style.</span></div></div></div></div></div>
+</section>
+
+<footer id="footer"><div class="wrap"><div class="footer-grid"><div><div class="footer-brand">Snap&Style</div><p style="margin-top:13px;max-width:300px">A visual wardrobe direction tool for building an outfit around your moment.</p></div><div><h4>Studio</h4><div class="footer-links"><a href="#studio">Personal Styler</a><a href="#results">Latest Look</a><a href="#about">The Engine</a></div></div><div><h4>Actions</h4><div class="footer-links"><a href="" ng-click="goStudio()">Create a look</a><a href="" ng-click="openHow()">How it works</a><a href="" ng-click="openSaved()">Saved looks</a></div></div><div><h4>Contact</h4><div class="footer-links"><a href="mailto:hello@snapandstyle.com">hello@snapandstyle.com</a><a href="tel:+919999999999">+91 99999 99999</a><a href="https://wa.me/919999999999" target="_blank">WhatsApp support</a></div></div></div><div class="footer-bottom"><span>© 2026 Snap&Style</span><span>Designed for a smarter way to style.</span></div></div></footer>
+
+<!-- camera -->
+<div class="camera-modal" ng-class="{open:cameraOpen}">
+  <div class="camera-top"><strong>Automatic style snapshot</strong><div class="camera-top-actions"><button class="cam-secondary camera-voice" ng-click="toggleVoiceGuidance()" ng-attr-aria-pressed="{{cameraVoiceEnabled}}" aria-label="Toggle voice guidance">{{cameraVoiceEnabled ? 'Voice: On' : 'Voice: Off'}}</button><button class="cam-secondary" ng-click="stopCamera()">Close</button></div></div>
+  <div class="camera-view">
+    <div id="cameraFrame" class="camera-frame" ng-class="{mirrored:cameraFacing==='user'}">
+      <video id="cameraVideo" autoplay playsinline muted></video>
+      <canvas id="cameraOverlay" aria-hidden="true"></canvas>
+    </div>
+    <div class="camera-guidance" ng-class="'state-'+cameraGuidance.state" aria-live="off">
+      <div class="lens-label">● LOOK AT THE CAMERA LENS</div>
+      <strong>{{cameraGuidance.message}}</strong>
+      <span ng-if="cameraGuidance.state !== 'ready'">{{cameraGuidance.detail}}</span>
+      <div class="camera-progress"><i ng-style="{width:cameraGuidance.progress+'%'}"></i></div>
+    </div>
+  </div>
+  <div class="camera-bottom">
+    <button class="cam-secondary" ng-click="flipCamera()">Flip camera</button>
+    <div class="auto-capture-badge">Follow the live outline</div>
+
+  </div>
+</div>
+
+<div class="confirm" ng-class="{open:captureConfirm}">
+  <div class="confirm-box">
+    <img ng-src="{{capturedPhoto}}" alt="Automatically captured preview">
+    <h3>Photo captured.</h3>
+    <p>{{processingPhoto ? 'Analyzing your face and preparing your outfit…' : 'Retake to try again, or Proceed to analyze this photo without saving it.'}}</p>
+    <p ng-if="progress<5" class="cv-error">Complete the occasion, season, time, category and style choices before proceeding.</p>
+    <p class="cv-error" ng-if="cvError" role="alert">{{cvError}}</p>
+    <div class="confirm-actions">
+      <button class="light" ng-click="retakeCaptured()" ng-disabled="processingPhoto">Retake</button>
+      <button ng-click="useCaptured()" ng-disabled="processingPhoto || progress<5">{{processingPhoto ? 'Analyzing…' : 'Proceed'}}</button>
+    </div>
+  </div>
+</div>
+
+<div class="loading" ng-if="loading"><div class="loader-box"><div class="loader-ring"></div><p>Curating your look</p><small>Matching silhouette, occasion and style direction...</small></div></div>
+<div class="toast" ng-class="{show:toastVisible}">{{toastMessage}}</div>
+
+<script src="camera_auto_capture.js?v=9"></script>
+<script>
+(function(){
+'use strict';
+var app=angular.module('snapStyleApp',[]);
+app.directive('catalogPhoto',['$parse',function($parse){return {link:function(scope,element,attrs){var item=$parse(attrs.catalogPhoto);element.on('error',function(){scope.$evalAsync(function(){var value=item(scope);if(value)value.imageUnavailable=true;});});scope.$on('$destroy',function(){element.off('error');});}};}]);
+app.filter('labelText',function(){return function(value){return String(value || 'Unknown').replace(/[_-]/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});};});
+app.controller('FashionController',['$scope','$timeout',function($scope,$timeout){
+  $scope.navScrolled=false;$scope.menuOpen=false;$scope.searchOpen=false;$scope.savedOpen=false;$scope.profileOpen=false;$scope.howOpen=false;$scope.cameraOpen=false;$scope.cameraStarting=false;$scope.captureConfirm=false;$scope.loading=false;$scope.toastVisible=false;$scope.recommendation=null;$scope.progress=0;$scope.searchQuery='';$scope.savedLooks=[];$scope.capturedPhoto=null;$scope.cameraStream=null;$scope.cameraFacing='user';
+  $scope.cameraGuidance={state:'searching',message:'Looking for your face…',detail:'Center your face inside the guide.',progress:0};$scope.lastAutoCapture=null;$scope.cameraVoiceEnabled=true;
+  $scope.user={occasion:null,season:null,time:null,category:null,style:null,color:'Neutral'};
+  $scope.occasions=['Casual','College','Office','Party','Wedding','Date','Interview','Travel'];
+  $scope.seasons=['Summer','Winter','Monsoon','Spring'];
+  $scope.times=['Morning','Afternoon','Evening','Night'];
+  $scope.categories=['Men','Women','Unisex'];
+  $scope.styles=['Minimal','Casual','Streetwear','Formal','Elegant','Traditional','Sporty','Trendy'];
+  $scope.colors=['Neutral','Black','White','Blue','Pink','Red','Green','Beige','Pastel'];
+  var keySaved='snapstyle.saved.v3';
+  function safeParse(key,fallback){try{return JSON.parse(localStorage.getItem(key)||'null')||fallback}catch(e){return fallback}}
+  var browserFavorites=safeParse(keySaved,[]);
+  $scope.savedLooks=Array.isArray(browserFavorites)?browserFavorites:[];
+  $scope.archiveError='';$scope.savingLook=false;
+  // The server owns the durable archive; browser storage is only a migration/cache.
+  function persist(){try{localStorage.setItem(keySaved,JSON.stringify($scope.savedLooks))}catch(e){/* The server copy is already durable. */}}
+  async function archiveRequest(method,value){
+    var response=await fetch('/api/saved-looks',{method:method,headers:{'Content-Type':'application/json'},
+      body:value?JSON.stringify(value):undefined});
+    var reply=await response.json().catch(function(){return null;});
+    if(!response.ok||!reply)throw new Error(reply&&reply.detail||'Saved looks are unavailable. Restart the project server and retry.');
+    return reply;
+  }
+  async function loadArchive(migrate){
+    try{
+      var reply=await archiveRequest('GET');
+      if(!Array.isArray(reply.looks))throw new Error('Invalid saved-look response.');
+      var looks=reply.looks;
+      if(migrate){
+        for(var i=0;i<browserFavorites.length;i++){
+          var old=browserFavorites[i];
+          if(!old||!old.title||!Array.isArray(old.items)||!old.items.length)continue;
+          old.id=old.id||('legacy-'+i+'-'+old.title);
+          if(!looks.some(function(item){return String(item.id)===String(old.id);})){ 
+            var stored=await archiveRequest('POST',old);looks.unshift(stored.look);
+          }
+        }
+      }
+      $scope.$evalAsync(function(){$scope.savedLooks=looks;$scope.archiveError='';persist();});
+      return true;
+    }catch(err){$scope.$evalAsync(function(){$scope.archiveError=err.message||'Could not load saved looks.';});return false;}
+  }
+  var archiveReady=loadArchive(true);
+  // Photos are kept in RAM for the preview only. No folder picker or image storage.
+  $scope.appearanceProfile=null;
+  $scope.outfits=[];$scope.activeOutfitIndex=0;$scope.recommendationError='';
+  var recommendationRequestId=0;
+  $scope.processingPhoto=false;
+  $scope.cvError='';
+
+  function normalizedProfile(value){
+    if (!value || typeof value!=='object') throw new Error('CV returned no appearance profile.');
+    ['face_shape','skin_tone','skin_undertone','hair_color'].forEach(function(key){
+      if(typeof value[key]!=='string' || !value[key]) throw new Error('CV response is missing '+key+'.');
+    });
+    return value;
+  }
+  function missingRequiredChoices(){
+    return ['occasion','season','time','category','style'].filter(function(key){return !$scope.user[key];});
+  }
+  function catalogItems(outfit){
+    var roles={topwear:'Top',bottomwear:'Bottom',one_piece:'One piece',footwear:'Shoes'};
+    return Object.keys(roles).filter(function(key){return outfit.items[key];}).map(function(key){
+      var item=outfit.items[key];
+      return {role:roles[key],name:item.productDisplayName||item.articleType||roles[key],
+        description:[item.baseColour,item.articleType].filter(Boolean).join(' · '),
+        image:item.image_url||null,icon:'◇'};
+    });
+  }
+  function catalogImage(outfit){
+    var lead=outfit.items.one_piece||outfit.items.topwear||outfit.items.footwear;
+    return lead&&lead.image_url||'';
+  }
+  function showCatalogOutfit(index){
+    var outfit=$scope.outfits[index],u=$scope.recommendationPreferences;
+    if(!outfit)return;
+    $scope.activeOutfitIndex=index;
+    $scope.recommendation={
+      title:u.style+' '+u.occasion+' Look '+(index+1),
+      subtitle:u.category+' · '+u.season+' · '+u.time,
+      score:Math.round(outfit.score),
+      reason:'Selected from the clothing catalog for your '+u.occasion.toLowerCase()+' occasion, '+u.season.toLowerCase()+' season and '+u.style.toLowerCase()+' style.'+
+        ($scope.appearanceProfile?' Face shape, skin tone, undertone and hair color also contributed according to their confidence scores.':'')+
+        ($scope.catalogNotes||''),
+      image:catalogImage(outfit),items:catalogItems(outfit),
+      alternatives:$scope.outfits.map(function(other,i){return {index:i,title:u.style+' Look '+(i+1),score:Math.round(other.score),image:catalogImage(other),description:catalogItems(other).map(function(x){return x.name;}).join(' · ')};}).filter(function(x){return x.index!==index;}),
+      outfitId:outfit.outfitId,source:'catalog',preferences:angular.copy(u)
+    };
+  }
+  async function requestRecommendations(preferences,profile,onResult,preserveCurrent){
+    var requestId=++recommendationRequestId;
+    $scope.$evalAsync(function(){$scope.loading=true;$scope.recommendationError='';if(!preserveCurrent)$scope.recommendation=null;});
+    var controller=new AbortController();
+    var timer=setTimeout(function(){controller.abort();},60000);
+    try{
+      var response=await fetch('/api/recommendations/recommend',{
+        method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,
+        body:JSON.stringify({gender:preferences.category,season:preferences.season,
+          occasion:preferences.occasion,time:preferences.time,style:preferences.style,
+          color:preferences.color,cv_profile:profile||null,limit:4})
+      });
+      var reply=await response.json().catch(function(){return null;});
+      if(!response.ok)throw new Error(reply&&reply.detail||'Recommendation service returned '+response.status+'.');
+      if(!reply||!Array.isArray(reply.outfits)||!reply.outfits.length)throw new Error('No complete outfits matched these choices. Try another occasion or category.');
+      if(requestId!==recommendationRequestId)return false;
+      await new Promise(function(resolve){$scope.$evalAsync(function(){
+        $scope.outfits=reply.outfits;$scope.recommendationPreferences=angular.copy(preferences);
+        var notes=[];
+        if(reply.matchedSeason&&reply.matchedSeason!==preferences.season)notes.push('The catalog uses '+reply.matchedSeason+' as the closest available season.');
+        if(reply.fallbackCategories&&reply.fallbackCategories.length)notes.push('Some missing outfit categories were filled from everyday catalog pieces.');
+        $scope.catalogNotes=notes.length?' '+notes.join(' '):'';
+        showCatalogOutfit(0);$scope.recommendationError='';
+        $timeout(function(){var target=document.getElementById('results');if(target)target.scrollIntoView({behavior:'smooth',block:'start'});},100);
+        resolve();
+      });});
+      if(onResult)await onResult();
+      return true;
+    }catch(err){
+      if(requestId!==recommendationRequestId)return false;
+      console.error('Recommendation request failed:',err);
+      $scope.$evalAsync(function(){$scope.recommendationError=err.name==='AbortError'?'Recommendation timed out. Please retry.':
+        (err instanceof TypeError?'Could not reach the recommendation service. Check the project server.':err.message||'Recommendation failed.');});
+      return false;
+    }finally{clearTimeout(timer);if(requestId===recommendationRequestId)$scope.$evalAsync(function(){$scope.loading=false;});}
+  }
+  $scope.useCaptured=async function(){
+    if(!$scope.capturedPhoto||$scope.processingPhoto)return;
+    if(missingRequiredChoices().length){
+      $scope.cvError='Complete the occasion, season, time, category and style choices before proceeding.';
+      return;
+    }
+    var dataUrl=$scope.capturedPhoto;
+    $scope.processingPhoto=true;$scope.cvError='';
+    var controller=new AbortController();
+    var timer=setTimeout(function(){controller.abort();},120000);
+    try{
+      // Captured JPEG travels over HTTP, directly to the in-memory CV API.
+      var photoResponse=await fetch(dataUrl);
+      var blob=await photoResponse.blob();
+      if(!blob.size||blob.size>8*1024*1024)throw new Error('Photo is empty or exceeds 8 MB. Please retake.');
+      var response=await fetch('/api/analyze',{
+        method:'POST',headers:{'Content-Type':'image/jpeg'},body:blob,signal:controller.signal
+      });
+      var reply=await response.json().catch(function(){return null;});
+      if(!response.ok){
+        if(response.status===404)throw new Error('CV API not found. Run start_project.bat from the project folder.');
+        throw new Error(reply&&reply.detail ? String(reply.detail) : 'CV API error ('+response.status+').');
+      }
+      var profile=normalizedProfile(reply&&reply.profile);
+      var preferences=angular.copy($scope.user);
+      $scope.$evalAsync(function(){
+        $scope.appearanceProfile=profile;
+        $scope.captureConfirm=false;
+        $scope.capturedPhoto=null;
+        $scope.lastAutoCapture=null;
+        $scope.cvError='';
+      });
+      var recommended=await requestRecommendations(preferences,profile);
+      $scope.$evalAsync(function(){toast(recommended?'Analysis ready. Your catalog looks are below.':'Analysis ready. Please retry Generate my look.');});
+    }catch(err){
+      console.error('CV analysis failed:',err);
+      $scope.$evalAsync(function(){
+        $scope.cvError=err.name==='AbortError'?'CV request timed out. You can retry Proceed.':
+          (err instanceof TypeError ? 'Could not reach the CV server. Run start_project.bat and try again.' : err.message||'CV analysis failed.');
+      });
+    }finally{clearTimeout(timer);$scope.$evalAsync(function(){$scope.processingPhoto=false;});}
+  };
+  function toast(msg){$scope.toastMessage=msg;$scope.toastVisible=true;$timeout(function(){$scope.toastVisible=false},2600)}
+  angular.element(window).on('scroll',function(){$scope.$evalAsync(function(){$scope.navScrolled=window.scrollY>45})});
+  $scope.toggleMenu=function(){$scope.menuOpen=true};
+  $scope.openSearch=function(){$scope.searchOpen=true};
+  $scope.openSaved=async function(){$scope.savedOpen=true;await archiveReady;await loadArchive(false);};
+  $scope.openProfile=function(){$scope.profileOpen=true};
+  $scope.openHow=function(){$scope.howOpen=true};
+  $scope.closePanels=function(){$scope.menuOpen=$scope.searchOpen=$scope.savedOpen=$scope.profileOpen=$scope.howOpen=false};
+  $scope.goStudio=function(){ $scope.closePanels();$timeout(function(){document.getElementById('studio').scrollIntoView({behavior:'smooth',block:'start'})},20)};
+  $scope.select=function(type,value){$scope.user[type]=value;$scope.progress=['occasion','season','time','category','style'].filter(function(k){return !!$scope.user[k]}).length};
+  $scope.searchResults=function(){var q=($scope.searchQuery||'').toLowerCase();var all=$scope.occasions.concat($scope.seasons,$scope.times,$scope.categories,$scope.styles,$scope.colors);return all.filter(function(x,i,a){return x.toLowerCase().indexOf(q)>-1&&a.indexOf(x)===i}).slice(0,12)};
+  $scope.chooseSearch=function(x){var fields=['occasion','season','time','category','style','color'];var map={};fields.forEach(function(f){map[f]=$scope[f+'s']||[]});if($scope.occasions.indexOf(x)>-1)$scope.select('occasion',x);else if($scope.seasons.indexOf(x)>-1)$scope.select('season',x);else if($scope.times.indexOf(x)>-1)$scope.select('time',x);else if($scope.categories.indexOf(x)>-1)$scope.select('category',x);else if($scope.styles.indexOf(x)>-1)$scope.select('style',x);else $scope.select('color',x);$scope.closePanels();$scope.goStudio()};
+  function secureCamera(){return !!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia)}
+  // Spoken cues let users keep looking at the lens rather than reading below it.
+  var lastVoiceCue='', lastVoiceTime=0;
+  function stopVoiceGuidance(){
+    if('speechSynthesis' in window){try{window.speechSynthesis.cancel()}catch(e){}}
+  }
+  function speakGuidance(status){
+    if(!$scope.cameraVoiceEnabled || !window.speechSynthesis || !window.SpeechSynthesisUtterance || !$scope.cameraOpen)return;
+    var cue=status.state==='ready'?'Look into the camera lens and hold still':status.message;
+    if(!cue || cue===lastVoiceCue || Date.now()-lastVoiceTime<2300)return;
+    lastVoiceCue=cue;lastVoiceTime=Date.now();
+    try{
+      window.speechSynthesis.cancel();
+      var speech=new SpeechSynthesisUtterance(cue);
+      speech.lang='en-US';speech.rate=1.06;speech.volume=0.9;
+      window.speechSynthesis.speak(speech);
+    }catch(e){/* Continue with visual guidance when voice is unavailable. */}
+  }
+  $scope.toggleVoiceGuidance=function(){
+    $scope.cameraVoiceEnabled=!$scope.cameraVoiceEnabled;
+    lastVoiceCue='';lastVoiceTime=0;
+    if(!$scope.cameraVoiceEnabled)stopVoiceGuidance();
+    else speakGuidance($scope.cameraGuidance);
+  };
+  function updateCameraGuidance(status){
+    speakGuidance(status);
+    $scope.$evalAsync(function(){
+      $scope.cameraGuidance={
+        state:status.state||'searching',
+        message:status.message||'Align your face',
+        detail:status.detail||'',
+        progress:Math.max(0,Math.min(100,status.progress||0))
+      };
+    });
+  }
+  function loadFaceMeshBackup(){
+    if(window.FaceMesh)return Promise.resolve(true);
+    return new Promise(function(resolve){
+      var script=document.createElement('script');
+      script.src='https://unpkg.com/@mediapipe/face_mesh@0.4.1633559619/face_mesh.js';
+      script.async=true;
+      script.onload=function(){resolve(!!window.FaceMesh)};
+      script.onerror=function(){resolve(false)};
+      document.head.appendChild(script);
+    });
+  }
+  async function beginAutoCapture(video){
+    // If the initial jsDelivr request is blocked, try the exact same version from unpkg.
+    if(!window.FaceMesh){
+      updateCameraGuidance({state:'searching',message:'Loading face guidance…',detail:'Trying alternate model source.',progress:0});
+      await loadFaceMeshBackup();
+    }
+    // Camera may have been closed while the alternative script was loading.
+    if(!($scope.cameraOpen && $scope.cameraStream && video.srcObject===$scope.cameraStream))return;
+    var frame=document.getElementById('cameraFrame');
+    if(frame && video.videoWidth && video.videoHeight){
+      var ratio=video.videoWidth/video.videoHeight;
+      var maxH=Math.max(180,window.innerHeight-240);
+      var desiredW=Math.min(900,window.innerWidth*.92,maxH*ratio);
+      frame.style.width=desiredW+'px';
+      frame.style.aspectRatio=String(video.videoWidth)+' / '+String(video.videoHeight);
+    }
+    if(!window.SnapStyleAutoCapture||!window.SnapStyleAutoCapture.isSupported()){
+      updateCameraGuidance({state:'adjust',message:'Automatic guidance unavailable',detail:'MediaPipe FaceMesh is unavailable. Check internet/CDN access or open Developer Tools → Network.',progress:0});
+      toast('Camera is open, but MediaPipe FaceMesh did not load. Check the browser Console and Network tabs.');
+      return;
+    }
+    window.SnapStyleAutoCapture.start(video,{
+      mirrorCapture:$scope.cameraFacing==='user',
+      onStatus:updateCameraGuidance,
+      onCapture:function(result){
+        $scope.$evalAsync(function(){
+          $scope.stopCamera();
+          $scope.lastAutoCapture=null;
+          $scope.capturedPhoto=result.dataUrl;
+          $scope.captureConfirm=true;
+          $scope.cvError='';
+        });
+      },
+      onError:function(message){
+        $scope.$evalAsync(function(){
+          $scope.cameraGuidance={state:'adjust',message:'Camera guidance paused',detail:message + ' (Close and retry.)',progress:0};
+          toast(message);
+        });
+      }
+    });
+  }
+  var cameraRequestId=0;
+  $scope.startCamera=function(){
+    if(missingRequiredChoices().length){toast('Choose occasion, season, time, category and style before taking a photo.');return}
+    if(!secureCamera()){toast('Camera unavailable: use Chrome or Edge on http://localhost:8000 or HTTPS and allow camera access.');return}
+    if($scope.cameraStarting)return;
+    if($scope.cameraStream)$scope.stopCamera();
+    var requestId=++cameraRequestId;
+    $scope.cameraStarting=true;
+    lastVoiceCue='';lastVoiceTime=0;
+    $scope.cameraGuidance={state:'searching',message:'Starting camera…',detail:'Keep your face visible while the camera initializes.',progress:0};
+    navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:$scope.cameraFacing},width:{ideal:1280},height:{ideal:720}},audio:false}).then(function(stream){
+      if(requestId!==cameraRequestId){stream.getTracks().forEach(function(t){t.stop()});return}
+      $scope.cameraStarting=false;
+      $scope.cameraStream=stream;
+      $scope.$evalAsync(function(){$scope.cameraOpen=true});
+      $timeout(function(){
+        var v=document.getElementById('cameraVideo');
+        if(!v)return;
+        v.srcObject=stream;
+        v.setAttribute('playsinline','');
+        v.muted=true;
+        var started=v.play();
+        if(started&&started.then){
+          started.then(function(){beginAutoCapture(v)}).catch(function(){toast('Camera preview could not start. Check browser permissions and reload.')});
+        }else{
+          beginAutoCapture(v);
+        }
+      },80);
+    }).catch(function(err){
+      if(requestId!==cameraRequestId)return;
+      $scope.cameraStarting=false;
+      var msg='Unable to access the camera.';
+      if(err&&err.name==='NotAllowedError')msg='Camera permission was denied. Allow camera access and try again.';
+      if(err&&err.name==='NotFoundError')msg='No camera was found on this device.';
+      if(err&&err.name==='NotReadableError')msg='The camera may be open in another app. Close other camera apps and retry.';
+      if(err&&err.name==='OverconstrainedError')msg='The requested camera resolution is unavailable.';
+      if(err&&err.name==='SecurityError')msg='Camera access is blocked by your browser security settings.';
+      toast(msg);
+    });
+  };
+  $scope.stopCamera=function(){
+    cameraRequestId++;
+    $scope.cameraStarting=false;
+    stopVoiceGuidance();
+    if(window.SnapStyleAutoCapture)window.SnapStyleAutoCapture.stop();
+    if($scope.cameraStream){$scope.cameraStream.getTracks().forEach(function(t){t.stop()});$scope.cameraStream=null}
+    $scope.cameraOpen=false;
+  };
+  $scope.flipCamera=function(){
+    if(!$scope.cameraOpen)return;
+    $scope.cameraFacing=$scope.cameraFacing==='user'?'environment':'user';
+    $scope.stopCamera();
+    $timeout($scope.startCamera,120);
+  };
+  $scope.retakeCaptured=function(){
+    $scope.captureConfirm=false;$scope.capturedPhoto=null;
+    $scope.lastAutoCapture=null; $scope.cvError='';
+    $timeout($scope.startCamera,120);
+  };
+  // Catalog results are supplied by the recommendation API above.
+
+  $scope.generateLook=async function(){
+    if(missingRequiredChoices().length){toast('Complete the five required style choices first.');return}
+    await requestRecommendations(angular.copy($scope.user),$scope.appearanceProfile);
+  };
+
+  $scope.generateAnother=function(){
+    if(!$scope.outfits.length)return;
+    showCatalogOutfit(($scope.activeOutfitIndex+1)%$scope.outfits.length);
+    toast('Showing another ranked catalog outfit.');
+  };
+
+  $scope.chooseAlternative=function(x){
+    showCatalogOutfit(x.index);
+    toast(x.title+' is now your active look.');
+  };
+
+  $scope.saveLook=async function(){
+    if(!$scope.recommendation){toast('Generate a look first.');return;}
+    if($scope.savingLook)return;
+    var active=$scope.recommendation,copy=angular.copy(active);
+    copy.id=copy.savedId||copy.id||String(Date.now())+'-'+Math.random().toString(36).slice(2);
+    copy.savedAt=copy.savedAt||new Date().toISOString();
+    $scope.savingLook=true;
+    try{
+      await archiveReady;
+      var reply=await archiveRequest('POST',copy);
+      $scope.$evalAsync(function(){
+        $scope.savedLooks=$scope.savedLooks.filter(function(look){return String(look.id)!==String(reply.look.id);});
+        $scope.savedLooks.unshift(reply.look);active.savedId=reply.look.id;
+        $scope.archiveError='';persist();toast('Look saved to your archive.');
+      });
+    }catch(err){$scope.$evalAsync(function(){$scope.archiveError=err.message||'Could not save this look.';toast('Save failed: '+$scope.archiveError);});}
+    finally{$scope.$evalAsync(function(){$scope.savingLook=false;});}
+  };
+  function legacyPreferences(look,category){
+    var parts=String(look.subtitle||'').split(/[·|,]/).map(function(part){return part.trim().toLowerCase();});
+    function matching(options){return options.find(function(option){return parts.indexOf(option.toLowerCase())!==-1;})||null;}
+    var previous=look.preferences||{};
+    return {occasion:previous.occasion||matching($scope.occasions),season:previous.season||matching($scope.seasons),
+      time:previous.time||matching($scope.times),category:category,
+      style:previous.style||matching($scope.styles),color:previous.color||'Neutral'};
+  }
+  $scope.rebuildSaved=async function(category){
+    var old=$scope.currentSavedLook;
+    if(!old||$scope.loading)return;
+    var choices=legacyPreferences(old,category);
+    if(!choices.occasion||!choices.season||!choices.time||!choices.style){
+      $scope.recommendationError='This older look lacks its original choices. Select them in the studio to make a new catalog look.';
+      return;
+    }
+    await requestRecommendations(choices,null,async function(){
+      var updated=angular.copy($scope.recommendation);
+      updated.id=old.id;
+      updated.savedAt=old.savedAt;
+      updated.recreatedFrom=old.title;
+      $scope.savingLook=true;
+      try{
+        var reply=await archiveRequest('POST',updated);
+        $scope.$evalAsync(function(){
+          $scope.savedLooks=$scope.savedLooks.filter(function(look){return String(look.id)!==String(old.id);});
+          $scope.savedLooks.unshift(reply.look);$scope.recommendation.savedId=reply.look.id;persist();
+          $scope.user=angular.copy(choices);$scope.progress=5;$scope.currentSavedLook=null;
+          toast('Saved look replaced with real catalog products and photos.');
+        });
+      }catch(err){$scope.$evalAsync(function(){$scope.archiveError=err.message;toast('The new look could not be saved. Retry Save look.');});}
+      finally{$scope.$evalAsync(function(){$scope.savingLook=false;});}
+    },true);
+  };
+  $scope.loadSaved=function(look){
+    $scope.outfits=[];
+    $scope.currentSavedLook=look;
+    var copy=angular.copy(look);
+    if(copy.source==='catalog')copy.savedId=copy.id;
+    if(copy.source!=='catalog'){
+      copy.legacyImages=true;
+      (copy.items||[]).forEach(function(item){item.image=null;});
+      (copy.alternatives||[]).forEach(function(item){item.image=null;});
+    }
+    $scope.recommendation=copy;
+    var possible=legacyPreferences(look,'Unisex');
+    $scope.legacyCanRebuild=!!(possible.occasion&&possible.season&&possible.time&&possible.style);
+    $scope.closePanels();
+    $timeout(function(){document.getElementById('results').scrollIntoView({behavior:'smooth'})},50);
+  };
+  $scope.shareLook=function(){if(!$scope.recommendation)return;var text='My Snap&Style look: '+$scope.recommendation.title+' — '+$scope.recommendation.subtitle;if(navigator.share){navigator.share({title:'Snap&Style',text:text,url:location.href}).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){toast('Look details copied to clipboard.')}).catch(function(){toast('Sharing is not available in this browser.')})}else toast('Sharing is not available in this browser.')};
+  $scope.resetStudio=function(){
+    recommendationRequestId++;
+    $scope.loading=false;
+    $scope.recommendation=null;
+    $scope.appearanceProfile=null;
+    $scope.outfits=[];$scope.recommendationError='';
+    $scope.variantIndex=0;
+    $scope.user={occasion:null,season:null,time:null,category:null,style:null,color:'Neutral'};
+    $scope.progress=0;
+    $scope.closePanels();
+    $timeout(function(){
+      var studio=document.getElementById('studio');
+      if(studio)studio.scrollIntoView({behavior:'smooth',block:'start'});
+      var first=studio&&studio.querySelector('.choice');
+      if(first)first.focus();
+    },60);
+    toast('Selections reset. Choose a new combination.');
+  };
+  window.addEventListener('beforeunload',function(){stopVoiceGuidance();
+    if(window.SnapStyleAutoCapture)window.SnapStyleAutoCapture.stop();
+    if($scope.cameraStream)$scope.cameraStream.getTracks().forEach(function(t){t.stop()});
+  });
+}]);
+})();
+</script>
+</body>
+</html>

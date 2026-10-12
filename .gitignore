@@ -1,0 +1,19 @@
+.DS_Store
+Thumbs.db
+
+# Java / Maven
+**/target/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Local outfit favorites
+/data/saved_looks.json

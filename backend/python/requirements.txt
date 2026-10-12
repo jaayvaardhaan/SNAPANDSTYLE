@@ -1,0 +1,2 @@
+-r ../../fashion-cv/requirements.txt
+pandas>=2.2,<4

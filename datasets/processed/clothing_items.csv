@@ -1,0 +1,712 @@
+item_id,image_path,category_id,category_name,our_category,style_id,source,pair_id,bounding_box,scale,occlusion,zoom_in,viewpoint
+000001_item2,dataset/deepfashion2/validation/image/000001.jpg,13,sling dress,DRESS,2,user,1,"[204, 189, 293, 414]",1,2,1,2
+000001_item1,dataset/deepfashion2/validation/image/000001.jpg,5,vest,TOP,1,user,1,"[199, 190, 287, 269]",1,2,1,2
+000002_item2,dataset/deepfashion2/validation/image/000002.jpg,13,sling dress,DRESS,2,user,1,"[176, 120, 292, 383]",2,2,1,2
+000002_item1,dataset/deepfashion2/validation/image/000002.jpg,5,vest,TOP,1,user,1,"[170, 121, 280, 215]",1,2,1,2
+000003_item1,dataset/deepfashion2/validation/image/000003.jpg,10,short sleeve dress,DRESS,1,user,3,"[151, 241, 279, 435]",1,2,1,2
+000004_item1,dataset/deepfashion2/validation/image/000004.jpg,10,short sleeve dress,DRESS,1,user,3,"[174, 205, 327, 393]",1,1,1,3
+000005_item1,dataset/deepfashion2/validation/image/000005.jpg,1,short sleeve top,TOP,1,user,4,"[48, 0, 467, 623]",3,1,2,2
+000006_item1,dataset/deepfashion2/validation/image/000006.jpg,12,vest dress,DRESS,3,user,5,"[97, 218, 328, 567]",2,2,1,2
+000007_item1,dataset/deepfashion2/validation/image/000007.jpg,12,vest dress,DRESS,3,user,5,"[144, 145, 338, 544]",2,2,1,2
+000008_item1,dataset/deepfashion2/validation/image/000008.jpg,12,vest dress,DRESS,2,user,5,"[42, 102, 223, 370]",3,1,2,2
+000009_item1,dataset/deepfashion2/validation/image/000009.jpg,12,vest dress,DRESS,3,user,5,"[0, 263, 362, 623]",3,2,2,2
+000010_item2,dataset/deepfashion2/validation/image/000010.jpg,1,short sleeve top,TOP,0,user,6,"[125, 66, 467, 623]",3,1,2,1
+000010_item1,dataset/deepfashion2/validation/image/000010.jpg,10,short sleeve dress,DRESS,1,user,6,"[1, 22, 255, 623]",3,2,2,1
+000011_item1,dataset/deepfashion2/validation/image/000011.jpg,10,short sleeve dress,DRESS,1,user,6,"[0, 0, 467, 466]",3,1,2,2
+000012_item1,dataset/deepfashion2/validation/image/000012.jpg,10,short sleeve dress,DRESS,1,user,6,"[73, 154, 249, 483]",2,2,1,2
+000013_item1,dataset/deepfashion2/validation/image/000013.jpg,10,short sleeve dress,DRESS,1,user,6,"[32, 9, 313, 492]",2,1,1,2
+000014_item1,dataset/deepfashion2/validation/image/000014.jpg,10,short sleeve dress,DRESS,1,user,6,"[130, 205, 362, 517]",2,1,1,2
+000015_item2,dataset/deepfashion2/validation/image/000015.jpg,10,short sleeve dress,DRESS,1,user,6,"[236, 125, 307, 244]",1,2,1,2
+000015_item1,dataset/deepfashion2/validation/image/000015.jpg,8,trousers,BOTTOM,0,user,6,"[243, 203, 300, 338]",1,2,1,2
+000016_item1,dataset/deepfashion2/validation/image/000016.jpg,10,short sleeve dress,DRESS,1,user,6,"[185, 227, 322, 514]",2,2,1,2
+000017_item1,dataset/deepfashion2/validation/image/000017.jpg,10,short sleeve dress,DRESS,1,user,6,"[177, 96, 351, 422]",2,2,1,3
+000018_item1,dataset/deepfashion2/validation/image/000018.jpg,2,long sleeve top,TOP,1,user,7,"[1, 82, 467, 350]",3,1,3,1
+000019_item1,dataset/deepfashion2/validation/image/000019.jpg,2,long sleeve top,TOP,1,user,7,"[8, 67, 466, 623]",3,1,2,1
+000020_item2,dataset/deepfashion2/validation/image/000020.jpg,8,trousers,BOTTOM,0,user,7,"[66, 516, 332, 828]",2,2,2,2
+000020_item1,dataset/deepfashion2/validation/image/000020.jpg,2,long sleeve top,TOP,1,user,7,"[2, 0, 466, 675]",3,1,2,2
+000021_item1,dataset/deepfashion2/validation/image/000021.jpg,2,long sleeve top,TOP,1,user,7,"[0, 111, 467, 613]",3,1,2,1
+000022_item1,dataset/deepfashion2/validation/image/000022.jpg,1,short sleeve top,TOP,1,user,8,"[0, 79, 466, 623]",3,1,2,1
+000023_item1,dataset/deepfashion2/validation/image/000023.jpg,1,short sleeve top,TOP,1,user,8,"[0, 137, 465, 710]",3,1,2,1
+000024_item2,dataset/deepfashion2/validation/image/000024.jpg,7,shorts,BOTTOM,1,user,9,"[164, 416, 336, 602]",2,1,1,2
+000024_item1,dataset/deepfashion2/validation/image/000024.jpg,1,short sleeve top,TOP,0,user,9,"[177, 175, 467, 522]",2,2,2,3
+000025_item1,dataset/deepfashion2/validation/image/000025.jpg,1,short sleeve top,TOP,1,user,10,"[0, 156, 399, 399]",3,2,2,2
+000026_item1,dataset/deepfashion2/validation/image/000026.jpg,1,short sleeve top,TOP,1,user,10,"[53, 181, 299, 399]",3,1,2,2
+000027_item1,dataset/deepfashion2/validation/image/000027.jpg,9,skirt,BOTTOM,2,user,11,"[0, 0, 623, 467]",3,1,3,1
+000028_item1,dataset/deepfashion2/validation/image/000028.jpg,9,skirt,BOTTOM,2,user,11,"[0, 13, 467, 348]",3,1,2,1
+000029_item1,dataset/deepfashion2/validation/image/000029.jpg,9,skirt,BOTTOM,2,user,11,"[0, 0, 831, 467]",3,1,3,1
+000030_item2,dataset/deepfashion2/validation/image/000030.jpg,8,trousers,BOTTOM,1,user,12,"[87, 375, 252, 624]",2,1,2,2
+000030_item1,dataset/deepfashion2/validation/image/000030.jpg,2,long sleeve top,TOP,0,user,12,"[60, 148, 332, 395]",2,2,1,3
+000031_item1,dataset/deepfashion2/validation/image/000031.jpg,9,skirt,BOTTOM,1,user,13,"[89, 101, 395, 547]",3,1,1,1
+000032_item1,dataset/deepfashion2/validation/image/000032.jpg,8,trousers,BOTTOM,1,user,14,"[0, 6, 467, 256]",3,1,3,1
+000033_item1,dataset/deepfashion2/validation/image/000033.jpg,2,long sleeve top,TOP,3,user,15,"[1, 8, 466, 623]",3,1,2,2
+000034_item1,dataset/deepfashion2/validation/image/000034.jpg,2,long sleeve top,TOP,3,user,15,"[0, 0, 466, 796]",3,1,3,2
+000035_item2,dataset/deepfashion2/validation/image/000035.jpg,8,trousers,BOTTOM,0,user,15,"[3, 461, 318, 623]",2,3,3,2
+000035_item1,dataset/deepfashion2/validation/image/000035.jpg,2,long sleeve top,TOP,3,user,15,"[0, 0, 467, 623]",3,2,2,2
+000036_item2,dataset/deepfashion2/validation/image/000036.jpg,8,trousers,BOTTOM,0,user,15,"[164, 231, 281, 562]",1,2,1,3
+000036_item1,dataset/deepfashion2/validation/image/000036.jpg,2,long sleeve top,TOP,3,user,15,"[94, 24, 316, 272]",2,2,1,2
+000037_item1,dataset/deepfashion2/validation/image/000037.jpg,2,long sleeve top,TOP,3,user,15,"[0, 28, 447, 623]",3,1,2,1
+000038_item1,dataset/deepfashion2/validation/image/000038.jpg,2,long sleeve top,TOP,3,user,15,"[0, 83, 467, 630]",3,1,2,1
+000039_item1,dataset/deepfashion2/validation/image/000039.jpg,2,long sleeve top,TOP,3,user,15,"[1, 48, 464, 831]",3,1,3,2
+000040_item1,dataset/deepfashion2/validation/image/000040.jpg,2,long sleeve top,TOP,3,user,15,"[0, 0, 466, 681]",3,2,3,2
+000041_item1,dataset/deepfashion2/validation/image/000041.jpg,2,long sleeve top,TOP,3,user,15,"[0, 12, 466, 623]",3,2,2,2
+000042_item1,dataset/deepfashion2/validation/image/000042.jpg,9,skirt,BOTTOM,1,user,16,"[28, 0, 380, 261]",3,1,3,1
+000043_item1,dataset/deepfashion2/validation/image/000043.jpg,9,skirt,BOTTOM,1,user,16,"[0, 64, 467, 511]",3,1,3,1
+000044_item1,dataset/deepfashion2/validation/image/000044.jpg,9,skirt,BOTTOM,1,user,16,"[0, 0, 349, 261]",3,1,3,1
+000045_item2,dataset/deepfashion2/validation/image/000045.jpg,9,skirt,BOTTOM,1,user,16,"[171, 286, 240, 373]",1,2,1,3
+000045_item1,dataset/deepfashion2/validation/image/000045.jpg,1,short sleeve top,TOP,0,user,16,"[167, 188, 243, 296]",1,2,1,3
+000046_item1,dataset/deepfashion2/validation/image/000046.jpg,9,skirt,BOTTOM,1,user,16,"[0, 91, 467, 527]",3,1,3,1
+000047_item1,dataset/deepfashion2/validation/image/000047.jpg,9,skirt,BOTTOM,1,user,16,"[0, 37, 345, 411]",3,1,3,1
+000048_item1,dataset/deepfashion2/validation/image/000048.jpg,9,skirt,BOTTOM,1,user,16,"[0, 126, 325, 425]",3,1,2,1
+000049_item2,dataset/deepfashion2/validation/image/000049.jpg,9,skirt,BOTTOM,1,user,16,"[180, 363, 308, 531]",1,2,1,3
+000049_item1,dataset/deepfashion2/validation/image/000049.jpg,1,short sleeve top,TOP,0,user,16,"[144, 202, 329, 411]",2,2,1,2
+000050_item2,dataset/deepfashion2/validation/image/000050.jpg,9,skirt,BOTTOM,1,user,16,"[196, 349, 254, 415]",1,2,1,3
+000050_item1,dataset/deepfashion2/validation/image/000050.jpg,1,short sleeve top,TOP,0,user,16,"[188, 285, 251, 356]",1,1,1,3
+000051_item2,dataset/deepfashion2/validation/image/000051.jpg,9,skirt,BOTTOM,1,user,16,"[4, 360, 405, 623]",2,2,2,2
+000051_item1,dataset/deepfashion2/validation/image/000051.jpg,1,short sleeve top,TOP,0,user,16,"[101, 74, 467, 515]",3,2,2,2
+000052_item2,dataset/deepfashion2/validation/image/000052.jpg,9,skirt,BOTTOM,1,user,16,"[64, 71, 313, 262]",2,2,3,2
+000052_item1,dataset/deepfashion2/validation/image/000052.jpg,1,short sleeve top,TOP,0,user,16,"[64, 0, 467, 161]",3,1,2,2
+000053_item2,dataset/deepfashion2/validation/image/000053.jpg,9,skirt,BOTTOM,1,user,16,"[203, 360, 299, 467]",1,2,1,2
+000053_item1,dataset/deepfashion2/validation/image/000053.jpg,1,short sleeve top,TOP,0,user,16,"[181, 257, 321, 390]",1,2,1,2
+000054_item1,dataset/deepfashion2/validation/image/000054.jpg,9,skirt,BOTTOM,1,user,16,"[0, 74, 467, 601]",3,1,3,1
+000055_item2,dataset/deepfashion2/validation/image/000055.jpg,9,skirt,BOTTOM,1,user,16,"[78, 91, 385, 494]",2,2,1,2
+000055_item1,dataset/deepfashion2/validation/image/000055.jpg,1,short sleeve top,TOP,0,user,16,"[56, 0, 437, 152]",2,1,2,2
+000056_item1,dataset/deepfashion2/validation/image/000056.jpg,9,skirt,BOTTOM,1,user,16,"[0, 0, 467, 361]",3,1,3,2
+000057_item1,dataset/deepfashion2/validation/image/000057.jpg,9,skirt,BOTTOM,1,user,16,"[0, 32, 321, 467]",3,1,3,1
+000058_item1,dataset/deepfashion2/validation/image/000058.jpg,9,skirt,BOTTOM,1,user,16,"[0, 72, 467, 508]",3,1,3,1
+000059_item2,dataset/deepfashion2/validation/image/000059.jpg,9,skirt,BOTTOM,1,user,16,"[181, 84, 364, 284]",2,2,1,2
+000059_item1,dataset/deepfashion2/validation/image/000059.jpg,1,short sleeve top,TOP,0,user,16,"[139, 0, 390, 155]",2,1,2,2
+000060_item2,dataset/deepfashion2/validation/image/000060.jpg,9,skirt,BOTTOM,1,user,16,"[147, 246, 211, 317]",1,2,1,3
+000060_item1,dataset/deepfashion2/validation/image/000060.jpg,1,short sleeve top,TOP,0,user,16,"[164, 161, 231, 256]",1,2,1,3
+000061_item1,dataset/deepfashion2/validation/image/000061.jpg,9,skirt,BOTTOM,1,user,16,"[154, 200, 467, 558]",2,1,2,1
+000062_item1,dataset/deepfashion2/validation/image/000062.jpg,11,long sleeve dress,DRESS,1,user,17,"[1, 8, 623, 467]",3,1,2,1
+000063_item1,dataset/deepfashion2/validation/image/000063.jpg,11,long sleeve dress,DRESS,2,user,17,"[0, 229, 467, 623]",3,1,2,2
+000064_item1,dataset/deepfashion2/validation/image/000064.jpg,11,long sleeve dress,DRESS,1,user,17,"[0, 205, 467, 623]",3,1,2,2
+000065_item1,dataset/deepfashion2/validation/image/000065.jpg,11,long sleeve dress,DRESS,1,user,17,"[1, 1, 299, 378]",3,1,2,2
+000066_item2,dataset/deepfashion2/validation/image/000066.jpg,8,trousers,BOTTOM,0,user,18,"[43, 416, 378, 829]",2,2,3,2
+000066_item1,dataset/deepfashion2/validation/image/000066.jpg,2,long sleeve top,TOP,2,user,18,"[3, 0, 442, 794]",3,2,1,3
+000067_item2,dataset/deepfashion2/validation/image/000067.jpg,8,trousers,BOTTOM,0,user,18,"[114, 390, 323, 630]",2,2,3,3
+000067_item1,dataset/deepfashion2/validation/image/000067.jpg,2,long sleeve top,TOP,2,user,18,"[94, 198, 343, 569]",2,1,1,3
+000068_item2,dataset/deepfashion2/validation/image/000068.jpg,8,trousers,BOTTOM,0,user,18,"[80, 342, 344, 612]",2,2,1,2
+000068_item1,dataset/deepfashion2/validation/image/000068.jpg,2,long sleeve top,TOP,2,user,18,"[0, 0, 327, 514]",3,1,2,2
+000069_item2,dataset/deepfashion2/validation/image/000069.jpg,9,skirt,BOTTOM,2,user,19,"[97, 272, 440, 596]",2,1,1,1
+000069_item1,dataset/deepfashion2/validation/image/000069.jpg,1,short sleeve top,TOP,1,user,19,"[32, 44, 442, 593]",3,1,1,1
+000070_item2,dataset/deepfashion2/validation/image/000070.jpg,8,trousers,BOTTOM,0,user,20,"[59, 442, 386, 623]",2,2,3,2
+000070_item1,dataset/deepfashion2/validation/image/000070.jpg,1,short sleeve top,TOP,1,user,20,"[0, 0, 466, 562]",3,1,2,2
+000071_item2,dataset/deepfashion2/validation/image/000071.jpg,9,skirt,BOTTOM,0,user,20,"[171, 339, 337, 561]",2,3,1,3
+000071_item1,dataset/deepfashion2/validation/image/000071.jpg,1,short sleeve top,TOP,1,user,20,"[209, 113, 466, 441]",2,2,2,3
+000072_item2,dataset/deepfashion2/validation/image/000072.jpg,8,trousers,BOTTOM,0,user,20,"[105, 298, 282, 623]",2,2,2,2
+000072_item1,dataset/deepfashion2/validation/image/000072.jpg,1,short sleeve top,TOP,1,user,20,"[35, 49, 340, 378]",2,1,1,2
+000073_item2,dataset/deepfashion2/validation/image/000073.jpg,9,skirt,BOTTOM,0,user,20,"[132, 352, 350, 558]",2,2,1,2
+000073_item1,dataset/deepfashion2/validation/image/000073.jpg,1,short sleeve top,TOP,1,user,20,"[50, 63, 434, 382]",3,2,1,2
+000074_item2,dataset/deepfashion2/validation/image/000074.jpg,9,skirt,BOTTOM,0,user,20,"[89, 389, 400, 640]",2,2,1,2
+000074_item1,dataset/deepfashion2/validation/image/000074.jpg,1,short sleeve top,TOP,1,user,20,"[0, 71, 430, 430]",2,3,2,2
+000075_item2,dataset/deepfashion2/validation/image/000075.jpg,8,trousers,BOTTOM,0,user,20,"[163, 308, 322, 581]",2,2,1,2
+000075_item1,dataset/deepfashion2/validation/image/000075.jpg,1,short sleeve top,TOP,1,user,20,"[97, 61, 378, 357]",2,2,1,2
+000076_item2,dataset/deepfashion2/validation/image/000076.jpg,9,skirt,BOTTOM,0,user,20,"[69, 604, 324, 831]",2,1,2,2
+000076_item1,dataset/deepfashion2/validation/image/000076.jpg,1,short sleeve top,TOP,1,user,20,"[49, 249, 466, 718]",3,1,2,2
+000077_item2,dataset/deepfashion2/validation/image/000077.jpg,7,shorts,BOTTOM,0,user,20,"[55, 378, 376, 623]",2,2,2,2
+000077_item1,dataset/deepfashion2/validation/image/000077.jpg,1,short sleeve top,TOP,1,user,20,"[0, 3, 467, 496]",3,1,2,2
+000078_item2,dataset/deepfashion2/validation/image/000078.jpg,7,shorts,BOTTOM,0,user,20,"[151, 262, 292, 381]",1,1,1,2
+000078_item1,dataset/deepfashion2/validation/image/000078.jpg,1,short sleeve top,TOP,1,user,20,"[143, 139, 291, 269]",1,3,1,2
+000079_item1,dataset/deepfashion2/validation/image/000079.jpg,1,short sleeve top,TOP,2,user,21,"[0, 0, 465, 624]",3,1,3,1
+000080_item1,dataset/deepfashion2/validation/image/000080.jpg,5,vest,TOP,1,user,22,"[0, 14, 466, 685]",3,1,2,1
+000081_item1,dataset/deepfashion2/validation/image/000081.jpg,5,vest,TOP,1,user,22,"[2, 1, 465, 630]",3,1,3,1
+000082_item1,dataset/deepfashion2/validation/image/000082.jpg,5,vest,TOP,1,user,22,"[151, 2, 367, 338]",2,2,1,2
+000083_item2,dataset/deepfashion2/validation/image/000083.jpg,7,shorts,BOTTOM,0,user,22,"[0, 332, 466, 630]",3,1,3,2
+000083_item1,dataset/deepfashion2/validation/image/000083.jpg,5,vest,TOP,1,user,22,"[1, 4, 464, 377]",3,1,2,2
+000084_item1,dataset/deepfashion2/validation/image/000084.jpg,5,vest,TOP,1,user,22,"[154, 123, 336, 623]",2,2,1,2
+000085_item1,dataset/deepfashion2/validation/image/000085.jpg,10,short sleeve dress,DRESS,1,user,23,"[98, 131, 405, 613]",2,1,1,1
+000086_item1,dataset/deepfashion2/validation/image/000086.jpg,10,short sleeve dress,DRESS,1,user,23,"[213, 245, 333, 476]",1,1,1,3
+000087_item2,dataset/deepfashion2/validation/image/000087.jpg,1,short sleeve top,TOP,0,user,23,"[0, 278, 209, 623]",2,2,2,2
+000087_item1,dataset/deepfashion2/validation/image/000087.jpg,10,short sleeve dress,DRESS,1,user,23,"[231, 200, 467, 597]",2,2,2,3
+000088_item2,dataset/deepfashion2/validation/image/000088.jpg,1,short sleeve top,TOP,0,user,23,"[137, 154, 467, 542]",3,1,2,1
+000088_item1,dataset/deepfashion2/validation/image/000088.jpg,10,short sleeve dress,DRESS,1,user,23,"[0, 141, 272, 590]",3,2,2,1
+000089_item1,dataset/deepfashion2/validation/image/000089.jpg,10,short sleeve dress,DRESS,2,user,23,"[0, 4, 466, 615]",3,1,2,1
+000090_item1,dataset/deepfashion2/validation/image/000090.jpg,10,short sleeve dress,DRESS,1,user,23,"[39, 74, 355, 614]",3,2,1,2
+000091_item1,dataset/deepfashion2/validation/image/000091.jpg,10,short sleeve dress,DRESS,2,user,23,"[134, 0, 349, 369]",2,2,1,2
+000092_item1,dataset/deepfashion2/validation/image/000092.jpg,10,short sleeve dress,DRESS,1,user,23,"[0, 0, 467, 623]",3,1,3,1
+000093_item2,dataset/deepfashion2/validation/image/000093.jpg,10,short sleeve dress,DRESS,1,user,23,"[211, 0, 610, 466]",3,1,2,1
+000093_item1,dataset/deepfashion2/validation/image/000093.jpg,1,short sleeve top,TOP,0,user,23,"[1, 11, 310, 444]",3,2,2,1
+000094_item1,dataset/deepfashion2/validation/image/000094.jpg,10,short sleeve dress,DRESS,1,user,23,"[39, 73, 322, 411]",3,1,1,1
+000095_item1,dataset/deepfashion2/validation/image/000095.jpg,10,short sleeve dress,DRESS,1,user,23,"[106, 134, 467, 622]",3,1,2,3
+000096_item2,dataset/deepfashion2/validation/image/000096.jpg,1,short sleeve top,TOP,0,user,23,"[164, 159, 466, 545]",2,1,2,1
+000096_item1,dataset/deepfashion2/validation/image/000096.jpg,10,short sleeve dress,DRESS,1,user,23,"[1, 141, 279, 568]",3,2,2,1
+000097_item1,dataset/deepfashion2/validation/image/000097.jpg,10,short sleeve dress,DRESS,1,user,23,"[64, 5, 465, 763]",3,2,2,2
+000098_item1,dataset/deepfashion2/validation/image/000098.jpg,10,short sleeve dress,DRESS,1,user,23,"[1, 3, 350, 467]",3,1,2,1
+000099_item1,dataset/deepfashion2/validation/image/000099.jpg,10,short sleeve dress,DRESS,1,user,23,"[132, 117, 467, 623]",3,1,2,3
+000100_item1,dataset/deepfashion2/validation/image/000100.jpg,11,long sleeve dress,DRESS,1,user,24,"[112, 1, 428, 336]",3,2,2,2
+000101_item1,dataset/deepfashion2/validation/image/000101.jpg,8,trousers,BOTTOM,1,user,25,"[1, 0, 346, 467]",3,1,3,2
+000102_item1,dataset/deepfashion2/validation/image/000102.jpg,12,vest dress,DRESS,3,user,26,"[114, 91, 225, 303]",2,2,1,2
+000103_item1,dataset/deepfashion2/validation/image/000103.jpg,12,vest dress,DRESS,3,user,26,"[56, 102, 383, 547]",2,2,1,2
+000104_item1,dataset/deepfashion2/validation/image/000104.jpg,2,long sleeve top,TOP,1,user,27,"[0, 1, 467, 622]",3,1,3,1
+000105_item1,dataset/deepfashion2/validation/image/000105.jpg,2,long sleeve top,TOP,1,user,27,"[0, 0, 467, 622]",3,1,2,1
+000106_item1,dataset/deepfashion2/validation/image/000106.jpg,2,long sleeve top,TOP,1,user,27,"[0, 6, 467, 624]",3,1,2,1
+000107_item1,dataset/deepfashion2/validation/image/000107.jpg,2,long sleeve top,TOP,1,user,27,"[0, 209, 465, 830]",3,2,3,2
+000108_item1,dataset/deepfashion2/validation/image/000108.jpg,2,long sleeve top,TOP,1,user,27,"[0, 250, 467, 624]",3,1,2,2
+000109_item1,dataset/deepfashion2/validation/image/000109.jpg,4,long sleeve outwear,OUTERWEAR,2,user,28,"[35, 131, 413, 591]",3,1,1,1
+000110_item1,dataset/deepfashion2/validation/image/000110.jpg,4,long sleeve outwear,OUTERWEAR,2,user,28,"[34, 149, 424, 623]",3,1,1,1
+000111_item2,dataset/deepfashion2/validation/image/000111.jpg,9,skirt,BOTTOM,2,user,29,"[102, 137, 214, 283]",2,2,1,2
+000111_item1,dataset/deepfashion2/validation/image/000111.jpg,5,vest,TOP,1,user,29,"[112, 38, 214, 190]",2,1,1,2
+000112_item2,dataset/deepfashion2/validation/image/000112.jpg,9,skirt,BOTTOM,2,user,29,"[201, 375, 283, 463]",1,2,1,2
+000112_item1,dataset/deepfashion2/validation/image/000112.jpg,5,vest,TOP,1,user,29,"[210, 322, 280, 407]",1,2,1,2
+000113_item2,dataset/deepfashion2/validation/image/000113.jpg,9,skirt,BOTTOM,2,user,29,"[27, 189, 187, 399]",2,2,1,2
+000113_item1,dataset/deepfashion2/validation/image/000113.jpg,5,vest,TOP,1,user,29,"[53, 68, 259, 301]",2,1,1,3
+000114_item2,dataset/deepfashion2/validation/image/000114.jpg,9,skirt,BOTTOM,2,user,29,"[124, 180, 322, 437]",2,2,1,2
+000114_item1,dataset/deepfashion2/validation/image/000114.jpg,5,vest,TOP,1,user,29,"[137, 22, 350, 301]",2,1,1,2
+000115_item2,dataset/deepfashion2/validation/image/000115.jpg,9,skirt,BOTTOM,2,user,29,"[18, 197, 467, 623]",3,2,3,1
+000115_item1,dataset/deepfashion2/validation/image/000115.jpg,1,short sleeve top,TOP,1,user,29,"[2, 2, 467, 325]",3,1,2,1
+000116_item2,dataset/deepfashion2/validation/image/000116.jpg,9,skirt,BOTTOM,2,user,29,"[76, 305, 324, 600]",2,2,1,2
+000116_item1,dataset/deepfashion2/validation/image/000116.jpg,5,vest,TOP,1,user,29,"[55, 89, 410, 468]",3,1,1,2
+000117_item2,dataset/deepfashion2/validation/image/000117.jpg,9,skirt,BOTTOM,2,user,29,"[158, 169, 372, 388]",2,2,1,2
+000117_item1,dataset/deepfashion2/validation/image/000117.jpg,5,vest,TOP,1,user,29,"[129, 26, 315, 271]",2,1,1,2
+000118_item2,dataset/deepfashion2/validation/image/000118.jpg,9,skirt,BOTTOM,2,user,29,"[120, 188, 168, 240]",1,2,1,2
+000118_item1,dataset/deepfashion2/validation/image/000118.jpg,5,vest,TOP,1,user,29,"[121, 152, 167, 206]",1,3,1,2
+000119_item2,dataset/deepfashion2/validation/image/000119.jpg,9,skirt,BOTTOM,2,user,29,"[173, 222, 369, 350]",2,2,3,2
+000119_item1,dataset/deepfashion2/validation/image/000119.jpg,5,vest,TOP,1,user,29,"[160, 97, 332, 314]",2,1,1,2
+000120_item2,dataset/deepfashion2/validation/image/000120.jpg,9,skirt,BOTTOM,2,user,29,"[190, 387, 268, 471]",1,2,1,2
+000120_item1,dataset/deepfashion2/validation/image/000120.jpg,5,vest,TOP,1,user,29,"[198, 321, 261, 411]",1,2,1,2
+000121_item2,dataset/deepfashion2/validation/image/000121.jpg,9,skirt,BOTTOM,2,user,29,"[27, 281, 231, 399]",2,3,2,2
+000121_item1,dataset/deepfashion2/validation/image/000121.jpg,5,vest,TOP,1,user,29,"[30, 155, 163, 359]",2,2,1,2
+000121_item3,dataset/deepfashion2/validation/image/000121.jpg,1,short sleeve top,TOP,0,user,29,"[20, 127, 72, 179]",1,2,1,3
+000122_item1,dataset/deepfashion2/validation/image/000122.jpg,5,vest,TOP,1,user,29,"[8, 240, 467, 623]",3,1,2,3
+000123_item2,dataset/deepfashion2/validation/image/000123.jpg,9,skirt,BOTTOM,2,user,29,"[24, 175, 204, 364]",2,2,1,2
+000123_item1,dataset/deepfashion2/validation/image/000123.jpg,5,vest,TOP,1,user,29,"[64, 49, 246, 259]",2,2,1,2
+000124_item2,dataset/deepfashion2/validation/image/000124.jpg,9,skirt,BOTTOM,2,user,29,"[24, 146, 183, 308]",2,2,1,2
+000124_item1,dataset/deepfashion2/validation/image/000124.jpg,5,vest,TOP,1,user,29,"[55, 40, 213, 222]",2,2,1,2
+000125_item1,dataset/deepfashion2/validation/image/000125.jpg,2,long sleeve top,TOP,2,user,30,"[160, 227, 315, 448]",2,1,1,3
+000126_item2,dataset/deepfashion2/validation/image/000126.jpg,9,skirt,BOTTOM,0,user,30,"[172, 315, 281, 546]",1,2,1,2
+000126_item1,dataset/deepfashion2/validation/image/000126.jpg,2,long sleeve top,TOP,2,user,30,"[150, 0, 309, 335]",2,1,1,2
+000127_item2,dataset/deepfashion2/validation/image/000127.jpg,1,short sleeve top,TOP,1,user,31,"[77, 0, 319, 237]",2,2,2,2
+000127_item1,dataset/deepfashion2/validation/image/000127.jpg,13,sling dress,DRESS,2,user,31,"[85, 2, 284, 378]",2,1,1,2
+000128_item1,dataset/deepfashion2/validation/image/000128.jpg,12,vest dress,DRESS,1,user,32,"[157, 60, 321, 405]",2,2,1,2
+000129_item2,dataset/deepfashion2/validation/image/000129.jpg,9,skirt,BOTTOM,1,user,33,"[1, 190, 467, 623]",3,2,2,2
+000129_item1,dataset/deepfashion2/validation/image/000129.jpg,1,short sleeve top,TOP,0,user,33,"[1, 0, 446, 300]",3,1,3,2
+000130_item2,dataset/deepfashion2/validation/image/000130.jpg,9,skirt,BOTTOM,1,user,33,"[63, 121, 291, 315]",2,1,1,2
+000130_item1,dataset/deepfashion2/validation/image/000130.jpg,1,short sleeve top,TOP,0,user,33,"[80, 1, 238, 135]",2,1,2,2
+000131_item1,dataset/deepfashion2/validation/image/000131.jpg,9,skirt,BOTTOM,1,user,33,"[0, 9, 467, 532]",3,2,3,2
+000132_item2,dataset/deepfashion2/validation/image/000132.jpg,9,skirt,BOTTOM,1,user,33,"[191, 97, 294, 276]",1,1,1,2
+000132_item1,dataset/deepfashion2/validation/image/000132.jpg,1,short sleeve top,TOP,0,user,33,"[189, 1, 295, 103]",1,2,2,2
+000133_item2,dataset/deepfashion2/validation/image/000133.jpg,9,skirt,BOTTOM,1,user,33,"[161, 82, 334, 282]",2,2,1,2
+000133_item1,dataset/deepfashion2/validation/image/000133.jpg,1,short sleeve top,TOP,0,user,33,"[152, 1, 269, 92]",1,2,2,2
+000134_item2,dataset/deepfashion2/validation/image/000134.jpg,9,skirt,BOTTOM,1,user,33,"[104, 133, 214, 322]",2,1,1,2
+000134_item1,dataset/deepfashion2/validation/image/000134.jpg,1,short sleeve top,TOP,0,user,33,"[97, 36, 235, 146]",2,2,1,2
+000135_item1,dataset/deepfashion2/validation/image/000135.jpg,9,skirt,BOTTOM,1,user,33,"[0, 0, 399, 299]",3,1,3,1
+000136_item1,dataset/deepfashion2/validation/image/000136.jpg,12,vest dress,DRESS,1,user,34,"[105, 86, 187, 238]",2,2,1,2
+000137_item1,dataset/deepfashion2/validation/image/000137.jpg,10,short sleeve dress,DRESS,1,user,35,"[7, 131, 467, 623]",3,1,1,2
+000138_item1,dataset/deepfashion2/validation/image/000138.jpg,12,vest dress,DRESS,1,user,36,"[3, 202, 466, 823]",3,2,2,2
+000139_item1,dataset/deepfashion2/validation/image/000139.jpg,12,vest dress,DRESS,1,user,36,"[1, 233, 466, 823]",3,2,2,2
+000140_item1,dataset/deepfashion2/validation/image/000140.jpg,4,long sleeve outwear,OUTERWEAR,1,user,37,"[0, 2, 467, 623]",3,1,3,1
+000141_item2,dataset/deepfashion2/validation/image/000141.jpg,8,trousers,BOTTOM,0,user,37,"[2, 683, 466, 828]",2,1,3,1
+000141_item1,dataset/deepfashion2/validation/image/000141.jpg,2,long sleeve top,TOP,1,user,37,"[3, 118, 466, 737]",3,1,3,1
+000142_item2,dataset/deepfashion2/validation/image/000142.jpg,2,long sleeve top,TOP,1,user,37,"[149, 25, 467, 350]",3,1,2,1
+000142_item1,dataset/deepfashion2/validation/image/000142.jpg,2,long sleeve top,TOP,1,user,37,"[3, 9, 277, 321]",3,2,2,1
+000143_item1,dataset/deepfashion2/validation/image/000143.jpg,4,long sleeve outwear,OUTERWEAR,1,user,37,"[1, 98, 466, 705]",3,1,2,1
+000144_item1,dataset/deepfashion2/validation/image/000144.jpg,2,long sleeve top,TOP,1,user,37,"[6, 24, 464, 785]",3,1,2,1
+000145_item1,dataset/deepfashion2/validation/image/000145.jpg,4,long sleeve outwear,OUTERWEAR,1,user,37,"[66, 42, 400, 449]",3,2,1,1
+000146_item1,dataset/deepfashion2/validation/image/000146.jpg,4,long sleeve outwear,OUTERWEAR,1,user,37,"[1, 54, 466, 697]",3,1,2,1
+000147_item1,dataset/deepfashion2/validation/image/000147.jpg,2,long sleeve top,TOP,1,user,37,"[9, 0, 467, 261]",3,1,2,1
+000148_item1,dataset/deepfashion2/validation/image/000148.jpg,2,long sleeve top,TOP,1,user,37,"[0, 29, 466, 720]",3,1,2,1
+000149_item2,dataset/deepfashion2/validation/image/000149.jpg,8,trousers,BOTTOM,0,user,37,"[290, 366, 422, 621]",2,2,1,2
+000149_item1,dataset/deepfashion2/validation/image/000149.jpg,2,long sleeve top,TOP,2,user,37,"[281, 218, 445, 412]",2,2,1,2
+000150_item1,dataset/deepfashion2/validation/image/000150.jpg,2,long sleeve top,TOP,1,user,37,"[0, 54, 465, 603]",3,1,2,1
+000151_item1,dataset/deepfashion2/validation/image/000151.jpg,2,long sleeve top,TOP,1,user,37,"[0, 0, 466, 611]",3,1,3,1
+000152_item2,dataset/deepfashion2/validation/image/000152.jpg,8,trousers,BOTTOM,0,user,37,"[0, 402, 442, 623]",2,2,3,2
+000152_item1,dataset/deepfashion2/validation/image/000152.jpg,2,long sleeve top,TOP,1,user,37,"[18, 0, 466, 502]",3,2,2,3
+000153_item2,dataset/deepfashion2/validation/image/000153.jpg,8,trousers,BOTTOM,0,user,37,"[117, 434, 321, 829]",2,2,1,2
+000153_item1,dataset/deepfashion2/validation/image/000153.jpg,2,long sleeve top,TOP,1,user,37,"[72, 205, 329, 522]",2,1,1,2
+000154_item2,dataset/deepfashion2/validation/image/000154.jpg,8,trousers,BOTTOM,0,user,37,"[291, 282, 422, 454]",1,2,1,3
+000154_item1,dataset/deepfashion2/validation/image/000154.jpg,2,long sleeve top,TOP,2,user,37,"[234, 183, 419, 345]",2,1,1,3
+000155_item1,dataset/deepfashion2/validation/image/000155.jpg,2,long sleeve top,TOP,1,user,37,"[0, 1, 467, 349]",3,1,2,2
+000156_item1,dataset/deepfashion2/validation/image/000156.jpg,2,long sleeve top,TOP,2,user,37,"[0, 318, 464, 830]",3,1,3,2
+000157_item1,dataset/deepfashion2/validation/image/000157.jpg,4,long sleeve outwear,OUTERWEAR,1,user,37,"[3, 9, 467, 616]",3,1,2,1
+000158_item2,dataset/deepfashion2/validation/image/000158.jpg,2,long sleeve top,TOP,2,user,37,"[198, 50, 467, 262]",3,2,2,2
+000158_item1,dataset/deepfashion2/validation/image/000158.jpg,2,long sleeve top,TOP,2,user,37,"[1, 68, 231, 262]",2,2,2,3
+000159_item2,dataset/deepfashion2/validation/image/000159.jpg,2,long sleeve top,TOP,2,user,37,"[242, 69, 467, 262]",2,2,3,2
+000159_item1,dataset/deepfashion2/validation/image/000159.jpg,2,long sleeve top,TOP,2,user,37,"[0, 68, 286, 262]",3,2,2,2
+000160_item1,dataset/deepfashion2/validation/image/000160.jpg,2,long sleeve top,TOP,1,user,38,"[28, 35, 466, 623]",3,1,2,2
+000161_item2,dataset/deepfashion2/validation/image/000161.jpg,9,skirt,BOTTOM,1,user,39,"[172, 210, 333, 374]",1,2,1,2
+000161_item1,dataset/deepfashion2/validation/image/000161.jpg,1,short sleeve top,TOP,0,user,39,"[172, 100, 335, 225]",1,1,1,2
+000162_item1,dataset/deepfashion2/validation/image/000162.jpg,11,long sleeve dress,DRESS,3,user,40,"[0, 0, 467, 610]",3,2,2,2
+000163_item1,dataset/deepfashion2/validation/image/000163.jpg,11,long sleeve dress,DRESS,3,user,40,"[27, 129, 257, 434]",3,3,2,2
+000164_item1,dataset/deepfashion2/validation/image/000164.jpg,11,long sleeve dress,DRESS,3,user,40,"[114, 0, 466, 793]",3,1,2,2
+000165_item1,dataset/deepfashion2/validation/image/000165.jpg,11,long sleeve dress,DRESS,3,user,40,"[254, 223, 406, 600]",2,2,1,3
+000166_item1,dataset/deepfashion2/validation/image/000166.jpg,11,long sleeve dress,DRESS,3,user,40,"[57, 10, 276, 399]",3,1,2,1
+000167_item1,dataset/deepfashion2/validation/image/000167.jpg,11,long sleeve dress,DRESS,3,user,40,"[92, 5, 199, 229]",2,3,1,2
+000168_item1,dataset/deepfashion2/validation/image/000168.jpg,1,short sleeve top,TOP,1,user,41,"[42, 125, 356, 623]",3,1,2,1
+000169_item2,dataset/deepfashion2/validation/image/000169.jpg,1,short sleeve top,TOP,1,user,41,"[113, 0, 427, 372]",2,2,2,1
+000169_item1,dataset/deepfashion2/validation/image/000169.jpg,12,vest dress,DRESS,0,user,41,"[86, 0, 315, 623]",3,1,2,1
+000170_item1,dataset/deepfashion2/validation/image/000170.jpg,1,short sleeve top,TOP,1,user,41,"[0, 12, 465, 624]",3,1,2,1
+000171_item2,dataset/deepfashion2/validation/image/000171.jpg,1,short sleeve top,TOP,1,user,41,"[233, 0, 452, 303]",3,1,2,1
+000171_item1,dataset/deepfashion2/validation/image/000171.jpg,12,vest dress,DRESS,0,user,41,"[108, 0, 259, 350]",2,1,2,1
+000172_item2,dataset/deepfashion2/validation/image/000172.jpg,1,short sleeve top,TOP,1,user,41,"[126, 61, 226, 350]",2,1,1,1
+000172_item1,dataset/deepfashion2/validation/image/000172.jpg,12,vest dress,DRESS,0,user,41,"[217, 18, 332, 350]",2,1,2,1
+000173_item1,dataset/deepfashion2/validation/image/000173.jpg,1,short sleeve top,TOP,1,user,41,"[0, 0, 466, 623]",3,1,2,1
+000174_item1,dataset/deepfashion2/validation/image/000174.jpg,1,short sleeve top,TOP,1,user,41,"[86, 0, 414, 537]",3,1,2,3
+000175_item1,dataset/deepfashion2/validation/image/000175.jpg,1,short sleeve top,TOP,1,user,41,"[0, 0, 465, 623]",3,1,3,2
+000176_item1,dataset/deepfashion2/validation/image/000176.jpg,1,short sleeve top,TOP,1,user,41,"[0, 71, 466, 609]",3,1,2,1
+000177_item2,dataset/deepfashion2/validation/image/000177.jpg,7,shorts,BOTTOM,0,user,41,"[53, 456, 323, 623]",2,2,2,2
+000177_item1,dataset/deepfashion2/validation/image/000177.jpg,1,short sleeve top,TOP,1,user,41,"[109, 171, 466, 613]",3,1,2,3
+000178_item2,dataset/deepfashion2/validation/image/000178.jpg,1,short sleeve top,TOP,1,user,41,"[89, 63, 291, 350]",2,2,2,1
+000178_item1,dataset/deepfashion2/validation/image/000178.jpg,12,vest dress,DRESS,0,user,41,"[222, 5, 369, 350]",2,1,2,1
+000179_item1,dataset/deepfashion2/validation/image/000179.jpg,1,short sleeve top,TOP,6,user,42,"[76, 6, 385, 345]",3,1,2,1
+000180_item2,dataset/deepfashion2/validation/image/000180.jpg,7,shorts,BOTTOM,0,user,42,"[221, 231, 311, 310]",1,3,1,2
+000180_item1,dataset/deepfashion2/validation/image/000180.jpg,1,short sleeve top,TOP,6,user,42,"[216, 129, 313, 266]",1,1,1,2
+000181_item1,dataset/deepfashion2/validation/image/000181.jpg,1,short sleeve top,TOP,6,user,42,"[78, 289, 466, 621]",3,2,2,2
+000182_item2,dataset/deepfashion2/validation/image/000182.jpg,8,trousers,BOTTOM,0,user,42,"[76, 434, 346, 623]",2,2,2,2
+000182_item1,dataset/deepfashion2/validation/image/000182.jpg,1,short sleeve top,TOP,6,user,42,"[61, 1, 466, 557]",3,1,2,2
+000183_item1,dataset/deepfashion2/validation/image/000183.jpg,1,short sleeve top,TOP,9,user,42,"[88, 386, 466, 821]",3,1,2,2
+000184_item1,dataset/deepfashion2/validation/image/000184.jpg,1,short sleeve top,TOP,6,user,42,"[48, 315, 412, 623]",2,2,2,2
+000185_item1,dataset/deepfashion2/validation/image/000185.jpg,1,short sleeve top,TOP,6,user,42,"[2, 292, 441, 829]",3,1,2,2
+000186_item1,dataset/deepfashion2/validation/image/000186.jpg,1,short sleeve top,TOP,6,user,42,"[128, 139, 466, 623]",3,2,2,2
+000187_item1,dataset/deepfashion2/validation/image/000187.jpg,10,short sleeve dress,DRESS,1,user,43,"[26, 43, 266, 467]",3,1,2,1
+000188_item1,dataset/deepfashion2/validation/image/000188.jpg,10,short sleeve dress,DRESS,1,user,43,"[0, 32, 434, 830]",3,1,2,2
+000189_item1,dataset/deepfashion2/validation/image/000189.jpg,10,short sleeve dress,DRESS,1,user,43,"[79, 12, 400, 543]",3,2,1,2
+000190_item1,dataset/deepfashion2/validation/image/000190.jpg,10,short sleeve dress,DRESS,1,user,43,"[109, 14, 362, 547]",3,2,1,2
+000191_item1,dataset/deepfashion2/validation/image/000191.jpg,10,short sleeve dress,DRESS,1,user,43,"[0, 27, 432, 623]",3,1,2,1
+000192_item1,dataset/deepfashion2/validation/image/000192.jpg,10,short sleeve dress,DRESS,1,user,43,"[81, 146, 327, 665]",2,2,1,2
+000193_item1,dataset/deepfashion2/validation/image/000193.jpg,4,long sleeve outwear,OUTERWEAR,1,user,44,"[79, 1, 415, 624]",3,2,2,1
+000194_item2,dataset/deepfashion2/validation/image/000194.jpg,8,trousers,BOTTOM,0,user,44,"[197, 237, 323, 573]",2,3,1,2
+000194_item1,dataset/deepfashion2/validation/image/000194.jpg,4,long sleeve outwear,OUTERWEAR,2,user,44,"[117, 0, 381, 436]",2,2,2,2
+000195_item2,dataset/deepfashion2/validation/image/000195.jpg,8,trousers,BOTTOM,0,user,44,"[155, 299, 280, 561]",2,3,1,2
+000195_item1,dataset/deepfashion2/validation/image/000195.jpg,4,long sleeve outwear,OUTERWEAR,2,user,44,"[128, 130, 324, 453]",2,2,1,2
+000196_item2,dataset/deepfashion2/validation/image/000196.jpg,8,trousers,BOTTOM,0,user,44,"[189, 199, 300, 499]",2,2,1,2
+000196_item1,dataset/deepfashion2/validation/image/000196.jpg,4,long sleeve outwear,OUTERWEAR,2,user,44,"[114, 0, 326, 362]",2,1,2,2
+000197_item2,dataset/deepfashion2/validation/image/000197.jpg,8,trousers,BOTTOM,0,user,44,"[154, 188, 263, 507]",2,3,1,3
+000197_item1,dataset/deepfashion2/validation/image/000197.jpg,4,long sleeve outwear,OUTERWEAR,2,user,44,"[114, 0, 271, 390]",2,1,2,2
+000198_item1,dataset/deepfashion2/validation/image/000198.jpg,4,long sleeve outwear,OUTERWEAR,2,user,44,"[0, 0, 357, 606]",3,1,3,2
+000199_item1,dataset/deepfashion2/validation/image/000199.jpg,4,long sleeve outwear,OUTERWEAR,1,user,44,"[46, 1, 443, 607]",3,1,1,1
+000200_item1,dataset/deepfashion2/validation/image/000200.jpg,4,long sleeve outwear,OUTERWEAR,2,user,44,"[32, 76, 421, 624]",3,2,2,2
+000201_item2,dataset/deepfashion2/validation/image/000201.jpg,9,skirt,BOTTOM,4,user,45,"[0, 246, 348, 548]",2,1,2,2
+000201_item1,dataset/deepfashion2/validation/image/000201.jpg,5,vest,TOP,9,user,45,"[142, 1, 466, 479]",3,1,2,3
+000202_item2,dataset/deepfashion2/validation/image/000202.jpg,9,skirt,BOTTOM,4,user,45,"[125, 342, 390, 623]",2,2,2,2
+000202_item1,dataset/deepfashion2/validation/image/000202.jpg,5,vest,TOP,9,user,45,"[0, 1, 382, 496]",3,1,2,2
+000203_item1,dataset/deepfashion2/validation/image/000203.jpg,5,vest,TOP,9,user,45,"[42, 285, 466, 623]",3,1,2,2
+000204_item1,dataset/deepfashion2/validation/image/000204.jpg,1,short sleeve top,TOP,1,user,46,"[0, 0, 467, 623]",3,1,3,1
+000205_item1,dataset/deepfashion2/validation/image/000205.jpg,9,skirt,BOTTOM,4,user,47,"[0, 83, 467, 623]",3,1,2,1
+000206_item2,dataset/deepfashion2/validation/image/000206.jpg,9,skirt,BOTTOM,4,user,47,"[76, 180, 267, 362]",2,1,1,2
+000206_item1,dataset/deepfashion2/validation/image/000206.jpg,1,short sleeve top,TOP,0,user,47,"[72, 11, 259, 198]",2,3,1,2
+000207_item2,dataset/deepfashion2/validation/image/000207.jpg,9,skirt,BOTTOM,1,user,47,"[98, 187, 262, 315]",2,2,1,2
+000207_item1,dataset/deepfashion2/validation/image/000207.jpg,5,vest,TOP,0,user,47,"[124, 114, 228, 208]",1,1,1,2
+000208_item2,dataset/deepfashion2/validation/image/000208.jpg,1,short sleeve top,TOP,0,user,47,"[112, 34, 178, 96]",1,1,1,2
+000208_item1,dataset/deepfashion2/validation/image/000208.jpg,9,skirt,BOTTOM,4,user,47,"[89, 76, 199, 167]",1,1,1,3
+000209_item1,dataset/deepfashion2/validation/image/000209.jpg,9,skirt,BOTTOM,3,user,47,"[2, 224, 467, 631]",3,1,2,1
+000210_item1,dataset/deepfashion2/validation/image/000210.jpg,9,skirt,BOTTOM,4,user,47,"[24, 1, 366, 289]",3,1,2,1
+000211_item1,dataset/deepfashion2/validation/image/000211.jpg,9,skirt,BOTTOM,2,user,47,"[1, 1, 379, 297]",3,1,2,1
+000212_item2,dataset/deepfashion2/validation/image/000212.jpg,9,skirt,BOTTOM,4,user,47,"[172, 204, 310, 324]",1,1,1,3
+000212_item1,dataset/deepfashion2/validation/image/000212.jpg,1,short sleeve top,TOP,0,user,47,"[181, 93, 278, 223]",1,1,1,3
+000213_item2,dataset/deepfashion2/validation/image/000213.jpg,9,skirt,BOTTOM,3,user,47,"[57, 167, 269, 377]",2,1,1,2
+000213_item1,dataset/deepfashion2/validation/image/000213.jpg,1,short sleeve top,TOP,0,user,47,"[33, 1, 304, 207]",2,2,2,2
+000214_item2,dataset/deepfashion2/validation/image/000214.jpg,9,skirt,BOTTOM,2,user,47,"[88, 188, 175, 280]",1,1,1,2
+000214_item1,dataset/deepfashion2/validation/image/000214.jpg,1,short sleeve top,TOP,0,user,47,"[74, 101, 182, 195]",1,1,1,2
+000215_item1,dataset/deepfashion2/validation/image/000215.jpg,9,skirt,BOTTOM,3,user,47,"[66, 15, 153, 101]",1,1,1,2
+000216_item2,dataset/deepfashion2/validation/image/000216.jpg,13,sling dress,DRESS,1,user,48,"[117, 10, 297, 475]",2,1,1,2
+000216_item1,dataset/deepfashion2/validation/image/000216.jpg,1,short sleeve top,TOP,0,user,48,"[100, 3, 325, 221]",2,2,1,2
+000217_item2,dataset/deepfashion2/validation/image/000217.jpg,8,trousers,BOTTOM,0,user,49,"[238, 321, 324, 518]",1,2,1,2
+000217_item1,dataset/deepfashion2/validation/image/000217.jpg,1,short sleeve top,TOP,1,user,49,"[226, 198, 357, 342]",1,2,1,2
+000218_item1,dataset/deepfashion2/validation/image/000218.jpg,1,short sleeve top,TOP,1,user,49,"[1, 78, 447, 619]",3,1,1,1
+000219_item2,dataset/deepfashion2/validation/image/000219.jpg,8,trousers,BOTTOM,0,user,49,"[0, 464, 448, 623]",2,2,2,2
+000219_item1,dataset/deepfashion2/validation/image/000219.jpg,1,short sleeve top,TOP,1,user,49,"[1, 159, 401, 526]",3,1,2,2
+000220_item1,dataset/deepfashion2/validation/image/000220.jpg,1,short sleeve top,TOP,1,user,49,"[0, 1, 466, 830]",3,3,2,2
+000221_item1,dataset/deepfashion2/validation/image/000221.jpg,1,short sleeve top,TOP,1,user,49,"[76, 93, 465, 624]",3,1,2,2
+000222_item1,dataset/deepfashion2/validation/image/000222.jpg,1,short sleeve top,TOP,1,user,49,"[0, 0, 466, 623]",3,1,3,1
+000223_item2,dataset/deepfashion2/validation/image/000223.jpg,8,trousers,BOTTOM,0,user,49,"[140, 418, 285, 712]",1,2,1,3
+000223_item1,dataset/deepfashion2/validation/image/000223.jpg,1,short sleeve top,TOP,1,user,49,"[100, 179, 301, 466]",2,2,1,3
+000224_item2,dataset/deepfashion2/validation/image/000224.jpg,7,shorts,BOTTOM,0,user,49,"[23, 390, 434, 623]",2,2,2,2
+000224_item1,dataset/deepfashion2/validation/image/000224.jpg,1,short sleeve top,TOP,1,user,49,"[0, 0, 466, 508]",3,1,3,2
+000225_item1,dataset/deepfashion2/validation/image/000225.jpg,1,short sleeve top,TOP,1,user,49,"[0, 195, 466, 778]",3,1,2,2
+000226_item1,dataset/deepfashion2/validation/image/000226.jpg,1,short sleeve top,TOP,1,user,49,"[1, 159, 361, 597]",3,2,2,3
+000227_item1,dataset/deepfashion2/validation/image/000227.jpg,1,short sleeve top,TOP,1,user,49,"[0, 58, 467, 623]",3,1,2,2
+000228_item1,dataset/deepfashion2/validation/image/000228.jpg,1,short sleeve top,TOP,1,user,49,"[0, 228, 464, 830]",3,2,3,2
+000229_item1,dataset/deepfashion2/validation/image/000229.jpg,1,short sleeve top,TOP,1,user,49,"[0, 235, 466, 778]",3,2,2,2
+000230_item1,dataset/deepfashion2/validation/image/000230.jpg,1,short sleeve top,TOP,1,user,49,"[0, 281, 464, 824]",3,2,3,2
+000231_item2,dataset/deepfashion2/validation/image/000231.jpg,8,trousers,BOTTOM,0,user,49,"[175, 378, 278, 597]",1,2,1,2
+000231_item1,dataset/deepfashion2/validation/image/000231.jpg,1,short sleeve top,TOP,1,user,49,"[176, 233, 296, 432]",1,2,1,2
+000232_item1,dataset/deepfashion2/validation/image/000232.jpg,1,short sleeve top,TOP,1,user,49,"[0, 178, 402, 623]",3,1,2,2
+000233_item1,dataset/deepfashion2/validation/image/000233.jpg,1,short sleeve top,TOP,1,user,49,"[0, 84, 466, 623]",3,1,3,1
+000234_item2,dataset/deepfashion2/validation/image/000234.jpg,7,shorts,BOTTOM,0,user,49,"[152, 351, 347, 483]",1,2,1,3
+000234_item1,dataset/deepfashion2/validation/image/000234.jpg,1,short sleeve top,TOP,1,user,49,"[117, 137, 388, 379]",2,1,1,3
+000235_item2,dataset/deepfashion2/validation/image/000235.jpg,9,skirt,BOTTOM,0,user,49,"[51, 400, 445, 623]",2,1,2,2
+000235_item1,dataset/deepfashion2/validation/image/000235.jpg,1,short sleeve top,TOP,1,user,49,"[0, 0, 466, 448]",3,1,2,2
+000236_item1,dataset/deepfashion2/validation/image/000236.jpg,4,long sleeve outwear,OUTERWEAR,1,user,50,"[0, 36, 467, 607]",3,1,2,1
+000237_item1,dataset/deepfashion2/validation/image/000237.jpg,4,long sleeve outwear,OUTERWEAR,2,user,50,"[4, 31, 449, 339]",3,1,1,1
+000238_item2,dataset/deepfashion2/validation/image/000238.jpg,2,long sleeve top,TOP,0,user,51,"[32, 0, 259, 280]",2,1,2,2
+000238_item1,dataset/deepfashion2/validation/image/000238.jpg,8,trousers,BOTTOM,2,user,51,"[87, 238, 243, 516]",2,2,1,2
+000239_item1,dataset/deepfashion2/validation/image/000239.jpg,8,trousers,BOTTOM,2,user,51,"[73, 0, 444, 380]",3,1,2,2
+000240_item1,dataset/deepfashion2/validation/image/000240.jpg,11,long sleeve dress,DRESS,1,user,52,"[0, 95, 467, 505]",3,1,2,1
+000241_item1,dataset/deepfashion2/validation/image/000241.jpg,11,long sleeve dress,DRESS,1,user,52,"[0, 26, 467, 590]",3,1,3,1
+000242_item1,dataset/deepfashion2/validation/image/000242.jpg,11,long sleeve dress,DRESS,1,user,52,"[1, 1, 467, 624]",3,3,2,1
+000243_item1,dataset/deepfashion2/validation/image/000243.jpg,11,long sleeve dress,DRESS,1,user,52,"[0, 61, 350, 413]",3,1,2,1
+000244_item2,dataset/deepfashion2/validation/image/000244.jpg,8,trousers,BOTTOM,0,user,52,"[137, 322, 284, 719]",2,2,1,2
+000244_item1,dataset/deepfashion2/validation/image/000244.jpg,11,long sleeve dress,DRESS,1,user,52,"[99, 96, 324, 525]",2,2,1,2
+000245_item1,dataset/deepfashion2/validation/image/000245.jpg,11,long sleeve dress,DRESS,1,user,52,"[34, 52, 440, 594]",3,1,1,1
+000246_item1,dataset/deepfashion2/validation/image/000246.jpg,11,long sleeve dress,DRESS,1,user,52,"[5, 16, 458, 771]",3,1,1,1
+000247_item1,dataset/deepfashion2/validation/image/000247.jpg,11,long sleeve dress,DRESS,1,user,52,"[0, 106, 467, 573]",3,1,2,1
+000248_item1,dataset/deepfashion2/validation/image/000248.jpg,11,long sleeve dress,DRESS,1,user,52,"[0, 147, 467, 831]",3,1,2,2
+000249_item1,dataset/deepfashion2/validation/image/000249.jpg,11,long sleeve dress,DRESS,1,user,52,"[13, 0, 458, 768]",3,1,2,1
+000250_item1,dataset/deepfashion2/validation/image/000250.jpg,11,long sleeve dress,DRESS,1,user,52,"[0, 27, 467, 631]",3,2,2,2
+000251_item1,dataset/deepfashion2/validation/image/000251.jpg,11,long sleeve dress,DRESS,1,user,52,"[33, 32, 427, 563]",3,1,1,1
+000252_item2,dataset/deepfashion2/validation/image/000252.jpg,8,trousers,BOTTOM,0,user,52,"[139, 364, 324, 818]",2,2,1,2
+000252_item1,dataset/deepfashion2/validation/image/000252.jpg,11,long sleeve dress,DRESS,1,user,52,"[126, 134, 402, 638]",2,2,1,2
+000253_item2,dataset/deepfashion2/validation/image/000253.jpg,8,trousers,BOTTOM,0,user,52,"[160, 295, 335, 693]",2,2,1,2
+000253_item1,dataset/deepfashion2/validation/image/000253.jpg,11,long sleeve dress,DRESS,1,user,52,"[120, 31, 374, 400]",2,2,1,2
+000254_item1,dataset/deepfashion2/validation/image/000254.jpg,11,long sleeve dress,DRESS,1,user,52,"[31, 9, 427, 624]",3,1,2,1
+000255_item2,dataset/deepfashion2/validation/image/000255.jpg,11,long sleeve dress,DRESS,1,user,52,"[198, 294, 294, 443]",1,3,1,2
+000255_item1,dataset/deepfashion2/validation/image/000255.jpg,8,trousers,BOTTOM,0,user,52,"[226, 403, 282, 531]",1,2,1,2
+000256_item1,dataset/deepfashion2/validation/image/000256.jpg,11,long sleeve dress,DRESS,1,user,52,"[0, 45, 467, 631]",3,2,2,2
+000257_item1,dataset/deepfashion2/validation/image/000257.jpg,11,long sleeve dress,DRESS,1,user,52,"[137, 46, 374, 375]",2,1,1,2
+000258_item2,dataset/deepfashion2/validation/image/000258.jpg,8,trousers,BOTTOM,0,user,52,"[71, 285, 202, 482]",1,2,1,2
+000258_item3,dataset/deepfashion2/validation/image/000258.jpg,8,trousers,BOTTOM,0,user,52,"[199, 374, 345, 603]",2,2,1,3
+000258_item1,dataset/deepfashion2/validation/image/000258.jpg,11,long sleeve dress,DRESS,1,user,52,"[17, 101, 290, 431]",2,3,1,2
+000258_item4,dataset/deepfashion2/validation/image/000258.jpg,2,long sleeve top,TOP,0,user,52,"[228, 168, 467, 562]",2,1,2,3
+000259_item1,dataset/deepfashion2/validation/image/000259.jpg,9,skirt,BOTTOM,2,user,53,"[0, 153, 467, 623]",3,1,2,1
+000260_item2,dataset/deepfashion2/validation/image/000260.jpg,9,skirt,BOTTOM,2,user,53,"[158, 292, 326, 462]",1,2,1,2
+000260_item1,dataset/deepfashion2/validation/image/000260.jpg,4,long sleeve outwear,OUTERWEAR,0,user,53,"[130, 146, 340, 396]",2,2,1,2
+000261_item2,dataset/deepfashion2/validation/image/000261.jpg,9,skirt,BOTTOM,2,user,53,"[184, 255, 324, 397]",1,2,1,2
+000261_item1,dataset/deepfashion2/validation/image/000261.jpg,1,short sleeve top,TOP,0,user,53,"[160, 131, 366, 275]",2,1,1,2
+000262_item2,dataset/deepfashion2/validation/image/000262.jpg,9,skirt,BOTTOM,2,user,53,"[20, 238, 467, 597]",3,1,1,1
+000262_item1,dataset/deepfashion2/validation/image/000262.jpg,1,short sleeve top,TOP,0,user,53,"[41, 4, 464, 328]",3,1,2,1
+000263_item1,dataset/deepfashion2/validation/image/000263.jpg,9,skirt,BOTTOM,2,user,53,"[1, 171, 467, 509]",3,1,2,1
+000264_item2,dataset/deepfashion2/validation/image/000264.jpg,9,skirt,BOTTOM,2,user,53,"[152, 219, 294, 374]",1,2,1,2
+000264_item1,dataset/deepfashion2/validation/image/000264.jpg,1,short sleeve top,TOP,0,user,53,"[157, 109, 325, 243]",1,1,1,2
+000265_item2,dataset/deepfashion2/validation/image/000265.jpg,9,skirt,BOTTOM,2,user,53,"[163, 359, 262, 469]",1,2,1,3
+000265_item1,dataset/deepfashion2/validation/image/000265.jpg,1,short sleeve top,TOP,0,user,53,"[156, 266, 243, 385]",1,1,1,3
+000266_item1,dataset/deepfashion2/validation/image/000266.jpg,9,skirt,BOTTOM,2,user,53,"[27, 0, 457, 339]",3,2,2,2
+000267_item2,dataset/deepfashion2/validation/image/000267.jpg,9,skirt,BOTTOM,2,user,53,"[158, 255, 323, 426]",1,2,1,2
+000267_item1,dataset/deepfashion2/validation/image/000267.jpg,4,long sleeve outwear,OUTERWEAR,0,user,53,"[177, 104, 356, 346]",2,2,1,2
+000268_item2,dataset/deepfashion2/validation/image/000268.jpg,9,skirt,BOTTOM,2,user,53,"[183, 237, 333, 375]",1,2,1,3
+000268_item1,dataset/deepfashion2/validation/image/000268.jpg,1,short sleeve top,TOP,0,user,53,"[169, 120, 346, 260]",1,1,1,3
+000269_item1,dataset/deepfashion2/validation/image/000269.jpg,9,skirt,BOTTOM,2,user,53,"[2, 1, 467, 456]",3,1,3,2
+000270_item2,dataset/deepfashion2/validation/image/000270.jpg,9,skirt,BOTTOM,2,user,53,"[185, 270, 311, 399]",1,2,1,2
+000270_item1,dataset/deepfashion2/validation/image/000270.jpg,3,short sleeve outwear,OUTERWEAR,0,user,53,"[186, 167, 312, 315]",1,2,1,2
+000271_item2,dataset/deepfashion2/validation/image/000271.jpg,8,trousers,BOTTOM,0,user,54,"[134, 377, 347, 557]",1,2,1,2
+000271_item1,dataset/deepfashion2/validation/image/000271.jpg,1,short sleeve top,TOP,2,user,54,"[0, 0, 464, 460]",3,2,2,2
+000272_item1,dataset/deepfashion2/validation/image/000272.jpg,1,short sleeve top,TOP,1,user,55,"[0, 23, 467, 623]",3,1,2,1
+000273_item2,dataset/deepfashion2/validation/image/000273.jpg,8,trousers,BOTTOM,0,user,55,"[140, 473, 305, 623]",1,2,3,2
+000273_item1,dataset/deepfashion2/validation/image/000273.jpg,1,short sleeve top,TOP,1,user,55,"[113, 245, 344, 527]",2,1,1,2
+000274_item1,dataset/deepfashion2/validation/image/000274.jpg,1,short sleeve top,TOP,1,user,55,"[19, 162, 467, 608]",3,1,2,1
+000275_item1,dataset/deepfashion2/validation/image/000275.jpg,1,short sleeve top,TOP,1,user,55,"[0, 47, 467, 623]",3,1,2,1
+000276_item1,dataset/deepfashion2/validation/image/000276.jpg,1,short sleeve top,TOP,1,user,55,"[0, 57, 467, 623]",3,1,2,2
+000277_item1,dataset/deepfashion2/validation/image/000277.jpg,1,short sleeve top,TOP,1,user,55,"[0, 145, 467, 623]",3,1,2,2
+000278_item1,dataset/deepfashion2/validation/image/000278.jpg,1,short sleeve top,TOP,1,user,55,"[0, 277, 467, 830]",3,1,2,2
+000279_item1,dataset/deepfashion2/validation/image/000279.jpg,1,short sleeve top,TOP,1,user,55,"[0, 73, 290, 415]",3,1,3,1
+000280_item2,dataset/deepfashion2/validation/image/000280.jpg,8,trousers,BOTTOM,0,user,55,"[143, 322, 369, 486]",2,2,3,2
+000280_item1,dataset/deepfashion2/validation/image/000280.jpg,1,short sleeve top,TOP,1,user,55,"[110, 1, 455, 405]",3,2,1,2
+000281_item2,dataset/deepfashion2/validation/image/000281.jpg,9,skirt,BOTTOM,0,user,55,"[4, 501, 393, 623]",2,1,3,2
+000281_item1,dataset/deepfashion2/validation/image/000281.jpg,1,short sleeve top,TOP,1,user,55,"[0, 214, 408, 568]",3,1,2,2
+000282_item2,dataset/deepfashion2/validation/image/000282.jpg,1,short sleeve top,TOP,0,user,55,"[9, 80, 151, 254]",1,2,1,3
+000282_item1,dataset/deepfashion2/validation/image/000282.jpg,1,short sleeve top,TOP,1,user,55,"[15, 182, 331, 439]",2,2,1,2
+000283_item1,dataset/deepfashion2/validation/image/000283.jpg,1,short sleeve top,TOP,1,user,55,"[0, 102, 467, 624]",3,1,2,2
+000284_item1,dataset/deepfashion2/validation/image/000284.jpg,1,short sleeve top,TOP,1,user,55,"[0, 0, 467, 610]",3,1,2,2
+000285_item1,dataset/deepfashion2/validation/image/000285.jpg,1,short sleeve top,TOP,1,user,55,"[50, 72, 467, 623]",3,1,2,2
+000286_item1,dataset/deepfashion2/validation/image/000286.jpg,1,short sleeve top,TOP,2,user,57,"[3, 24, 345, 442]",3,1,2,1
+000287_item1,dataset/deepfashion2/validation/image/000287.jpg,1,short sleeve top,TOP,2,user,57,"[0, 44, 467, 602]",3,1,2,1
+000288_item1,dataset/deepfashion2/validation/image/000288.jpg,1,short sleeve top,TOP,2,user,57,"[0, 0, 345, 456]",3,1,2,1
+000289_item1,dataset/deepfashion2/validation/image/000289.jpg,8,trousers,BOTTOM,8,user,58,"[15, 0, 339, 623]",3,1,3,3
+000290_item2,dataset/deepfashion2/validation/image/000290.jpg,1,short sleeve top,TOP,0,user,58,"[179, 1, 315, 53]",1,1,3,2
+000290_item1,dataset/deepfashion2/validation/image/000290.jpg,8,trousers,BOTTOM,2,user,58,"[170, 28, 312, 386]",2,2,1,2
+000291_item1,dataset/deepfashion2/validation/image/000291.jpg,8,trousers,BOTTOM,6,user,58,"[0, 82, 358, 610]",3,1,2,1
+000292_item1,dataset/deepfashion2/validation/image/000292.jpg,8,trousers,BOTTOM,6,user,58,"[0, 47, 467, 601]",3,1,1,1
+000293_item2,dataset/deepfashion2/validation/image/000293.jpg,1,short sleeve top,TOP,0,user,58,"[102, 2, 289, 114]",1,1,3,2
+000293_item1,dataset/deepfashion2/validation/image/000293.jpg,8,trousers,BOTTOM,7,user,58,"[108, 68, 317, 621]",2,2,1,2
+000294_item1,dataset/deepfashion2/validation/image/000294.jpg,8,trousers,BOTTOM,6,user,58,"[28, 0, 133, 217]",3,1,2,2
+000295_item2,dataset/deepfashion2/validation/image/000295.jpg,8,trousers,BOTTOM,7,user,58,"[145, 397, 249, 638]",1,2,1,2
+000295_item1,dataset/deepfashion2/validation/image/000295.jpg,1,short sleeve top,TOP,0,user,58,"[130, 246, 264, 427]",1,1,1,2
+000296_item1,dataset/deepfashion2/validation/image/000296.jpg,8,trousers,BOTTOM,2,user,58,"[142, 75, 297, 442]",2,1,1,2
+000297_item1,dataset/deepfashion2/validation/image/000297.jpg,12,vest dress,DRESS,1,user,59,"[109, 57, 377, 623]",3,1,1,1
+000298_item1,dataset/deepfashion2/validation/image/000298.jpg,12,vest dress,DRESS,1,user,59,"[10, 123, 445, 623]",3,1,2,2
+000299_item1,dataset/deepfashion2/validation/image/000299.jpg,12,vest dress,DRESS,1,user,59,"[114, 78, 362, 445]",2,1,1,2
+000300_item1,dataset/deepfashion2/validation/image/000300.jpg,12,vest dress,DRESS,1,user,59,"[154, 119, 294, 417]",2,1,1,2
+000301_item1,dataset/deepfashion2/validation/image/000301.jpg,12,vest dress,DRESS,1,user,59,"[40, 123, 467, 579]",3,2,2,2
+000302_item1,dataset/deepfashion2/validation/image/000302.jpg,12,vest dress,DRESS,1,user,59,"[101, 113, 366, 623]",3,1,2,2
+000303_item1,dataset/deepfashion2/validation/image/000303.jpg,12,vest dress,DRESS,1,user,59,"[150, 72, 329, 294]",2,2,1,2
+000304_item1,dataset/deepfashion2/validation/image/000304.jpg,12,vest dress,DRESS,1,user,59,"[96, 152, 340, 615]",2,1,1,2
+000305_item2,dataset/deepfashion2/validation/image/000305.jpg,9,skirt,BOTTOM,2,user,60,"[53, 322, 327, 566]",2,1,1,2
+000305_item1,dataset/deepfashion2/validation/image/000305.jpg,1,short sleeve top,TOP,0,user,60,"[0, 73, 321, 442]",3,1,2,3
+000306_item2,dataset/deepfashion2/validation/image/000306.jpg,8,trousers,BOTTOM,0,user,61,"[138, 233, 298, 527]",2,2,1,2
+000306_item1,dataset/deepfashion2/validation/image/000306.jpg,1,short sleeve top,TOP,1,user,61,"[66, 0, 348, 357]",2,1,2,2
+000307_item1,dataset/deepfashion2/validation/image/000307.jpg,5,vest,TOP,1,user,62,"[130, 108, 467, 349]",3,1,2,2
+000308_item1,dataset/deepfashion2/validation/image/000308.jpg,2,long sleeve top,TOP,5,user,63,"[91, 112, 311, 350]",2,2,2,2
+000309_item1,dataset/deepfashion2/validation/image/000309.jpg,2,long sleeve top,TOP,5,user,63,"[1, 195, 370, 623]",3,2,2,2
+000310_item1,dataset/deepfashion2/validation/image/000310.jpg,2,long sleeve top,TOP,1,user,64,"[0, 1, 242, 463]",3,1,2,1
+000311_item1,dataset/deepfashion2/validation/image/000311.jpg,2,long sleeve top,TOP,1,user,64,"[5, 4, 466, 609]",3,1,2,1
+000312_item1,dataset/deepfashion2/validation/image/000312.jpg,2,long sleeve top,TOP,1,user,64,"[3, 10, 467, 350]",3,1,2,1
+000313_item1,dataset/deepfashion2/validation/image/000313.jpg,2,long sleeve top,TOP,1,user,64,"[1, 115, 466, 623]",3,2,3,2
+000314_item1,dataset/deepfashion2/validation/image/000314.jpg,2,long sleeve top,TOP,1,user,64,"[1, 30, 466, 623]",3,1,2,2
+000315_item1,dataset/deepfashion2/validation/image/000315.jpg,2,long sleeve top,TOP,1,user,64,"[1, 24, 467, 350]",3,1,2,1
+000316_item1,dataset/deepfashion2/validation/image/000316.jpg,4,long sleeve outwear,OUTERWEAR,1,user,64,"[0, 0, 467, 350]",3,1,3,1
+000317_item1,dataset/deepfashion2/validation/image/000317.jpg,2,long sleeve top,TOP,1,user,64,"[1, 12, 466, 623]",3,1,2,3
+000318_item2,dataset/deepfashion2/validation/image/000318.jpg,9,skirt,BOTTOM,0,user,64,"[75, 233, 294, 450]",2,2,1,2
+000318_item1,dataset/deepfashion2/validation/image/000318.jpg,2,long sleeve top,TOP,1,user,64,"[47, 8, 290, 301]",2,2,1,2
+000319_item2,dataset/deepfashion2/validation/image/000319.jpg,9,skirt,BOTTOM,0,user,64,"[116, 411, 460, 623]",2,2,2,2
+000319_item1,dataset/deepfashion2/validation/image/000319.jpg,2,long sleeve top,TOP,1,user,64,"[0, 75, 347, 609]",3,1,2,2
+000320_item1,dataset/deepfashion2/validation/image/000320.jpg,2,long sleeve top,TOP,1,user,64,"[40, 2, 464, 788]",3,1,2,1
+000321_item2,dataset/deepfashion2/validation/image/000321.jpg,9,skirt,BOTTOM,0,user,64,"[50, 471, 413, 623]",2,2,3,2
+000321_item1,dataset/deepfashion2/validation/image/000321.jpg,2,long sleeve top,TOP,1,user,64,"[0, 13, 466, 623]",3,1,2,2
+000322_item2,dataset/deepfashion2/validation/image/000322.jpg,8,trousers,BOTTOM,0,user,64,"[22, 403, 228, 623]",2,3,1,2
+000322_item1,dataset/deepfashion2/validation/image/000322.jpg,2,long sleeve top,TOP,1,user,64,"[0, 188, 226, 450]",2,2,2,2
+000323_item1,dataset/deepfashion2/validation/image/000323.jpg,2,long sleeve top,TOP,1,user,64,"[1, 1, 362, 350]",3,1,2,2
+000324_item2,dataset/deepfashion2/validation/image/000324.jpg,9,skirt,BOTTOM,0,user,64,"[157, 301, 299, 399]",2,2,3,2
+000324_item1,dataset/deepfashion2/validation/image/000324.jpg,2,long sleeve top,TOP,1,user,64,"[2, 117, 297, 399]",3,1,2,2
+000325_item1,dataset/deepfashion2/validation/image/000325.jpg,4,long sleeve outwear,OUTERWEAR,1,user,64,"[2, 1, 467, 623]",3,2,2,1
+000326_item1,dataset/deepfashion2/validation/image/000326.jpg,4,long sleeve outwear,OUTERWEAR,1,user,64,"[0, 2, 467, 623]",3,1,3,1
+000327_item1,dataset/deepfashion2/validation/image/000327.jpg,2,long sleeve top,TOP,1,user,64,"[1, 0, 464, 830]",3,2,3,1
+000328_item1,dataset/deepfashion2/validation/image/000328.jpg,2,long sleeve top,TOP,1,user,64,"[2, 0, 467, 623]",3,2,3,2
+000329_item1,dataset/deepfashion2/validation/image/000329.jpg,4,long sleeve outwear,OUTERWEAR,1,user,64,"[0, 0, 467, 623]",3,2,3,1
+000330_item1,dataset/deepfashion2/validation/image/000330.jpg,1,short sleeve top,TOP,2,user,65,"[0, 223, 315, 623]",3,2,2,2
+000331_item1,dataset/deepfashion2/validation/image/000331.jpg,1,short sleeve top,TOP,2,user,65,"[0, 29, 466, 584]",3,1,2,1
+000332_item1,dataset/deepfashion2/validation/image/000332.jpg,1,short sleeve top,TOP,2,user,65,"[0, 4, 466, 623]",3,1,3,2
+000333_item2,dataset/deepfashion2/validation/image/000333.jpg,7,shorts,BOTTOM,0,user,65,"[5, 411, 435, 623]",2,2,2,2
+000333_item1,dataset/deepfashion2/validation/image/000333.jpg,1,short sleeve top,TOP,2,user,65,"[0, 2, 413, 623]",3,1,2,2
+000334_item2,dataset/deepfashion2/validation/image/000334.jpg,1,short sleeve top,TOP,0,user,65,"[1, 15, 241, 342]",3,1,2,1
+000334_item1,dataset/deepfashion2/validation/image/000334.jpg,1,short sleeve top,TOP,1,user,65,"[170, 17, 457, 315]",3,1,2,1
+000335_item1,dataset/deepfashion2/validation/image/000335.jpg,1,short sleeve top,TOP,2,user,65,"[1, 0, 466, 827]",3,1,3,1
+000336_item1,dataset/deepfashion2/validation/image/000336.jpg,1,short sleeve top,TOP,2,user,65,"[0, 203, 466, 623]",3,1,2,2
+000337_item1,dataset/deepfashion2/validation/image/000337.jpg,1,short sleeve top,TOP,2,user,65,"[0, 0, 357, 597]",3,1,3,1
+000338_item1,dataset/deepfashion2/validation/image/000338.jpg,1,short sleeve top,TOP,2,user,65,"[3, 1, 467, 623]",3,1,3,1
+000339_item1,dataset/deepfashion2/validation/image/000339.jpg,1,short sleeve top,TOP,2,user,65,"[1, 105, 465, 551]",3,1,2,1
+000340_item2,dataset/deepfashion2/validation/image/000340.jpg,1,short sleeve top,TOP,2,user,65,"[110, 335, 465, 630]",2,1,2,1
+000340_item1,dataset/deepfashion2/validation/image/000340.jpg,1,short sleeve top,TOP,2,user,65,"[74, 80, 465, 373]",2,1,2,1
+000341_item2,dataset/deepfashion2/validation/image/000341.jpg,1,short sleeve top,TOP,0,user,65,"[2, 78, 467, 616]",3,1,2,1
+000341_item1,dataset/deepfashion2/validation/image/000341.jpg,1,short sleeve top,TOP,2,user,65,"[0, 158, 466, 623]",3,1,2,1
+000342_item1,dataset/deepfashion2/validation/image/000342.jpg,1,short sleeve top,TOP,4,user,66,"[1, 1, 467, 468]",3,1,3,1
+000343_item2,dataset/deepfashion2/validation/image/000343.jpg,7,shorts,BOTTOM,0,user,66,"[58, 449, 349, 624]",2,2,3,2
+000343_item1,dataset/deepfashion2/validation/image/000343.jpg,1,short sleeve top,TOP,3,user,66,"[17, 12, 385, 495]",3,1,1,2
+000344_item2,dataset/deepfashion2/validation/image/000344.jpg,7,shorts,BOTTOM,0,user,66,"[56, 402, 330, 624]",2,2,3,2
+000344_item1,dataset/deepfashion2/validation/image/000344.jpg,1,short sleeve top,TOP,3,user,66,"[74, 40, 417, 475]",3,1,1,2
+000345_item2,dataset/deepfashion2/validation/image/000345.jpg,8,trousers,BOTTOM,0,user,66,"[155, 235, 286, 543]",2,1,1,2
+000345_item1,dataset/deepfashion2/validation/image/000345.jpg,1,short sleeve top,TOP,4,user,66,"[128, 94, 295, 247]",1,1,1,2
+000346_item2,dataset/deepfashion2/validation/image/000346.jpg,1,short sleeve top,TOP,1,user,66,"[0, 201, 270, 623]",2,1,2,2
+000346_item1,dataset/deepfashion2/validation/image/000346.jpg,1,short sleeve top,TOP,2,user,66,"[158, 168, 467, 623]",3,1,2,2
+000347_item2,dataset/deepfashion2/validation/image/000347.jpg,8,trousers,BOTTOM,0,user,66,"[0, 460, 313, 623]",2,2,3,2
+000347_item1,dataset/deepfashion2/validation/image/000347.jpg,1,short sleeve top,TOP,4,user,66,"[79, 163, 467, 538]",3,1,1,2
+000348_item1,dataset/deepfashion2/validation/image/000348.jpg,1,short sleeve top,TOP,4,user,66,"[78, 135, 467, 623]",3,2,2,2
+000349_item1,dataset/deepfashion2/validation/image/000349.jpg,1,short sleeve top,TOP,4,user,66,"[41, 286, 467, 631]",3,1,2,2
+000350_item1,dataset/deepfashion2/validation/image/000350.jpg,1,short sleeve top,TOP,4,user,66,"[0, 287, 467, 830]",3,1,2,2
+000351_item2,dataset/deepfashion2/validation/image/000351.jpg,7,shorts,BOTTOM,0,user,66,"[138, 393, 273, 461]",1,2,1,2
+000351_item1,dataset/deepfashion2/validation/image/000351.jpg,1,short sleeve top,TOP,1,user,66,"[95, 219, 332, 416]",2,2,1,2
+000352_item1,dataset/deepfashion2/validation/image/000352.jpg,1,short sleeve top,TOP,1,user,66,"[108, 37, 467, 623]",3,1,2,3
+000353_item2,dataset/deepfashion2/validation/image/000353.jpg,7,shorts,BOTTOM,0,user,66,"[143, 445, 402, 623]",2,2,1,2
+000353_item1,dataset/deepfashion2/validation/image/000353.jpg,1,short sleeve top,TOP,1,user,66,"[79, 55, 467, 536]",3,1,2,2
+000354_item1,dataset/deepfashion2/validation/image/000354.jpg,7,shorts,BOTTOM,1,user,67,"[0, 0, 623, 467]",3,1,3,1
+000355_item1,dataset/deepfashion2/validation/image/000355.jpg,12,vest dress,DRESS,1,user,68,"[131, 106, 302, 439]",2,1,1,2
+000356_item1,dataset/deepfashion2/validation/image/000356.jpg,12,vest dress,DRESS,1,user,68,"[242, 163, 312, 277]",1,1,1,2
+000357_item1,dataset/deepfashion2/validation/image/000357.jpg,12,vest dress,DRESS,1,user,68,"[129, 105, 305, 442]",2,2,1,2
+000358_item2,dataset/deepfashion2/validation/image/000358.jpg,2,long sleeve top,TOP,0,user,68,"[252, 115, 305, 165]",1,1,1,3
+000358_item1,dataset/deepfashion2/validation/image/000358.jpg,12,vest dress,DRESS,1,user,68,"[147, 53, 250, 163]",2,1,1,2
+000358_item3,dataset/deepfashion2/validation/image/000358.jpg,8,trousers,BOTTOM,0,user,68,"[261, 158, 297, 204]",1,2,1,3
+000359_item2,dataset/deepfashion2/validation/image/000359.jpg,8,trousers,BOTTOM,0,user,69,"[147, 406, 304, 735]",2,2,1,2
+000359_item1,dataset/deepfashion2/validation/image/000359.jpg,2,long sleeve top,TOP,1,user,69,"[111, 42, 358, 523]",2,1,1,2
+000360_item1,dataset/deepfashion2/validation/image/000360.jpg,8,trousers,BOTTOM,1,user,70,"[11, 47, 411, 623]",3,2,2,2
+000361_item1,dataset/deepfashion2/validation/image/000361.jpg,8,trousers,BOTTOM,2,user,70,"[59, 118, 455, 695]",3,1,1,1
+000362_item1,dataset/deepfashion2/validation/image/000362.jpg,12,vest dress,DRESS,1,user,71,"[59, 17, 411, 624]",3,1,1,1
+000363_item1,dataset/deepfashion2/validation/image/000363.jpg,12,vest dress,DRESS,1,user,71,"[0, 42, 467, 830]",3,1,2,1
+000364_item2,dataset/deepfashion2/validation/image/000364.jpg,8,trousers,BOTTOM,1,user,71,"[202, 357, 445, 623]",2,3,1,2
+000364_item1,dataset/deepfashion2/validation/image/000364.jpg,12,vest dress,DRESS,1,user,71,"[120, 2, 467, 571]",3,2,2,2
+000365_item1,dataset/deepfashion2/validation/image/000365.jpg,12,vest dress,DRESS,1,user,71,"[0, 246, 467, 624]",3,2,2,3
+000366_item1,dataset/deepfashion2/validation/image/000366.jpg,12,vest dress,DRESS,1,user,71,"[0, 2, 446, 624]",3,1,2,1
+000367_item2,dataset/deepfashion2/validation/image/000367.jpg,12,vest dress,DRESS,1,user,71,"[283, 288, 436, 574]",2,2,2,2
+000367_item1,dataset/deepfashion2/validation/image/000367.jpg,12,vest dress,DRESS,1,user,71,"[21, 164, 211, 492]",2,2,2,2
+000368_item1,dataset/deepfashion2/validation/image/000368.jpg,12,vest dress,DRESS,1,user,71,"[25, 176, 307, 639]",3,2,2,2
+000369_item1,dataset/deepfashion2/validation/image/000369.jpg,12,vest dress,DRESS,1,user,71,"[1, 24, 290, 486]",3,1,2,1
+000370_item1,dataset/deepfashion2/validation/image/000370.jpg,12,vest dress,DRESS,1,user,71,"[91, 146, 293, 493]",2,3,1,2
+000371_item2,dataset/deepfashion2/validation/image/000371.jpg,7,shorts,BOTTOM,0,user,72,"[167, 326, 314, 505]",1,2,1,2
+000371_item1,dataset/deepfashion2/validation/image/000371.jpg,1,short sleeve top,TOP,1,user,72,"[117, 17, 376, 359]",2,1,1,2
+000372_item1,dataset/deepfashion2/validation/image/000372.jpg,1,short sleeve top,TOP,2,user,72,"[0, 91, 467, 623]",3,1,2,1
+000373_item2,dataset/deepfashion2/validation/image/000373.jpg,8,trousers,BOTTOM,2,user,73,"[197, 212, 376, 463]",2,2,2,2
+000373_item1,dataset/deepfashion2/validation/image/000373.jpg,6,sling,TOP,1,user,73,"[123, 12, 340, 273]",2,3,1,2
+000374_item1,dataset/deepfashion2/validation/image/000374.jpg,6,sling,TOP,1,user,73,"[1, 1, 467, 606]",3,1,2,2
+000375_item2,dataset/deepfashion2/validation/image/000375.jpg,8,trousers,BOTTOM,2,user,73,"[27, 324, 332, 624]",2,2,2,2
+000375_item1,dataset/deepfashion2/validation/image/000375.jpg,6,sling,TOP,1,user,73,"[1, 1, 381, 403]",3,1,3,2
+000376_item2,dataset/deepfashion2/validation/image/000376.jpg,8,trousers,BOTTOM,2,user,73,"[113, 377, 402, 623]",2,2,3,2
+000376_item1,dataset/deepfashion2/validation/image/000376.jpg,6,sling,TOP,1,user,73,"[92, 1, 466, 444]",3,1,2,2
+000377_item2,dataset/deepfashion2/validation/image/000377.jpg,8,trousers,BOTTOM,2,user,73,"[53, 262, 345, 573]",2,2,1,2
+000377_item1,dataset/deepfashion2/validation/image/000377.jpg,6,sling,TOP,1,user,73,"[1, 2, 324, 394]",3,1,2,2
+000378_item2,dataset/deepfashion2/validation/image/000378.jpg,8,trousers,BOTTOM,2,user,73,"[84, 430, 402, 611]",2,2,1,2
+000378_item1,dataset/deepfashion2/validation/image/000378.jpg,6,sling,TOP,1,user,73,"[38, 0, 408, 529]",3,1,2,2
+000379_item2,dataset/deepfashion2/validation/image/000379.jpg,8,trousers,BOTTOM,2,user,73,"[198, 172, 356, 447]",2,2,2,2
+000379_item1,dataset/deepfashion2/validation/image/000379.jpg,6,sling,TOP,1,user,73,"[142, 1, 347, 231]",2,2,1,2
+000380_item2,dataset/deepfashion2/validation/image/000380.jpg,8,trousers,BOTTOM,2,user,73,"[34, 392, 467, 623]",2,2,3,2
+000380_item1,dataset/deepfashion2/validation/image/000380.jpg,6,sling,TOP,1,user,73,"[1, 1, 449, 514]",3,1,3,2
+000381_item1,dataset/deepfashion2/validation/image/000381.jpg,6,sling,TOP,1,user,73,"[116, 181, 392, 521]",2,1,1,3
+000382_item2,dataset/deepfashion2/validation/image/000382.jpg,8,trousers,BOTTOM,2,user,73,"[209, 298, 319, 560]",2,2,2,2
+000382_item1,dataset/deepfashion2/validation/image/000382.jpg,6,sling,TOP,1,user,73,"[203, 132, 318, 291]",1,1,1,2
+000383_item1,dataset/deepfashion2/validation/image/000383.jpg,9,skirt,BOTTOM,1,user,74,"[1, 18, 623, 407]",3,1,2,1
+000384_item1,dataset/deepfashion2/validation/image/000384.jpg,9,skirt,BOTTOM,1,user,74,"[0, 57, 467, 454]",3,1,3,1
+000385_item1,dataset/deepfashion2/validation/image/000385.jpg,9,skirt,BOTTOM,1,user,74,"[0, 15, 467, 293]",3,1,2,1
+000386_item1,dataset/deepfashion2/validation/image/000386.jpg,10,short sleeve dress,DRESS,1,user,75,"[0, 56, 456, 622]",3,1,2,1
+000387_item2,dataset/deepfashion2/validation/image/000387.jpg,8,trousers,BOTTOM,0,user,75,"[53, 506, 333, 831]",2,2,1,2
+000387_item1,dataset/deepfashion2/validation/image/000387.jpg,10,short sleeve dress,DRESS,1,user,75,"[0, 0, 447, 739]",3,1,2,2
+000388_item1,dataset/deepfashion2/validation/image/000388.jpg,8,trousers,BOTTOM,1,user,76,"[0, 0, 407, 623]",3,1,3,1
+000389_item1,dataset/deepfashion2/validation/image/000389.jpg,2,long sleeve top,TOP,1,user,77,"[0, 54, 350, 403]",3,1,2,1
+000390_item1,dataset/deepfashion2/validation/image/000390.jpg,2,long sleeve top,TOP,1,user,77,"[1, 222, 465, 791]",3,1,3,1
+000391_item2,dataset/deepfashion2/validation/image/000391.jpg,8,trousers,BOTTOM,0,user,78,"[120, 327, 349, 468]",2,2,3,2
+000391_item1,dataset/deepfashion2/validation/image/000391.jpg,1,short sleeve top,TOP,1,user,78,"[57, 1, 409, 393]",3,1,2,2
+000392_item1,dataset/deepfashion2/validation/image/000392.jpg,11,long sleeve dress,DRESS,1,user,79,"[0, 7, 303, 396]",3,1,2,1
+000393_item2,dataset/deepfashion2/validation/image/000393.jpg,8,trousers,BOTTOM,0,user,79,"[173, 293, 285, 550]",1,3,1,2
+000393_item1,dataset/deepfashion2/validation/image/000393.jpg,11,long sleeve dress,DRESS,1,user,79,"[142, 124, 299, 380]",2,2,1,2
+000394_item1,dataset/deepfashion2/validation/image/000394.jpg,11,long sleeve dress,DRESS,1,user,79,"[0, 156, 467, 623]",3,2,2,2
+000395_item1,dataset/deepfashion2/validation/image/000395.jpg,11,long sleeve dress,DRESS,1,user,79,"[1, 1, 444, 728]",3,1,2,1
+000396_item1,dataset/deepfashion2/validation/image/000396.jpg,11,long sleeve dress,DRESS,1,user,79,"[95, 251, 364, 629]",2,2,2,2
+000397_item1,dataset/deepfashion2/validation/image/000397.jpg,11,long sleeve dress,DRESS,1,user,79,"[0, 164, 467, 602]",3,1,2,1
+000398_item1,dataset/deepfashion2/validation/image/000398.jpg,11,long sleeve dress,DRESS,1,user,79,"[0, 199, 467, 623]",3,2,2,2
+000399_item1,dataset/deepfashion2/validation/image/000399.jpg,11,long sleeve dress,DRESS,1,user,79,"[1, 1, 467, 623]",3,1,2,1
+000400_item1,dataset/deepfashion2/validation/image/000400.jpg,11,long sleeve dress,DRESS,1,user,79,"[0, 36, 467, 832]",3,2,2,1
+000401_item1,dataset/deepfashion2/validation/image/000401.jpg,11,long sleeve dress,DRESS,1,user,79,"[168, 214, 299, 491]",2,2,1,2
+000402_item1,dataset/deepfashion2/validation/image/000402.jpg,11,long sleeve dress,DRESS,1,user,79,"[175, 122, 328, 367]",2,2,1,2
+000403_item1,dataset/deepfashion2/validation/image/000403.jpg,11,long sleeve dress,DRESS,1,user,79,"[32, 6, 408, 630]",3,1,1,1
+000404_item1,dataset/deepfashion2/validation/image/000404.jpg,11,long sleeve dress,DRESS,1,user,79,"[0, 164, 467, 623]",3,2,2,3
+000405_item2,dataset/deepfashion2/validation/image/000405.jpg,7,shorts,BOTTOM,2,user,80,"[138, 244, 285, 366]",1,2,1,2
+000405_item1,dataset/deepfashion2/validation/image/000405.jpg,1,short sleeve top,TOP,1,user,80,"[131, 59, 321, 298]",2,2,1,2
+000406_item1,dataset/deepfashion2/validation/image/000406.jpg,1,short sleeve top,TOP,1,user,80,"[50, 1, 439, 344]",3,1,2,1
+000407_item2,dataset/deepfashion2/validation/image/000407.jpg,8,trousers,BOTTOM,0,user,81,"[146, 349, 266, 523]",1,2,2,2
+000407_item1,dataset/deepfashion2/validation/image/000407.jpg,2,long sleeve top,TOP,1,user,81,"[119, 173, 287, 428]",2,2,1,2
+000408_item2,dataset/deepfashion2/validation/image/000408.jpg,8,trousers,BOTTOM,0,user,81,"[201, 400, 294, 579]",1,2,1,3
+000408_item1,dataset/deepfashion2/validation/image/000408.jpg,2,long sleeve top,TOP,1,user,81,"[167, 241, 316, 463]",2,1,1,3
+000409_item1,dataset/deepfashion2/validation/image/000409.jpg,2,long sleeve top,TOP,2,user,81,"[0, 40, 464, 813]",3,1,2,1
+000410_item1,dataset/deepfashion2/validation/image/000410.jpg,2,long sleeve top,TOP,2,user,81,"[0, 0, 466, 623]",3,1,3,1
+000411_item2,dataset/deepfashion2/validation/image/000411.jpg,8,trousers,BOTTOM,0,user,81,"[110, 417, 312, 623]",2,2,2,2
+000411_item1,dataset/deepfashion2/validation/image/000411.jpg,2,long sleeve top,TOP,2,user,81,"[18, 34, 466, 613]",3,1,2,2
+000412_item1,dataset/deepfashion2/validation/image/000412.jpg,2,long sleeve top,TOP,1,user,81,"[0, 12, 466, 606]",3,1,2,1
+000413_item1,dataset/deepfashion2/validation/image/000413.jpg,2,long sleeve top,TOP,2,user,81,"[0, 57, 465, 624]",3,1,2,1
+000414_item2,dataset/deepfashion2/validation/image/000414.jpg,8,trousers,BOTTOM,0,user,81,"[142, 369, 337, 623]",2,3,2,2
+000414_item1,dataset/deepfashion2/validation/image/000414.jpg,2,long sleeve top,TOP,2,user,81,"[4, 18, 395, 571]",3,1,2,3
+000415_item1,dataset/deepfashion2/validation/image/000415.jpg,2,long sleeve top,TOP,2,user,81,"[51, 102, 466, 576]",3,1,2,1
+000416_item1,dataset/deepfashion2/validation/image/000416.jpg,2,long sleeve top,TOP,1,user,81,"[51, 180, 409, 467]",3,2,2,2
+000417_item1,dataset/deepfashion2/validation/image/000417.jpg,2,long sleeve top,TOP,1,user,81,"[0, 97, 466, 600]",3,1,2,1
+000418_item2,dataset/deepfashion2/validation/image/000418.jpg,9,skirt,BOTTOM,1,user,82,"[143, 278, 314, 437]",1,2,1,2
+000418_item1,dataset/deepfashion2/validation/image/000418.jpg,1,short sleeve top,TOP,0,user,82,"[132, 161, 308, 312]",1,2,1,2
+000419_item1,dataset/deepfashion2/validation/image/000419.jpg,9,skirt,BOTTOM,2,user,82,"[2, 134, 261, 387]",3,1,3,1
+000420_item2,dataset/deepfashion2/validation/image/000420.jpg,1,short sleeve top,TOP,0,user,82,"[180, 111, 298, 226]",1,2,1,2
+000420_item1,dataset/deepfashion2/validation/image/000420.jpg,9,skirt,BOTTOM,1,user,82,"[177, 214, 299, 333]",1,1,1,2
+000421_item2,dataset/deepfashion2/validation/image/000421.jpg,2,long sleeve top,TOP,1,user,83,"[10, 8, 432, 403]",3,1,2,2
+000421_item1,dataset/deepfashion2/validation/image/000421.jpg,9,skirt,BOTTOM,2,user,83,"[165, 279, 382, 654]",2,2,1,2
+000421_item3,dataset/deepfashion2/validation/image/000421.jpg,8,trousers,BOTTOM,0,user,83,"[162, 289, 383, 768]",2,3,1,2
+000422_item2,dataset/deepfashion2/validation/image/000422.jpg,2,long sleeve top,TOP,1,user,83,"[0, 0, 467, 631]",3,1,3,2
+000422_item1,dataset/deepfashion2/validation/image/000422.jpg,9,skirt,BOTTOM,2,user,83,"[153, 282, 462, 560]",2,2,1,2
+000423_item2,dataset/deepfashion2/validation/image/000423.jpg,2,long sleeve top,TOP,1,user,83,"[0, 110, 467, 392]",3,1,2,1
+000423_item1,dataset/deepfashion2/validation/image/000423.jpg,9,skirt,BOTTOM,2,user,83,"[100, 341, 379, 615]",2,2,1,1
+000424_item2,dataset/deepfashion2/validation/image/000424.jpg,2,long sleeve top,TOP,1,user,83,"[0, 151, 467, 322]",2,1,2,1
+000424_item1,dataset/deepfashion2/validation/image/000424.jpg,9,skirt,BOTTOM,2,user,83,"[66, 306, 309, 605]",2,1,1,1
+000425_item2,dataset/deepfashion2/validation/image/000425.jpg,2,long sleeve top,TOP,1,user,83,"[0, 0, 467, 379]",3,1,2,1
+000425_item1,dataset/deepfashion2/validation/image/000425.jpg,9,skirt,BOTTOM,2,user,83,"[93, 290, 421, 623]",2,2,3,1
+000426_item2,dataset/deepfashion2/validation/image/000426.jpg,9,skirt,BOTTOM,2,user,83,"[105, 159, 210, 316]",2,1,1,2
+000426_item1,dataset/deepfashion2/validation/image/000426.jpg,8,trousers,BOTTOM,0,user,83,"[105, 170, 210, 387]",2,2,1,2
+000426_item3,dataset/deepfashion2/validation/image/000426.jpg,2,long sleeve top,TOP,1,user,83,"[79, 34, 229, 241]",2,2,1,2
+000427_item2,dataset/deepfashion2/validation/image/000427.jpg,2,long sleeve top,TOP,1,user,83,"[137, 2, 467, 631]",3,1,3,2
+000427_item1,dataset/deepfashion2/validation/image/000427.jpg,9,skirt,BOTTOM,2,user,83,"[69, 230, 344, 474]",2,2,1,2
+000428_item2,dataset/deepfashion2/validation/image/000428.jpg,2,long sleeve top,TOP,1,user,83,"[88, 173, 354, 373]",2,2,1,2
+000428_item1,dataset/deepfashion2/validation/image/000428.jpg,9,skirt,BOTTOM,2,user,83,"[156, 334, 300, 577]",2,1,1,2
+000429_item2,dataset/deepfashion2/validation/image/000429.jpg,8,trousers,BOTTOM,0,user,83,"[179, 184, 314, 532]",2,2,1,2
+000429_item1,dataset/deepfashion2/validation/image/000429.jpg,9,skirt,BOTTOM,2,user,83,"[179, 183, 308, 394]",2,2,1,2
+000429_item3,dataset/deepfashion2/validation/image/000429.jpg,2,long sleeve top,TOP,1,user,83,"[121, 37, 329, 225]",2,2,1,2
+000430_item2,dataset/deepfashion2/validation/image/000430.jpg,2,long sleeve top,TOP,1,user,83,"[0, 33, 393, 582]",3,1,2,2
+000430_item1,dataset/deepfashion2/validation/image/000430.jpg,9,skirt,BOTTOM,2,user,83,"[45, 345, 361, 623]",2,2,3,2
+000431_item2,dataset/deepfashion2/validation/image/000431.jpg,8,trousers,BOTTOM,0,user,83,"[105, 194, 211, 429]",2,3,1,2
+000431_item1,dataset/deepfashion2/validation/image/000431.jpg,9,skirt,BOTTOM,2,user,83,"[106, 191, 212, 354]",2,1,1,2
+000431_item3,dataset/deepfashion2/validation/image/000431.jpg,2,long sleeve top,TOP,1,user,83,"[74, 60, 236, 271]",2,1,1,2
+000432_item2,dataset/deepfashion2/validation/image/000432.jpg,2,long sleeve top,TOP,1,user,83,"[0, 18, 455, 567]",3,1,2,1
+000432_item1,dataset/deepfashion2/validation/image/000432.jpg,9,skirt,BOTTOM,2,user,83,"[100, 358, 418, 797]",2,1,1,1
+000433_item2,dataset/deepfashion2/validation/image/000433.jpg,2,long sleeve top,TOP,1,user,83,"[0, 0, 450, 624]",3,1,2,3
+000433_item1,dataset/deepfashion2/validation/image/000433.jpg,9,skirt,BOTTOM,2,user,83,"[93, 414, 367, 624]",2,1,3,2
+000434_item2,dataset/deepfashion2/validation/image/000434.jpg,2,long sleeve top,TOP,1,user,83,"[0, 0, 389, 624]",3,1,3,2
+000434_item1,dataset/deepfashion2/validation/image/000434.jpg,9,skirt,BOTTOM,2,user,83,"[139, 332, 350, 624]",2,1,3,2
+000435_item2,dataset/deepfashion2/validation/image/000435.jpg,12,vest dress,DRESS,2,user,84,"[175, 15, 320, 557]",2,3,1,2
+000435_item1,dataset/deepfashion2/validation/image/000435.jpg,5,vest,TOP,1,user,84,"[158, 14, 335, 375]",2,2,1,2
+000436_item2,dataset/deepfashion2/validation/image/000436.jpg,12,vest dress,DRESS,2,user,84,"[172, 111, 278, 408]",2,3,1,2
+000436_item1,dataset/deepfashion2/validation/image/000436.jpg,5,vest,TOP,1,user,84,"[172, 112, 282, 317]",1,2,1,2
+000437_item2,dataset/deepfashion2/validation/image/000437.jpg,12,vest dress,DRESS,2,user,84,"[109, 2, 282, 525]",2,2,2,2
+000437_item1,dataset/deepfashion2/validation/image/000437.jpg,5,vest,TOP,1,user,84,"[87, 2, 268, 335]",2,1,2,2
+000438_item2,dataset/deepfashion2/validation/image/000438.jpg,12,vest dress,DRESS,2,user,84,"[16, 13, 102, 260]",3,3,2,1
+000438_item1,dataset/deepfashion2/validation/image/000438.jpg,5,vest,TOP,1,user,84,"[2, 13, 114, 161]",3,1,2,1
+000439_item2,dataset/deepfashion2/validation/image/000439.jpg,12,vest dress,DRESS,2,user,84,"[140, 247, 312, 545]",2,3,1,3
+000439_item1,dataset/deepfashion2/validation/image/000439.jpg,5,vest,TOP,1,user,84,"[141, 236, 253, 447]",1,1,1,3
+000440_item2,dataset/deepfashion2/validation/image/000440.jpg,5,vest,TOP,1,user,84,"[16, 6, 126, 157]",2,1,2,1
+000440_item1,dataset/deepfashion2/validation/image/000440.jpg,12,vest dress,DRESS,2,user,84,"[24, 6, 119, 253]",3,3,1,1
+000441_item2,dataset/deepfashion2/validation/image/000441.jpg,12,vest dress,DRESS,2,user,84,"[83, 41, 336, 623]",3,3,2,1
+000441_item1,dataset/deepfashion2/validation/image/000441.jpg,5,vest,TOP,1,user,84,"[67, 45, 354, 510]",3,1,1,1
+000442_item2,dataset/deepfashion2/validation/image/000442.jpg,12,vest dress,DRESS,2,user,84,"[132, 19, 343, 464]",2,3,1,2
+000442_item1,dataset/deepfashion2/validation/image/000442.jpg,5,vest,TOP,1,user,84,"[132, 21, 344, 313]",2,1,1,2
+000443_item2,dataset/deepfashion2/validation/image/000443.jpg,5,vest,TOP,1,user,84,"[255, 74, 394, 268]",2,1,1,2
+000443_item1,dataset/deepfashion2/validation/image/000443.jpg,1,short sleeve top,TOP,0,user,84,"[375, 283, 467, 349]",1,3,2,2
+000443_item3,dataset/deepfashion2/validation/image/000443.jpg,12,vest dress,DRESS,2,user,84,"[251, 75, 378, 349]",2,3,2,2
+000444_item2,dataset/deepfashion2/validation/image/000444.jpg,8,trousers,BOTTOM,1,user,85,"[169, 286, 310, 542]",2,2,1,2
+000444_item1,dataset/deepfashion2/validation/image/000444.jpg,1,short sleeve top,TOP,0,user,85,"[133, 85, 308, 307]",2,1,1,3
+000445_item1,dataset/deepfashion2/validation/image/000445.jpg,12,vest dress,DRESS,2,user,86,"[2, 239, 362, 621]",3,2,2,3
+000446_item1,dataset/deepfashion2/validation/image/000446.jpg,11,long sleeve dress,DRESS,1,user,88,"[0, 13, 467, 604]",3,1,2,1
+000447_item1,dataset/deepfashion2/validation/image/000447.jpg,11,long sleeve dress,DRESS,1,user,88,"[0, 0, 467, 624]",3,1,2,1
+000448_item1,dataset/deepfashion2/validation/image/000448.jpg,12,vest dress,DRESS,1,user,89,"[148, 0, 367, 430]",2,3,1,2
+000449_item1,dataset/deepfashion2/validation/image/000449.jpg,12,vest dress,DRESS,1,user,89,"[244, 147, 417, 602]",2,2,1,2
+000450_item1,dataset/deepfashion2/validation/image/000450.jpg,9,skirt,BOTTOM,1,user,90,"[0, 74, 407, 598]",3,1,2,1
+000451_item2,dataset/deepfashion2/validation/image/000451.jpg,1,short sleeve top,TOP,1,user,91,"[111, 45, 466, 731]",3,2,2,3
+000451_item1,dataset/deepfashion2/validation/image/000451.jpg,8,trousers,BOTTOM,0,user,91,"[1, 386, 349, 825]",2,2,2,2
+000452_item2,dataset/deepfashion2/validation/image/000452.jpg,8,trousers,BOTTOM,0,user,91,"[0, 479, 417, 825]",2,2,3,2
+000452_item1,dataset/deepfashion2/validation/image/000452.jpg,1,short sleeve top,TOP,1,user,91,"[0, 0, 466, 680]",3,1,2,2
+000453_item2,dataset/deepfashion2/validation/image/000453.jpg,8,trousers,BOTTOM,0,user,91,"[0, 429, 350, 825]",2,2,3,2
+000453_item1,dataset/deepfashion2/validation/image/000453.jpg,1,short sleeve top,TOP,1,user,91,"[78, 0, 466, 747]",3,2,2,2
+000454_item2,dataset/deepfashion2/validation/image/000454.jpg,7,shorts,BOTTOM,0,user,91,"[141, 321, 227, 385]",1,2,1,2
+000454_item1,dataset/deepfashion2/validation/image/000454.jpg,1,short sleeve top,TOP,1,user,91,"[145, 228, 254, 351]",1,3,1,2
+000455_item2,dataset/deepfashion2/validation/image/000455.jpg,7,shorts,BOTTOM,0,user,91,"[172, 290, 259, 352]",1,2,1,2
+000455_item1,dataset/deepfashion2/validation/image/000455.jpg,1,short sleeve top,TOP,1,user,91,"[155, 183, 264, 317]",1,3,1,2
+000456_item1,dataset/deepfashion2/validation/image/000456.jpg,1,short sleeve top,TOP,1,user,91,"[0, 0, 467, 599]",3,1,3,1
+000457_item2,dataset/deepfashion2/validation/image/000457.jpg,8,trousers,BOTTOM,0,user,92,"[113, 340, 305, 467]",2,2,3,2
+000457_item1,dataset/deepfashion2/validation/image/000457.jpg,1,short sleeve top,TOP,1,user,92,"[76, 29, 344, 372]",3,1,1,2
+000458_item1,dataset/deepfashion2/validation/image/000458.jpg,11,long sleeve dress,DRESS,1,user,93,"[38, 187, 466, 623]",3,2,3,2
+000459_item1,dataset/deepfashion2/validation/image/000459.jpg,11,long sleeve dress,DRESS,1,user,93,"[6, 6, 466, 623]",3,1,2,1
+000460_item1,dataset/deepfashion2/validation/image/000460.jpg,11,long sleeve dress,DRESS,1,user,93,"[91, 101, 435, 591]",3,3,1,2
+000461_item1,dataset/deepfashion2/validation/image/000461.jpg,11,long sleeve dress,DRESS,1,user,93,"[87, 107, 351, 483]",2,2,1,2
+000462_item1,dataset/deepfashion2/validation/image/000462.jpg,2,long sleeve top,TOP,1,user,94,"[0, 362, 466, 829]",3,2,2,2
+000463_item2,dataset/deepfashion2/validation/image/000463.jpg,8,trousers,BOTTOM,0,user,94,"[191, 359, 336, 542]",1,2,1,2
+000463_item1,dataset/deepfashion2/validation/image/000463.jpg,2,long sleeve top,TOP,1,user,94,"[173, 180, 360, 395]",2,1,1,2
+000464_item1,dataset/deepfashion2/validation/image/000464.jpg,2,long sleeve top,TOP,1,user,94,"[0, 23, 466, 623]",3,1,2,1
+000465_item1,dataset/deepfashion2/validation/image/000465.jpg,13,sling dress,DRESS,1,user,95,"[16, 2, 258, 346]",3,1,2,2
+000466_item1,dataset/deepfashion2/validation/image/000466.jpg,13,sling dress,DRESS,1,user,95,"[60, 2, 252, 378]",3,1,2,1
+000467_item1,dataset/deepfashion2/validation/image/000467.jpg,2,long sleeve top,TOP,1,user,96,"[10, 28, 349, 467]",3,1,2,1
+000468_item1,dataset/deepfashion2/validation/image/000468.jpg,2,long sleeve top,TOP,1,user,96,"[1, 63, 467, 612]",3,1,2,1
+000469_item2,dataset/deepfashion2/validation/image/000469.jpg,1,short sleeve top,TOP,0,user,97,"[164, 134, 309, 276]",1,2,1,2
+000469_item1,dataset/deepfashion2/validation/image/000469.jpg,9,skirt,BOTTOM,1,user,97,"[166, 264, 300, 418]",1,2,1,2
+000470_item2,dataset/deepfashion2/validation/image/000470.jpg,1,short sleeve top,TOP,0,user,97,"[178, 66, 272, 149]",1,2,1,2
+000470_item1,dataset/deepfashion2/validation/image/000470.jpg,9,skirt,BOTTOM,1,user,97,"[176, 148, 271, 237]",1,1,1,2
+000470_item3,dataset/deepfashion2/validation/image/000470.jpg,8,trousers,BOTTOM,0,user,97,"[193, 154, 257, 343]",1,2,1,2
+000471_item2,dataset/deepfashion2/validation/image/000471.jpg,1,short sleeve top,TOP,0,user,97,"[171, 64, 299, 240]",1,2,1,2
+000471_item1,dataset/deepfashion2/validation/image/000471.jpg,9,skirt,BOTTOM,1,user,97,"[170, 208, 285, 310]",1,2,1,2
+000472_item1,dataset/deepfashion2/validation/image/000472.jpg,9,skirt,BOTTOM,1,user,97,"[10, 6, 415, 350]",3,2,3,2
+000473_item1,dataset/deepfashion2/validation/image/000473.jpg,9,skirt,BOTTOM,1,user,97,"[0, 0, 623, 467]",3,1,3,1
+000474_item1,dataset/deepfashion2/validation/image/000474.jpg,9,skirt,BOTTOM,1,user,97,"[0, 198, 467, 531]",3,1,2,1
+000475_item1,dataset/deepfashion2/validation/image/000475.jpg,9,skirt,BOTTOM,1,user,97,"[0, 109, 624, 467]",3,1,3,1
+000476_item1,dataset/deepfashion2/validation/image/000476.jpg,9,skirt,BOTTOM,1,user,97,"[1, 88, 350, 354]",3,1,2,1
+000477_item1,dataset/deepfashion2/validation/image/000477.jpg,9,skirt,BOTTOM,1,user,97,"[0, 1, 467, 350]",3,1,2,1
+000478_item1,dataset/deepfashion2/validation/image/000478.jpg,9,skirt,BOTTOM,1,user,97,"[0, 181, 467, 472]",3,1,2,1
+000479_item1,dataset/deepfashion2/validation/image/000479.jpg,9,skirt,BOTTOM,1,user,97,"[30, 0, 358, 350]",3,1,3,2
+000480_item1,dataset/deepfashion2/validation/image/000480.jpg,9,skirt,BOTTOM,1,user,97,"[48, 7, 601, 467]",3,1,2,1
+000481_item2,dataset/deepfashion2/validation/image/000481.jpg,1,short sleeve top,TOP,0,user,97,"[134, 28, 240, 124]",1,2,1,2
+000481_item1,dataset/deepfashion2/validation/image/000481.jpg,9,skirt,BOTTOM,1,user,97,"[187, 96, 277, 200]",1,1,1,2
+000481_item3,dataset/deepfashion2/validation/image/000481.jpg,8,trousers,BOTTOM,0,user,97,"[192, 102, 286, 282]",2,2,1,2
+000482_item1,dataset/deepfashion2/validation/image/000482.jpg,9,skirt,BOTTOM,1,user,97,"[0, 52, 429, 541]",3,1,2,1
+000483_item1,dataset/deepfashion2/validation/image/000483.jpg,9,skirt,BOTTOM,1,user,97,"[0, 1, 623, 432]",3,1,2,1
+000484_item1,dataset/deepfashion2/validation/image/000484.jpg,9,skirt,BOTTOM,1,user,97,"[0, 138, 345, 378]",3,1,2,1
+000485_item1,dataset/deepfashion2/validation/image/000485.jpg,9,skirt,BOTTOM,2,user,97,"[0, 1, 467, 336]",3,1,3,1
+000486_item2,dataset/deepfashion2/validation/image/000486.jpg,1,short sleeve top,TOP,0,user,97,"[177, 106, 288, 239]",1,1,1,2
+000486_item1,dataset/deepfashion2/validation/image/000486.jpg,9,skirt,BOTTOM,1,user,97,"[183, 216, 279, 316]",1,2,1,2
+000487_item1,dataset/deepfashion2/validation/image/000487.jpg,9,skirt,BOTTOM,1,user,97,"[77, 53, 360, 253]",3,1,1,1
+000488_item1,dataset/deepfashion2/validation/image/000488.jpg,9,skirt,BOTTOM,1,user,97,"[0, 0, 606, 434]",3,1,2,1
+000489_item2,dataset/deepfashion2/validation/image/000489.jpg,1,short sleeve top,TOP,0,user,97,"[75, 0, 461, 392]",3,1,2,2
+000489_item1,dataset/deepfashion2/validation/image/000489.jpg,9,skirt,BOTTOM,1,user,97,"[63, 283, 412, 623]",3,2,2,2
+000490_item2,dataset/deepfashion2/validation/image/000490.jpg,9,skirt,BOTTOM,1,user,97,"[0, 338, 467, 723]",3,2,3,1
+000490_item1,dataset/deepfashion2/validation/image/000490.jpg,1,short sleeve top,TOP,0,user,97,"[37, 42, 439, 391]",2,1,1,1
+000491_item2,dataset/deepfashion2/validation/image/000491.jpg,9,skirt,BOTTOM,1,user,97,"[66, 330, 346, 623]",2,3,2,2
+000491_item1,dataset/deepfashion2/validation/image/000491.jpg,1,short sleeve top,TOP,0,user,97,"[0, 0, 445, 440]",3,1,2,2
+000492_item2,dataset/deepfashion2/validation/image/000492.jpg,8,trousers,BOTTOM,1,user,99,"[148, 269, 259, 542]",1,2,1,2
+000492_item1,dataset/deepfashion2/validation/image/000492.jpg,1,short sleeve top,TOP,0,user,99,"[147, 112, 287, 309]",1,1,1,2
+000493_item2,dataset/deepfashion2/validation/image/000493.jpg,1,short sleeve top,TOP,0,user,99,"[148, 0, 320, 111]",1,1,3,2
+000493_item1,dataset/deepfashion2/validation/image/000493.jpg,8,trousers,BOTTOM,1,user,99,"[118, 75, 330, 404]",2,2,1,2
+000494_item2,dataset/deepfashion2/validation/image/000494.jpg,8,trousers,BOTTOM,0,user,100,"[0, 348, 467, 623]",3,2,2,2
+000494_item1,dataset/deepfashion2/validation/image/000494.jpg,2,long sleeve top,TOP,2,user,100,"[1, 1, 467, 622]",3,1,3,2
+000495_item1,dataset/deepfashion2/validation/image/000495.jpg,2,long sleeve top,TOP,2,user,100,"[1, 39, 467, 623]",3,2,2,2
+000496_item1,dataset/deepfashion2/validation/image/000496.jpg,10,short sleeve dress,DRESS,1,user,101,"[97, 165, 422, 519]",2,2,1,2
+000497_item1,dataset/deepfashion2/validation/image/000497.jpg,10,short sleeve dress,DRESS,1,user,101,"[64, 180, 421, 564]",3,2,1,3
+000498_item2,dataset/deepfashion2/validation/image/000498.jpg,9,skirt,BOTTOM,1,user,102,"[84, 309, 331, 623]",2,2,2,2
+000498_item1,dataset/deepfashion2/validation/image/000498.jpg,1,short sleeve top,TOP,2,user,102,"[128, 137, 350, 362]",2,2,1,2
+000499_item2,dataset/deepfashion2/validation/image/000499.jpg,9,skirt,BOTTOM,1,user,102,"[120, 412, 284, 569]",1,2,1,2
+000499_item1,dataset/deepfashion2/validation/image/000499.jpg,1,short sleeve top,TOP,2,user,102,"[107, 243, 318, 470]",2,1,1,2
+000500_item2,dataset/deepfashion2/validation/image/000500.jpg,9,skirt,BOTTOM,1,user,102,"[170, 346, 297, 581]",1,2,1,2
+000500_item1,dataset/deepfashion2/validation/image/000500.jpg,1,short sleeve top,TOP,2,user,102,"[161, 212, 298, 376]",1,2,1,2
