@@ -1,7 +1,0 @@
-# Tested with Python 3.13.5 on Windows.
-numpy>=2.0,<3
-opencv-python>=4.10,<6
-mediapipe>=0.10,<2
-onnxruntime>=1.18,<2
-fastapi>=0.110,<1
-uvicorn>=0.29,<1
